@@ -1,0 +1,95 @@
+/* ============================================================
+   KATALOJI COFFEE & EATERY — DESIGN SYSTEM TOKENS
+   Palet warna diekstrak langsung dari referensi visual kafe
+   (earth tone: sage green + krem). Jangan mengubah nilai
+   ad-hoc per komponen — selalu pakai token di sini.
+   ============================================================ */
+:root{
+  /* ---------- WARNA · Krem / Netral ---------- */
+  --cream-50:  #FBF6EB;   /* background paling terang  */
+  --cream-100: #F8F1E4;   /* background utama (default)*/
+  --cream-200: #F1E7D4;
+  --sand-300:  #E7D9C1;   /* garis pembatas hangat     */
+  --sand-400:  #D8C6A6;
+
+  /* ---------- WARNA · Sage (identitas) ---------- */
+  --sage-100:  #E7EBE1;
+  --sage-200:  #D5DCC9;
+  --sage-300:  #CDD3C3;   /* saged light (surface)     */
+  --sage-500:  #92A693;   /* sage primer               */
+  --sage-600:  #6E8570;
+  --sage-700:  #55664F;
+  --sage-900:  #3A4636;   /* sage gelap (tekst/dark bg)*/
+
+  /* ---------- WARNA · Kopi (teks) ---------- */
+  --coffee-50:  #F6F2EA;
+  --coffee-100: #EFE8DA;
+  --coffee-400: #8C7E68;  /* teks muted / caption      */
+  --coffee-600: #6B5F4D;  /* teks sekunder             */
+  --coffee-800: #43382B;  /* teks utama (body)         */
+  --coffee-900: #2A231A;  /* heading                   */
+
+  /* ---------- WARNA · Utility ---------- */
+  --white:      #FFFDFA;
+  --ink:        var(--coffee-900);
+  --danger:     #B0553B;  /* validasi error (clay)     */
+  --danger-50:  #F6E3DB;
+  --success:    var(--sage-700);
+
+  /* ---------- WARNA · Aksen promo (urgensi) ---------- */
+  --amber-100:  #F6E7CB;
+  --amber-500:  #C08A3E;  /* aksen promo / countdown   */
+  --amber-600:  #A26F2C;
+  --amber-700:  #7A5320;
+
+  /* ---------- CTA (warna paling "muncul") ---------- */
+  --cta:        var(--sage-800, #41503C);
+  --cta-hover:  #34422F;
+  --on-cta:     #FBF6EB;
+
+  /* ---------- TRANSPARENSI / GARIS ---------- */
+  --line:       rgba(67,56,43,.16);
+  --line-soft:  rgba(67,56,43,.09);
+  --overlay:    rgba(42,35,26,.55);
+
+  /* ---------- TIPOGRAFI ----------
+     Fraunces  = serif editorial utk display (judul)
+     Manrope   = sans humanis utk body & UI        */
+  --font-display:"Fraunces", Georgia, "Times New Roman", serif;
+  --font-body:   "Manrope", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+
+  --fs-xs:   .78rem;   /* 12.5 */
+  --fs-sm:   .875rem;  /* 14   */
+  --fs-base: 1rem;     /* 16   */
+  --fs-md:   1.125rem; /* 18   */
+  --fs-lg:   1.375rem; /* 22   */
+  --fs-xl:   1.75rem;  /* 28   */
+  --fs-2xl:  2.25rem;  /* 36   */
+  --fs-3xl:  clamp(2.5rem, 6vw, 4.25rem); /* hero */
+
+  --leading-tight: 1.08;
+  --leading-body:  1.65;
+
+  /* ---------- SPASI (skala 4/8) ---------- */
+  --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem;
+  --s-5:1.5rem; --s-6:2rem;  --s-7:3rem;   --s-8:4rem;
+  --s-9:6rem;
+
+  --container: 72rem;      /* 1152 */
+  --gutter: clamp(1.25rem, 5vw, 2.5rem);
+
+  /* ---------- RADIUS ---------- */
+  --r-sm:.5rem; --r-md:.85rem; --r-lg:1.4rem;
+  --r-xl:2rem;  --r-pill:999px;
+
+  /* ---------- SHADOW (sistem 2 saja) ---------- */
+  --shadow-sm: 0 1px 2px rgba(42,35,26,.06), 0 1px 3px rgba(42,35,26,.05);
+  --shadow-md: 0 14px 34px -12px rgba(42,35,26,.22);
+
+  /* ---------- MOTION ---------- */
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --dur:  .5s;
+
+  /* ---------- Z-INDEX ---------- */
+  --z-nav:40; --z-overlay:60; --z-modal:70;
+}

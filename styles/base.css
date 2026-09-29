@@ -1,0 +1,139 @@
+/* ============================================================
+   KATALOJI — BASE & RESET
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+*,*::before,*::after{ box-sizing:border-box; }
+*{ margin:0; }
+
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  font-family:var(--font-body);
+  font-size:var(--fs-base);
+  line-height:var(--leading-body);
+  color:var(--coffee-800);
+  background:var(--cream-100);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+
+img,svg,video{ display:block; max-width:100%; }
+img{ height:auto; }
+input,button,select,textarea{ font:inherit; color:inherit; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; padding:0; }
+button{ cursor:pointer; background:none; border:none; }
+:focus-visible{
+  outline:3px solid var(--sage-500);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+/* ---------- LAYOUT ---------- */
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin-inline:auto;
+  padding-inline:var(--gutter);
+}
+.section{ padding-block:var(--s-8); }
+@media (min-width:768px){ .section{ padding-block:var(--s-9); } }
+
+.section--alt{ background:var(--sage-300); }
+.section--dark{ background:var(--sage-900); color:var(--cream-100); }
+.section--dark h2,.section--dark h3{ color:var(--cream-50); }
+
+/* ---------- TIPOGRAFI ---------- */
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  font-weight:600;
+  line-height:var(--leading-tight);
+  color:var(--coffee-900);
+  letter-spacing:-.01em;
+}
+h2{ font-size:var(--fs-2xl); }
+h3{ font-size:var(--fs-lg); }
+.eyebrow{
+  font-family:var(--font-body);
+  font-weight:700;
+  font-size:var(--fs-xs);
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--sage-700);
+  display:inline-flex; align-items:center; gap:.6rem;
+}
+.eyebrow::before{
+  content:""; width:1.6rem; height:1px; background:var(--sage-500);
+}
+.section-head{ max-width:44ch; margin-bottom:var(--s-6); }
+.section-head h2{ margin-top:.6rem; }
+.section-head p{ margin-top:.9rem; color:var(--coffee-600); }
+.section--dark .section-head p{ color:var(--sage-200); }
+.section--dark .eyebrow{ color:var(--sage-200); }
+
+.lead{ font-size:var(--fs-md); color:var(--coffee-600); }
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  --_bg:var(--cta); --_fg:var(--on-cta); --_bd:transparent;
+  display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+  font-weight:700; font-size:var(--fs-sm);
+  letter-spacing:.01em;
+  padding:.95rem 1.6rem;
+  border-radius:var(--r-pill);
+  background:var(--_bg); color:var(--_fg);
+  border:1.5px solid var(--_bd);
+  transition:transform .25s var(--ease), background .25s var(--ease),
+             box-shadow .25s var(--ease), color .25s var(--ease);
+  min-height:48px;
+  text-align:center;
+}
+.btn:hover{ transform:translateY(-2px); background:var(--cta-hover); box-shadow:var(--shadow-md); }
+.btn:active{ transform:translateY(0); }
+.btn .ic{ transition:transform .3s var(--ease); }
+.btn:hover .ic{ transform:translateX(4px); }
+
+.btn--ghost{
+  --_bg:transparent; --_fg:var(--coffee-900); --_bd:var(--coffee-900);
+}
+.btn--ghost:hover{ background:var(--coffee-900); --_fg:var(--cream-50); }
+
+.btn--cream{
+  --_bg:var(--cream-50); --_fg:var(--sage-900); --_bd:transparent;
+}
+.btn--cream:hover{ --_bg:var(--white); --_fg:var(--sage-900); }
+
+.btn--block{ width:100%; }
+
+/* ---------- BADGE / PIL ---------- */
+.pill{
+  display:inline-flex; align-items:center; gap:.4rem;
+  font-size:var(--fs-xs); font-weight:600;
+  padding:.35rem .8rem; border-radius:var(--r-pill);
+  background:var(--sage-100); color:var(--sage-800);
+}
+
+/* ---------- KARTU DASAR ---------- */
+.card{
+  background:var(--cream-50);
+  border:1px solid var(--line-soft);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  box-shadow:var(--shadow-sm);
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); }
+
+/* ---------- REVEAL (motion ringan) ---------- */
+.reveal{ opacity:0; transform:translateY(22px);
+  transition:opacity var(--dur) var(--ease), transform var(--dur) var(--ease); }
+.reveal.is-in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+
+/* ---------- UTILITY ---------- */
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+.mt-4{ margin-top:var(--s-4); } .mt-6{ margin-top:var(--s-6); }

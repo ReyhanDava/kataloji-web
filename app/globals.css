@@ -1,0 +1,35 @@
+@import "../styles/tokens.css";
+@import "../styles/base.css";
+@import "../styles/components.css";
+
+/* Bridge font next/font → token design system.
+   next/font men-inject CSS variable --font-fraunces / --font-manrope
+   di <html>, token lama memakai nama itu juga jadi cukup di-refer di sini. */
+
+:root {
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-manrope), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  color-scheme: light;
+}
+
+/* ---------- HERO dengan foto background ----------
+   Foto aset Kataloji_background.png + overlay fade agar teks tetap terbaca.
+   Overlay: krem semi transparan dari kiri (sisi teks) → transparan di kanan,
+   plus gradient bawah supaya transisi ke section berikutnya halus. */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(248,241,228,.93) 0%, rgba(248,241,228,.78) 38%, rgba(248,241,228,.28) 72%, rgba(248,241,228,.08) 100%),
+    linear-gradient(180deg, rgba(248,241,228,.45) 0%, transparent 22%, transparent 72%, rgba(248,241,228,.85) 100%),
+    url("/assets/Kataloji_background.png") center / cover no-repeat;
+}
+@media (max-width: 899px) {
+  /* di mobile teks full-width → fade lebih merata agar tetap terbaca */
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(248,241,228,.88) 0%, rgba(248,241,228,.72) 55%, rgba(248,241,228,.5) 100%),
+      url("/assets/Kataloji_background.png") center / cover no-repeat;
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "communities": {
+    "0": [
+      "app_member_page",
+      "app_member_page_membersuccess",
+      "components_menusection",
+      "components_menusection_menusection",
+      "components_navbar",
+      "components_navbar_navbar",
+      "components_reveal",
+      "components_reveal_reveal",
+      "lib_data",
+      "lib_data_about_stats",
+      "lib_data_brand",
+      "lib_data_gallery",
+      "lib_data_menu",
+      "lib_data_menu_tabs",
+      "lib_data_promos",
+      "lib_data_usp",
+      "lib_data_wa_link",
+      "ref_react"
+    ],
+    "1": [
+      "app_page",
+      "app_page_home",
+      "app_page_metadata",
+      "components_icons",
+      "components_icons_iconarrow",
+      "components_icons_iconcheck",
+      "components_icons_iconchecksmall",
+      "components_icons_iconclock",
+      "components_icons_iconcoffee",
+      "components_icons_iconinstagram",
+      "components_icons_iconpin",
+      "components_icons_iconprice",
+      "components_icons_icontiktok",
+      "components_icons_iconwhatsapp",
+      "components_icons_usp_icons",
+      "components_memberform",
+      "components_memberform_field",
+      "components_memberform_memberform"
+    ],
+    "2": [
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_incremental",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_plugins",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_exclude",
+      "tsconfig_include"
+    ],
+    "3": [
+      "package",
+      "package_dependencies",
+      "package_dependencies_next",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_name",
+      "package_private",
+      "package_version",
+      "ref_eslint",
+      "ref_eslint_config_next",
+      "ref_react_dom",
+      "ref_types_node",
+      "ref_types_react",
+      "ref_types_react_dom",
+      "ref_typescript"
+    ],
+    "4": [
+      "app_layout",
+      "app_layout_fraunces",
+      "app_layout_manrope",
+      "app_layout_metadata",
+      "app_layout_rootlayout",
+      "app_layout_viewport",
+      "ref_next"
+    ],
+    "5": [
+      "package_devdependencies",
+      "package_devdependencies_eslint",
+      "package_devdependencies_eslint_config_next",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_typescript"
+    ],
+    "6": [
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_start"
+    ],
+    "7": [
+      "eslintrc",
+      "eslintrc_extends",
+      "ref_next_core_web_vitals",
+      "ref_next_typescript"
+    ],
+    "8": [
+      "next",
+      "next_config",
+      "next_config_nextconfig"
+    ]
+  },
+  "cohesion": {
+    "0": 0.1503267973856209,
+    "1": 0.16993464052287582,
+    "2": 0.1111111111111111,
+    "3": 0.13333333333333333,
+    "4": 0.2857142857142857,
+    "5": 0.2857142857142857,
+    "6": 0.4,
+    "7": 0.5,
+    "8": 0.6666666666666666
+  },
+  "gods": [
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 15
+    },
+    {
+      "id": "ref_react",
+      "label": "react",
+      "degree": 6
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 5
+    },
+    {
+      "id": "eslintrc_extends",
+      "label": "extends",
+      "degree": 3
+    },
+    {
+      "id": "components_reveal_reveal",
+      "label": "Reveal()",
+      "degree": 3
+    },
+    {
+      "id": "lib_data_brand",
+      "label": "BRAND",
+      "degree": 3
+    },
+    {
+      "id": "ref_next",
+      "label": "next",
+      "degree": 3
+    },
+    {
+      "id": "components_memberform_memberform",
+      "label": "MemberForm()",
+      "degree": 2
+    },
+    {
+      "id": "components_menusection_menusection",
+      "label": "MenuSection()",
+      "degree": 2
+    },
+    {
+      "id": "components_navbar_navbar",
+      "label": "Navbar()",
+      "degree": 2
+    }
+  ],
+  "surprises": [],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}
