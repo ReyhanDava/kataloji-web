@@ -367,6 +367,21 @@ export const TENTANG_SLIDES = [
     caption: "Kopi dari biji pilihan, diseduh dengan sabar.",
   },
   {
+    img: "/assets/about-tentang-4.jpg",
+    alt: "Sudut favorit di Kataloji",
+    caption: "Pojok yang selalu jadi tempat pulang.",
+  },
+  {
+    img: "/assets/about-tentang-5.jpg",
+    alt: "Suasana siang di ruang Kataloji",
+    caption: "Cahaya siang masuk lewat jendela.",
+  },
+  {
+    img: "/assets/about-tentang-6.jpg",
+    alt: "Meja dan kursi Kataloji dari sudut berbeda",
+    caption: "Ada cerita di setiap meja.",
+  },
+  {
     img: "/assets/g-nusantara.jpeg",
     alt: "Hidangan Nusantara Kataloji",
     caption: "Rasa rumahan, penyajian kafe.",
