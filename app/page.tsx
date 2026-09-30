@@ -102,10 +102,10 @@ export default function Home() {
             <Reveal className="about2__media">
               <figure>
                 <Image
-                  src="/assets/g-coffee.jpeg"
-                  alt="Seduh manual di roastery Kataloji"
+                  src="/assets/about-tentang.jpeg"
+                  alt="Suasana ruang Kataloji — meja kayu, pencahayaan hangat, sudut baca"
                   width={900}
-                  height={1200}
+                  height={1125}
                   loading="lazy"
                 />
                 <figcaption>Sudut roastery — tempat semuanya dimulai.</figcaption>
