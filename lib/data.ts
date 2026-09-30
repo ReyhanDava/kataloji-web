@@ -339,6 +339,30 @@ export const PROMO_DETAIL = [
   },
 ] as const;
 
+/* Slide galeri interior untuk carousel di Tentang Kami */
+export const TENTANG_SLIDES = [
+  {
+    img: "/assets/about-tentang.jpeg",
+    alt: "Suasana ruang Kataloji — meja kayu, pencahayaan hangat, sudut baca",
+    caption: "Sudut roastery — tempat semuanya dimulai.",
+  },
+  {
+    img: "/assets/g-pastry.jpeg",
+    alt: "Pastry segar di display Kataloji",
+    caption: "Pastry keluar oven tiap pagi — hangat sampai siang.",
+  },
+  {
+    img: "/assets/ev-coffee-sq.jpeg",
+    alt: "Espresso-based menu andalan Kataloji",
+    caption: "Kopi dari biji pilihan, diseduh dengan sabar.",
+  },
+  {
+    img: "/assets/g-nusantara.jpeg",
+    alt: "Hidangan Nusantara Kataloji",
+    caption: "Rasa rumahan, penyajian kafe.",
+  },
+] as const;
+
 export const EVENT_ITEMS = [
   {
     id: "kolaborasi-jurnal-rasa",

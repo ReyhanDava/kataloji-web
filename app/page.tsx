@@ -15,6 +15,7 @@ import { Reveal } from "@/components/Reveal";
 import { FAQSection } from "@/components/FAQ";
 import { PromoPopup } from "@/components/PromoPopup";
 import { PromoSection } from "@/components/PromoSection";
+import { TentangCarousel } from "@/components/TentangCarousel";
 import {
   IconArrow, IconCheckSmall, IconInstagram, IconPin, IconClock,
   IconWhatsApp, IconTikTok,
@@ -100,16 +101,7 @@ export default function Home() {
             </Reveal>
 
             <Reveal className="about2__media">
-              <figure>
-                <Image
-                  src="/assets/about-tentang.jpeg"
-                  alt="Suasana ruang Kataloji — meja kayu, pencahayaan hangat, sudut baca"
-                  width={900}
-                  height={1125}
-                  loading="lazy"
-                />
-                <figcaption>Sudut roastery — tempat semuanya dimulai.</figcaption>
-              </figure>
+              <TentangCarousel />
               <div className="about2__quote">
                 <span className="about2__quoteMark">&ldquo;</span>
                 Sederhana, jujur, dan perlahan — seperti secangkir kopi yang seharusnya.

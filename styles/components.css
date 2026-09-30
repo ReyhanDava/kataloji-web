@@ -404,14 +404,47 @@ main:has(.menupage__head){ padding-block-start:1.25rem; }
 @media (min-width:861px){
   .about2__media{ margin-top:3.5rem; }
 }
-.about2__media figure{ margin:0; }
-.about2__media img{
-  width:100%; height:auto; display:block; border-radius:6px;
-  box-shadow:var(--shadow-md);
+
+/* carousel interior (Tentang Kami) */
+.tcarousel{ position:relative; }
+.tcarousel__track{
+  display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  border-radius:6px;
 }
-.about2__media figcaption{
+.tcarousel__track::-webkit-scrollbar{ display:none; }
+.tslide{
+  flex:0 0 100%; margin:0; scroll-snap-align:start;
+  overflow:hidden; border-radius:6px;
+  background:var(--sand-300);
+  aspect-ratio:4/5;
+}
+.tslide img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform .5s var(--ease), opacity .4s var(--ease);
+  opacity:.92;
+}
+.tslide.is-active img{ opacity:1; }
+@media (prefers-reduced-motion: no-preference){
+  .tcarousel__track:hover .tslide.is-active img{ transform:scale(1.02); }
+}
+.tcarousel__caption{
   margin-top:.8rem;
-  font-size:var(--fs-xs); color:var(--coffee-400); font-style:italic;
+  font-family:var(--font-display); font-style:italic;
+  font-size:var(--fs-sm); color:var(--coffee-600);
+  min-height:2.4em;
+}
+.tcarousel__nav{
+  display:flex; gap:.45rem; margin-top:.55rem;
+}
+.tcarousel__dot{
+  width:.55rem; height:.55rem; border-radius:50%;
+  border:1px solid var(--sage-600); background:transparent;
+  padding:0; cursor:pointer;
+  transition:background .25s var(--ease), transform .25s var(--ease), width .25s var(--ease);
+}
+.tcarousel__dot.is-active{
+  background:var(--sage-600); transform:scale(1.1); width:1.4rem; border-radius:var(--r-pill);
 }
 .about2__quote{
   margin-top:1.4rem; padding:1.2rem 1.3rem;
