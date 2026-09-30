@@ -339,7 +339,7 @@ export const PROMO_DETAIL = [
   },
 ] as const;
 
-/* Slide galeri interior untuk carousel di Tentang Kami */
+/* Slide galeri interior untuk carousel di Tentang Kami — urutan sesuai penomoran file */
 export const TENTANG_SLIDES = [
   {
     img: "/assets/about-tentang.jpeg",
@@ -357,16 +357,6 @@ export const TENTANG_SLIDES = [
     caption: "Meja panjang untuk cerita yang panjang.",
   },
   {
-    img: "/assets/g-pastry.jpeg",
-    alt: "Pastry segar di display Kataloji",
-    caption: "Pastry keluar oven tiap pagi — hangat sampai siang.",
-  },
-  {
-    img: "/assets/ev-coffee-sq.jpeg",
-    alt: "Espresso-based menu andalan Kataloji",
-    caption: "Kopi dari biji pilihan, diseduh dengan sabar.",
-  },
-  {
     img: "/assets/about-tentang-4.jpg",
     alt: "Sudut favorit di Kataloji",
     caption: "Pojok yang selalu jadi tempat pulang.",
@@ -380,11 +370,6 @@ export const TENTANG_SLIDES = [
     img: "/assets/about-tentang-6.jpg",
     alt: "Meja dan kursi Kataloji dari sudut berbeda",
     caption: "Ada cerita di setiap meja.",
-  },
-  {
-    img: "/assets/g-nusantara.jpeg",
-    alt: "Hidangan Nusantara Kataloji",
-    caption: "Rasa rumahan, penyajian kafe.",
   },
 ] as const;
 
