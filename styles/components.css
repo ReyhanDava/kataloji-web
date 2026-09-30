@@ -224,7 +224,7 @@ main:has(.menupage__head){ padding-block-start:1.25rem; }
 .menubar{
   position:sticky; top:4.5rem; z-index:30;
   display:flex; gap:.7rem; align-items:center; flex-wrap:wrap;
-  background:var(--cream-100);
+  background:var(--cream-100); border-radius:0 0 var(--r-md) var(--r-md);
   padding:.8rem 0; margin:1.4rem 0 1.8rem;
   border-block:1px solid var(--line-soft);
 }
@@ -232,7 +232,7 @@ main:has(.menupage__head){ padding-block-start:1.25rem; }
 .menubar__tabs::-webkit-scrollbar{ display:none; }
 .menubar__tabs .tab{ flex:0 0 auto; }
 .menupanel{
-  background:var(--cream-50); border:1px solid var(--line-soft);
+  background:var(--cream-100); border:1px solid var(--line-soft);
   border-radius:var(--r-xl); padding:clamp(1.4rem,3vw,2rem);
   margin-bottom:1.6rem;
 }
@@ -244,7 +244,7 @@ main:has(.menupage__head){ padding-block-start:1.25rem; }
 .menupick{
   display:grid; grid-template-columns:1fr; gap:1.2rem; margin-top:1.3rem;
   padding:1.2rem; border-radius:var(--r-lg);
-  background:var(--cream-100); border:1px solid var(--line-soft);
+  background:var(--cream-50); border:1px solid var(--line-soft);
 }
 @media (min-width:700px){
   .menupick{ grid-template-columns:280px 1fr; align-items:center; }
@@ -308,7 +308,7 @@ main:has(.menupage__head){ padding-block-start:1.25rem; }
   margin-top:1.6rem; font-size:var(--fs-xs); color:var(--coffee-400);
 }
 .menuempty{
-  background:var(--cream-50); border:1px solid var(--line-soft);
+  background:var(--cream-100); border:1px solid var(--line-soft);
   border-radius:var(--r-lg); padding:2.4rem 1.5rem; text-align:center;
   color:var(--coffee-600);
 }
@@ -604,7 +604,7 @@ select.control{ appearance:none;
 .promolist{ display:flex; flex-direction:column; gap:1.15rem; }
 .promorow{
   display:grid; grid-template-columns:1fr; gap:0;
-  background:var(--cream-50); border:1px solid var(--line-soft);
+  background:var(--cream-100); border:1px solid var(--line-soft);
   border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--shadow-sm);
   transition:box-shadow .3s var(--ease);
 }
@@ -766,7 +766,7 @@ select.control{ appearance:none;
 .faq{ max-width:46rem; margin-inline:auto; }
 .faq__item{
   border:1px solid var(--line-soft); border-radius:var(--r-lg);
-  background:var(--cream-50); margin-bottom:.8rem; overflow:hidden;
+  background:var(--cream-100); margin-bottom:.8rem; overflow:hidden;
 }
 .faq__q{
   width:100%; display:flex; justify-content:space-between; align-items:center; gap:1rem;

@@ -14,7 +14,7 @@ body{
   font-size:var(--fs-base);
   line-height:var(--leading-body);
   color:var(--coffee-800);
-  background:var(--cream-100);
+  background:var(--cream-50);
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
   overflow-x:hidden;
@@ -42,7 +42,7 @@ button{ cursor:pointer; background:none; border:none; }
 .section{ padding-block:var(--s-8); }
 @media (min-width:768px){ .section{ padding-block:var(--s-9); } }
 
-.section--alt{ background:var(--sage-300); }
+.section--alt{ background:transparent; }
 .section--dark{ background:var(--sage-900); color:var(--cream-100); }
 .section--dark h2,.section--dark h3{ color:var(--cream-50); }
 
