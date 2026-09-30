@@ -4,14 +4,15 @@ import { Reveal } from "./Reveal";
 
 /* Tile katalog — isi & urutan mengikuti SPEC_TAMPILAN_MENU_LANDING */
 const CATS: Array<{
-  id: string; label: string; desc: string; min: number; img: string; big?: boolean;
+  id: string; label: string; desc: string; min: number; img: string; w: number; h: number; big?: boolean;
 }> = [
   {
     id: "kopi",
     label: "Kopi",
     desc: "Espresso, manual brew, dan kreasi signature.",
     min: 16,
-    img: "/assets/menu-coffe.jpeg",
+    img: "/assets/hl-kopi.jpeg",
+    w: 900, h: 1600,
     big: true,
   },
   {
@@ -19,28 +20,32 @@ const CATS: Array<{
     label: "Non-Kopi & Matcha",
     desc: "Matcha, teh, slush, dan mocktail segar.",
     min: 20,
-    img: "/assets/menu-non-coffee.jpeg",
+    img: "/assets/hl-nonkopi.jpeg",
+    w: 800, h: 635,
   },
   {
     id: "pastry",
     label: "Pastry & Starter",
     desc: "Dipanggang tiap pagi, plus camilan pembuka.",
     min: 18,
-    img: "/assets/menu-sweetpastries.jpeg",
+    img: "/assets/hl-pastry.jpeg",
+    w: 800, h: 635,
   },
   {
     id: "makanan",
     label: "Main Course",
     desc: "Hidangan utama, pasta, dan mie.",
     min: 38,
-    img: "/assets/menu-maincourse.jpeg",
+    img: "/assets/hl-main.jpeg",
+    w: 800, h: 635,
   },
   {
     id: "makanan",
     label: "Rice Bowl",
     desc: "Nasi hangat dengan lauk pilihan.",
     min: 32,
-    img: "/assets/menu-ricebowl.jpeg",
+    img: "/assets/hl-ricebowl.jpeg",
+    w: 800, h: 635,
   },
 ];
 
@@ -66,8 +71,8 @@ export function MenuSection() {
                   <Image
                     src={c.img}
                     alt={`Katalog ${c.label}`}
-                    width={900}
-                    height={675}
+                    width={c.w}
+                    height={c.h}
                     loading="lazy"
                     style={{ objectFit: "cover", objectPosition: "top", width: "100%", height: "100%", position: "absolute", inset: 0 }}
                   />
