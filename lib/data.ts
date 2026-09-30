@@ -347,6 +347,16 @@ export const TENTANG_SLIDES = [
     caption: "Sudut roastery — tempat semuanya dimulai.",
   },
   {
+    img: "/assets/about-tentang-2.jpg",
+    alt: "Interior Kataloji — dekorasi hangat dan pencahayaan lembut",
+    caption: "Detail kecil yang bikin betah.",
+  },
+  {
+    img: "/assets/about-tentang-3.jpg",
+    alt: "Sudut ruang Kataloji dari sisi lain",
+    caption: "Meja panjang untuk cerita yang panjang.",
+  },
+  {
     img: "/assets/g-pastry.jpeg",
     alt: "Pastry segar di display Kataloji",
     caption: "Pastry keluar oven tiap pagi — hangat sampai siang.",
