@@ -44,11 +44,10 @@ button{ cursor:pointer; background:none; border:none; }
 
 .section--alt{ background:transparent; }
 
-/* pembatas antar section — hairline dengan fade di ujung */
+/* pembatas antar section — garis penuh (lebih jelas) */
 .section + .section::before{
-  content:""; position:absolute; top:0; left:50%; transform:translateX(-50%);
-  width:min(72px, 12vw); height:1px;
-  background:linear-gradient(to right, transparent, var(--sand-400), transparent);
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:var(--sand-400);
 }
 .section--dark{ background:var(--sage-900); color:var(--cream-100); }
 .section--dark h2,.section--dark h3{ color:var(--cream-50); }
