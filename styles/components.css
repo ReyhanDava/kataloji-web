@@ -74,7 +74,7 @@ body.nav-open .nav__toggle .bars span:nth-child(3){ top:6px; transform:rotate(-4
 /* ---------- HERO ---------- */
 .hero{
   position:relative; overflow:hidden;
-  background:url("/assets/hero-bg-full.png") center / cover no-repeat;
+  background:var(--cream-100) url("/assets/hero-bg-2x.jpeg") center / cover no-repeat;
   padding-block:clamp(3.5rem,9vw,7rem);
 }
 /* veil lembut supaya teks tetap terbaca di atas foto */

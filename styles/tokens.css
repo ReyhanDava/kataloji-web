@@ -43,8 +43,8 @@
   --amber-700:  #7A5320;
 
   /* ---------- CTA (warna paling "muncul") ---------- */
-  --cta:        var(--sage-800, #41503C);
-  --cta-hover:  #34422F;
+  --cta:        #A26F2C;   /* amber-600 — kontras kuat vs cream */
+  --cta-hover:  #7A5320;   /* amber-700 */
   --on-cta:     #FBF6EB;
 
   /* ---------- TRANSPARENSI / GARIS ---------- */
