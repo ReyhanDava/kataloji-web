@@ -102,10 +102,6 @@ export default function Home() {
 
             <Reveal className="about2__media">
               <TentangCarousel />
-              <div className="about2__quote">
-                <span className="about2__quoteMark">&ldquo;</span>
-                Sederhana, jujur, dan perlahan — seperti secangkir kopi yang seharusnya.
-              </div>
             </Reveal>
           </div>
         </section>

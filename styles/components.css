@@ -361,7 +361,6 @@ main:has(.menupage__head){ padding-block-start:1.25rem; }
 @media (max-width:860px){
   .about2{ grid-template-columns:1fr; gap:2rem; }
   .about2__media{ margin-top:0; order:-1; max-width:20rem; }
-  .about2__quote{ margin-top:1rem; padding:1rem 1.1rem; font-size:var(--fs-sm); }
 }
 
 .about2__title{
@@ -428,36 +427,20 @@ main:has(.menupage__head){ padding-block-start:1.25rem; }
 @media (prefers-reduced-motion: no-preference){
   .tcarousel__track:hover .tslide.is-active img{ transform:scale(1.02); }
 }
-.tcarousel__caption{
-  margin-top:.8rem;
-  font-family:var(--font-display); font-style:italic;
-  font-size:var(--fs-sm); color:var(--coffee-600);
-  min-height:2.4em;
+.tcarousel__arrow{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:2.4rem; height:2.4rem; border-radius:50%;
+  border:1px solid rgba(251,246,235,.55); background:rgba(42,35,26,.45);
+  color:var(--cream-50); display:grid; place-items:center; cursor:pointer;
+  backdrop-filter:blur(6px);
+  transition:background .25s var(--ease), opacity .25s var(--ease), transform .25s var(--ease);
 }
-.tcarousel__nav{
-  display:flex; gap:.45rem; margin-top:.55rem;
+.tcarousel__arrow--prev{ left:.7rem; }
+.tcarousel__arrow--next{ right:.7rem; }
+.tcarousel__arrow:hover:not(:disabled){
+  background:var(--sage-900); transform:translateY(-50%) scale(1.08);
 }
-.tcarousel__dot{
-  width:.55rem; height:.55rem; border-radius:50%;
-  border:1px solid var(--sage-600); background:transparent;
-  padding:0; cursor:pointer;
-  transition:background .25s var(--ease), transform .25s var(--ease), width .25s var(--ease);
-}
-.tcarousel__dot.is-active{
-  background:var(--sage-600); transform:scale(1.1); width:1.4rem; border-radius:var(--r-pill);
-}
-.about2__quote{
-  margin-top:1.4rem; padding:1.2rem 1.3rem;
-  background:var(--sage-100); border-radius:var(--r-md);
-  font-family:var(--font-display); font-style:italic;
-  font-size:var(--fs-md); color:var(--sage-900); line-height:1.55;
-  position:relative;
-}
-.about2__quoteMark{
-  position:absolute; top:-.6rem; left:.9rem;
-  font-family:var(--font-display); font-size:3rem; line-height:1;
-  color:var(--sage-500); font-style:normal;
-}
+.tcarousel__arrow:disabled{ opacity:.25; cursor:default; }
 
 /* ---------- MEMBER FORM ---------- */
 .member{

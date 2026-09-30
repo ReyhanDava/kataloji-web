@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { TENTANG_SLIDES } from "@/lib/data";
 
-/** Carousel geser (scroll-snap) untuk slide interior di section Tentang Kami */
+/** Carousel geser (scroll-snap) untuk slide interior di section Tentang Kami — arrow nav */
 export function TentangCarousel() {
   const [idx, setIdx] = useState(0);
 
@@ -30,30 +30,35 @@ export function TentangCarousel() {
   return (
     <div className="tcarousel">
       <div className="tcarousel__track" id="tentangTrack" onScroll={onScroll}>
-        {TENTANG_SLIDES.map((s, i) => (
-          <figure className={`tslide${i === idx ? " is-active" : ""}`} key={s.img}>
+        {TENTANG_SLIDES.map((s) => (
+          <figure className="tslide" key={s.img}>
             <Image src={s.img} alt={s.alt} width={900} height={1125} loading="lazy" />
           </figure>
         ))}
       </div>
 
-      <figcaption className="tcarousel__caption">
-        {TENTANG_SLIDES[idx]?.caption}
-      </figcaption>
-
-      <div className="tcarousel__nav" role="tablist" aria-label="Foto Kataloji">
-        {TENTANG_SLIDES.map((s, i) => (
-          <button
-            key={s.img}
-            type="button"
-            role="tab"
-            aria-selected={i === idx}
-            aria-label={`Foto ${i + 1}`}
-            className={`tcarousel__dot${i === idx ? " is-active" : ""}`}
-            onClick={() => goTo(i)}
-          />
-        ))}
-      </div>
+      <button
+        type="button"
+        className="tcarousel__arrow tcarousel__arrow--prev"
+        onClick={() => goTo(idx - 1)}
+        disabled={idx === 0}
+        aria-label="Foto sebelumnya"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        className="tcarousel__arrow tcarousel__arrow--next"
+        onClick={() => goTo(idx + 1)}
+        disabled={idx === TENTANG_SLIDES.length - 1}
+        aria-label="Foto berikutnya"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M9 18l6-6-6-6" />
+        </svg>
+      </button>
     </div>
   );
 }
