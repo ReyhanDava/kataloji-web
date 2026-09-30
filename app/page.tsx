@@ -117,10 +117,10 @@ export default function Home() {
           <div className="container">
             <div className="section-head reveal is-in">
               <span className="eyebrow">Event & Kolaborasi</span>
-              <h2>Kolaborasi, musik, dan cerita Kataloji</h2>
+              <h2>Kabar terbaru dari Kataloji</h2>
               <p>
-                Dari cupping session bareng roastery lain sampai Acoustic Night tiap
-                weekend — klik kartunya buat lihat cerita lengkapnya di Instagram kami.
+                Best sellers, program reward, dan event seru — klik kartunya buat
+                lihat detail lengkapnya di Instagram kami.
               </p>
             </div>
 

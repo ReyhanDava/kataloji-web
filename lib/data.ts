@@ -365,25 +365,25 @@ export const TENTANG_SLIDES = [
 
 export const EVENT_ITEMS = [
   {
-    id: "kolaborasi-jurnal-rasa",
-    title: "Kataloji × Jurnal Rasa Coffee",
-    img: "/assets/ev-coffee-sq.jpeg",
-    alt: "Sesi cupping Kataloji bareng tim Jurnal Rasa Coffee",
-    ig: "https://instagram.com/kataloji",
+    id: "best-seller",
+    title: "Kataloji Best Sellers",
+    img: "/assets/ev-bestseller.jpg",
+    alt: "Poster Kataloji Best Sellers — 6 menu favorit pelanggan",
+    ig: "https://www.instagram.com/p/Ddp67V6yNMw/",
   },
   {
-    id: "acoustic-jumat",
-    title: "Acoustic Night — Jumat",
-    img: "/assets/ev-matcha-sq.jpeg",
-    alt: "Live acoustic tiap Jumat malam di Kataloji",
-    ig: "https://instagram.com/kataloji",
+    id: "gift-reward",
+    title: "Loyalty Card Reward",
+    img: "/assets/ev-giftreward.jpg",
+    alt: "Poster Loyalty Card Kataloji — kumpulkan stempel, dapat hadiah",
+    ig: "https://www.instagram.com/p/Ddf1sMHSuC-/",
   },
   {
-    id: "acoustic-sabtu",
-    title: "Acoustic Night — Sabtu",
-    img: "/assets/ev-noncoffee-sq.jpeg",
-    alt: "Live acoustic tiap Sabtu malam di Kataloji",
-    ig: "https://instagram.com/kataloji",
+    id: "music-fest",
+    title: "Kataloji Music Fest",
+    img: "/assets/ev-musicfest.jpg",
+    alt: "Poster Kataloji Music Fest — live musik di Kataloji",
+    ig: "https://www.instagram.com/p/Da64UFWPupA/",
   },
 ] as const;
 

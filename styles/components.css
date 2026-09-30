@@ -110,7 +110,7 @@ body.nav-open .nav__toggle .bars span:nth-child(3){ top:6px; transform:rotate(-4
 
 .eventfeed__item{
   position:relative; display:block; overflow:hidden;
-  aspect-ratio:1/1;
+  aspect-ratio:4/5;
   border-radius:6px;
   background:var(--sage-100);
   outline-offset:4px;
