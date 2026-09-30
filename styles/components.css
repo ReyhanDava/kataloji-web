@@ -77,6 +77,10 @@ body.nav-open .nav__toggle .bars span:nth-child(3){ top:6px; transform:rotate(-4
   background:var(--cream-100) url("/assets/hero-bg-2x.jpeg") center / cover no-repeat;
   padding-block:clamp(3.5rem,9vw,7rem);
 }
+/* mobile: foto interior portrait (rasio pas utk layar HP) */
+@media (max-width:640px){
+  .hero{ background-image:url("/assets/hero-mobile.jpeg"); }
+}
 /* veil lembut supaya teks tetap terbaca di atas foto */
 .hero::before{
   content:""; position:absolute; inset:0; pointer-events:none;
