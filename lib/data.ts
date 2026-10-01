@@ -87,15 +87,14 @@ export const MENU_FULL: MenuCat[] = [
     ],
   },
   {
-    id: "matcha",
-    title: "Matcha",
-    desc: "Matcha lata dan varian racikan yang bikin balik lagi.",
+    id: "nonkopi",
+    title: "Non-Kopi & Matcha",
+    desc: "Matcha, coklat, teh, slush, dan mocktail segar.",
     pick: {
-      name: "Matcha Crème Brûlée",
-      price: 40,
-      label: "Baru",
-      img: "/assets/menu-matcha.jpeg",
-      why: "Matcha dengan lapisan karamel yang renyah di atasnya.",
+      name: "Taro Latte",
+      price: 30,
+      img: "/assets/menu-non-coffee.jpeg",
+      why: "Taro lembut dan manis, cocok untuk yang lagi hindari kafein.",
     },
     subs: [
       {
@@ -109,19 +108,6 @@ export const MENU_FULL: MenuCat[] = [
           { name: "Matcha Cheese", price: 32 },
         ],
       },
-    ],
-  },
-  {
-    id: "nonkopi",
-    title: "Non-Kopi",
-    desc: "Coklat, teh, dan minuman segar tanpa kopi.",
-    pick: {
-      name: "Taro Latte",
-      price: 30,
-      img: "/assets/menu-non-coffee.jpeg",
-      why: "Taro lembut dan manis, cocok untuk yang lagi hindari kafein.",
-    },
-    subs: [
       {
         title: "Coklat",
         items: [
@@ -177,8 +163,8 @@ export const MENU_FULL: MenuCat[] = [
   },
   {
     id: "pastry",
-    title: "Pastry",
-    desc: "Dipanggang tiap pagi, teman kopi sore.",
+    title: "Pastry & Sweet",
+    desc: "Dipanggang tiap pagi — camilan manis teman kopi.",
     pick: {
       name: "Butter Croissant",
       price: 28,
@@ -203,30 +189,17 @@ export const MENU_FULL: MenuCat[] = [
     ],
   },
   {
-    id: "makanan",
-    title: "Makanan Berat",
-    desc: "Pembuka ringan sampai pasta dan nasi.",
+    id: "main",
+    title: "Main Course",
+    desc: "Hidangan utama, pasta, dan nasi — porsi jujur.",
     pick: {
-      name: "Spaghetti Carbonara",
-      price: 38,
+      name: "Nasi Goreng Kataloji",
+      price: 45,
       label: "Terlaris",
-      img: "/assets/menu-maincourse.jpeg",
-      why: "Saus krim gurih, porsi yang cukup untuk makan siang.",
+      img: "/assets/menu-nusantara.jpeg",
+      why: "Nasi goreng khas Kataloji — paling sering dipesan.",
     },
     subs: [
-      {
-        title: "Starter",
-        items: [
-          { name: "Spicy Corn Ribs", price: 25 },
-          { name: "Tahu Cabe Garam", price: 25 },
-          { name: "Tahu Walik", price: 25 },
-          { name: "French Fries", price: 25 },
-          { name: "Pisang Goreng", price: 30 },
-          { name: "Singkong Goreng", price: 30 },
-          { name: "Spicy Wings", price: 30 },
-          { name: "Dimsum Mozzarella", price: 35 },
-        ],
-      },
       {
         title: "Pasta",
         items: [
@@ -244,6 +217,32 @@ export const MENU_FULL: MenuCat[] = [
       },
     ],
   },
+  {
+    id: "starter",
+    title: "Starter",
+    desc: "Pembuka ringan sebelum hidangan utama.",
+    pick: {
+      name: "Dimsum Mozzarella",
+      price: 35,
+      img: "/assets/menu-startermenu.jpeg",
+      why: "Lembut di dalam, gurih di luar — favorit meja santai.",
+    },
+    subs: [
+      {
+        title: "Starter",
+        items: [
+          { name: "Spicy Corn Ribs", price: 25 },
+          { name: "Tahu Cabe Garam", price: 25 },
+          { name: "Tahu Walik", price: 25 },
+          { name: "French Fries", price: 25 },
+          { name: "Pisang Goreng", price: 30 },
+          { name: "Singkong Goreng", price: 30 },
+          { name: "Spicy Wings", price: 30 },
+          { name: "Dimsum Mozzarella", price: 35 },
+        ],
+      },
+    ],
+  },
 ] as const;
 
 export const MENU_COUNT = MENU_FULL.reduce(
@@ -254,29 +253,18 @@ export const MENU_COUNT = MENU_FULL.reduce(
 /** Format harga tampilan dia "30K" (terima angka ribuan) */
 export const fprice = (n: number) => `${n}K`;
 
-/** Menu andalan untuk landing (5 item) — konsisten dengan "Pilihan kami" /menu */
-export const MENU_HIGHLIGHT: Array<MenuItemData & { cat: string; big?: boolean; desc?: string }> = [
-  { name: "Nasi Goreng Kataloji", cat: "makanan", price: 45, label: "Terlaris", img: "/assets/menu-nusantara.jpeg", big: true, desc: "Nasi goreng khas Kataloji dengan telur mata sapi dan kerupuk — paling sering dipesan." },
-  { name: "Matcha Crème Brûlée", cat: "matcha", price: 40, label: "Baru", img: "/assets/menu-matcha.jpeg" },
-  { name: "Butter Croissant", cat: "pastry", price: 28, label: "Terlaris", img: "/assets/menu-sweetpastries.jpeg" },
-  { name: "Taro Latte", cat: "nonkopi", price: 30, img: "/assets/menu-non-coffee.jpeg" },
-  { name: "Spaghetti Carbonara", cat: "makanan", price: 38, label: "Terlaris", img: "/assets/menu-maincourse.jpeg" },
-];
-
 export const MENU_TABS = [
   { id: "all", label: "Semua" },
   { id: "kopi", label: "Kopi" },
-  { id: "matcha", label: "Matcha" },
-  { id: "nonkopi", label: "Non-Kopi" },
-  { id: "pastry", label: "Pastry" },
-  { id: "makanan", label: "Makanan Berat" },
+  { id: "nonkopi", label: "Non-Kopi & Matcha" },
+  { id: "pastry", label: "Pastry & Sweet" },
+  { id: "main", label: "Main Course" },
+  { id: "starter", label: "Starter" },
 ] as const;
 
 /** Slug kecil untuk id link */
 export const menuSlug = (name: string) =>
   name.toLowerCase().replace(/[()]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-
-
 
 /* ---------- Section Promo (bento) ---------- */
 export const PROMO_END = "2026-10-04T23:59:59+07:00"; // akhir semua promo

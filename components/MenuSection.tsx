@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 
-/* Tile katalog — isi & urutan mengikuti SPEC_TAMPILAN_MENU_LANDING */
+/* Tile katalog — 5 kategori, SAMA dengan tab di halaman menu lengkap */
 const CATS: Array<{
   id: string; label: string; desc: string; min: number; img: string; w: number; h: number; big?: boolean;
 }> = [
@@ -25,25 +25,25 @@ const CATS: Array<{
   },
   {
     id: "pastry",
-    label: "Pastry & Starter",
-    desc: "Dipanggang tiap pagi, plus camilan pembuka.",
+    label: "Pastry & Sweet",
+    desc: "Dipanggang tiap pagi, plus camilan manis.",
     min: 18,
     img: "/assets/hl-pastry.jpeg",
     w: 800, h: 635,
   },
   {
-    id: "makanan",
+    id: "main",
     label: "Main Course",
-    desc: "Hidangan utama, pasta, dan mie.",
+    desc: "Hidangan utama, pasta, dan nasi.",
     min: 38,
     img: "/assets/hl-main.jpeg",
     w: 800, h: 635,
   },
   {
-    id: "makanan",
-    label: "Rice Bowl",
-    desc: "Nasi hangat dengan lauk pilihan.",
-    min: 32,
+    id: "starter",
+    label: "Starter",
+    desc: "Pembuka ringan sebelum hidangan utama.",
+    min: 25,
     img: "/assets/hl-ricebowl.jpeg",
     w: 800, h: 635,
   },
