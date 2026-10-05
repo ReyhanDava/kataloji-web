@@ -600,58 +600,87 @@ select.control{ appearance:none;
 }
 .promohead__row p{ max-width:34ch; margin:0; color:var(--coffee-600); }
 
-/* daftar promo */
-.promolist{ display:flex; flex-direction:column; gap:1.15rem; }
-.promorow{
+/* daftar promo — carousel slide ke samping */
+.promotrack{
+  display:flex; gap:1.15rem;
+  overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding-bottom:.5rem;
+}
+.promotrack::-webkit-scrollbar{ display:none; }
+.promoslide{
+  flex:0 0 min(100%, 100%);
+  scroll-snap-align:center; scroll-snap-stop:always;
   display:grid; grid-template-columns:1fr; gap:0;
   background:var(--cream-100); border:1px solid var(--line-soft);
   border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--shadow-sm);
   transition:box-shadow .3s var(--ease);
 }
-.promorow:hover{ box-shadow:var(--shadow-md); }
+.promoslide:hover{ box-shadow:var(--shadow-md); }
 @media (min-width:860px){
-  .promorow{ grid-template-columns:16rem 1fr; align-items:stretch; }
+  .promoslide{ grid-template-columns:16rem 1fr; align-items:stretch; }
 }
 @media (min-width:1100px){
-  .promorow{ grid-template-columns:18rem 1fr; }
+  .promoslide{ grid-template-columns:18rem 1fr; }
 }
-.promorow__banner{ position:relative; overflow:hidden; background:var(--sage-100); min-height:11rem; }
-.promorow__banner img{ width:100%; height:100%; object-fit:cover; display:block; }
+.promoslide__banner{ position:relative; overflow:hidden; background:var(--sage-100); min-height:11rem; }
+.promoslide__banner img{ width:100%; height:100%; object-fit:cover; display:block; }
 /* mobile: banner dibatasi biar tidak mendominasi */
 @media (max-width:859px){
-  .promorow__banner{ aspect-ratio:16/10; min-height:0; }
+  .promoslide__banner{ aspect-ratio:16/10; min-height:0; }
 }
 
-.promorow__info{
+.promoslide__info{
   padding:1.25rem clamp(1.1rem,2.5vw,1.6rem);
   display:flex; flex-direction:column; gap:.85rem;
 }
-.promorow__top{
+.promoslide__top{
   display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap;
 }
-.promorow__top h3{
+.promoslide__top h3{
   font-family:var(--font-display); font-weight:600; font-size:var(--fs-xl); color:var(--coffee-900);
 }
-.promorow__price{ text-align:right; }
-.promorow__price .now{
+.promoslide__price{ text-align:right; }
+.promoslide__price .now{
   display:block; font-family:var(--font-display); font-weight:700;
   font-size:var(--fs-lg); color:var(--amber-600); line-height:1.05;
 }
-.promorow__price .note{ display:block; font-size:var(--fs-xs); color:var(--coffee-400); margin-top:.15rem; max-width:26ch; margin-left:auto; }
+.promoslide__price .note{ display:block; font-size:var(--fs-xs); color:var(--coffee-400); margin-top:.15rem; max-width:26ch; margin-left:auto; }
 
-.promorow__desc{ font-size:var(--fs-sm); color:var(--coffee-600); max-width:62ch; }
+.promoslide__desc{ font-size:var(--fs-sm); color:var(--coffee-600); max-width:62ch; }
 
-.promorow__block h4{
+.promoslide__block h4{
   font-family:var(--font-body); font-weight:800; font-size:var(--fs-xs);
   letter-spacing:.08em; text-transform:uppercase; color:var(--amber-700);
   margin-bottom:.4rem;
 }
-.promorow__block ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.3rem; }
-.promorow__block li{
+.promoslide__block ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.3rem; }
+.promoslide__block li{
   position:relative; padding-left:1.1rem; font-size:var(--fs-sm); color:var(--coffee-600);
 }
-.promorow__block li::before{
+.promoslide__block li::before{
   content:""; position:absolute; left:0; top:.55em; width:.4rem; height:2px; background:var(--amber-500);
+}
+
+/* nav carousel di header */
+.promohead__nav{
+  display:flex; align-items:center; gap:.7rem;
+}
+.promonav__btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:2.4rem; height:2.4rem; border-radius:var(--r-pill);
+  border:1.5px solid var(--line-soft); background:var(--cream-50);
+  color:var(--coffee-800); cursor:pointer;
+  transition:transform .2s var(--ease), background .2s var(--ease), color .2s var(--ease), opacity .2s var(--ease);
+}
+.promonav__btn:hover:not(:disabled){
+  background:var(--sage-600); color:var(--cream-50); border-color:var(--sage-600);
+  transform:translateY(-1px);
+}
+.promonav__btn:disabled{ opacity:.35; cursor:not-allowed; }
+.promonav__count{
+  font-size:var(--fs-sm); font-weight:700; color:var(--coffee-600); min-width:3ch; text-align:center;
 }
 
 /* ---------- POPUP PROMO (banner besar, backdrop blur, tanpa card) ---------- */
