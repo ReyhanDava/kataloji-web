@@ -605,7 +605,7 @@ select.control{ appearance:none;
    Kartu aktif di tengah; samping mengecil & blur. */
 .promohead__hint{ margin-top:.55rem; font-size:var(--fs-xs); color:var(--coffee-400); }
 
-.pflowstage{ position:relative; margin-top:1.2rem; }
+.pflowstage{ position:relative; margin-top:1.2rem; overflow:hidden; padding-block:.5rem; }
 .pflow{
   display:grid; touch-action:pan-y;
   cursor:grab; user-select:none;
@@ -677,11 +677,20 @@ select.control{ appearance:none;
   content:""; position:absolute; left:0; top:.5em; width:.38rem; height:2px; background:var(--amber-500);
 }
 
-/* mobile: poster lebih dominan (38%), teks rapat di kanan, kartu tetap pendek */
+/* mobile: susun VERTIKAL (poster atas 16/10, teks bawah) — kartu pendek &
+   proporsional; kartu samping disembunyikan supaya tidak ada scroll samping */
 @media (max-width:719px){
-  .pflowcard__img{ flex-basis:38%; }
-  .pflowcard__body{ padding:.8rem .85rem .9rem; }
-  .pflowcard__blocks{ gap:.55rem; }
+  .pflowcard{
+    flex-direction:column;
+    width:min(100%, 22rem);
+    min-height:0;
+    transform:translateX(calc(var(--pos) * 10% + var(--drag, 0px))) scale(.97);
+  }
+  .pflowcard__img{ flex:none; width:100%; aspect-ratio:16/10; }
+  .pflowcard__body{ padding:.85rem .9rem .95rem; }
+  .pflowcard__blocks{ gap:.5rem; margin-top:.6rem; }
+  .pflowcard:not(.is-center){ opacity:0; visibility:hidden; }
+  .pflowarrow{ width:2.2rem; height:2.2rem; background:rgba(251,246,235,.92); }
 }
 
 /* panah di sisi stage */
