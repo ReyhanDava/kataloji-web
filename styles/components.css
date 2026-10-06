@@ -600,66 +600,83 @@ select.control{ appearance:none;
 }
 .promohead__row p{ max-width:34ch; margin:0; color:var(--coffee-600); }
 
-/* daftar promo — carousel slide ke samping */
-.promotrack{
-  display:flex; gap:1.15rem;
-  overflow-x:auto; scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-  padding-bottom:.5rem;
+/* daftar promo — card stack: kartu aktif di depan, lainnya di belakang kiri-kanan */
+.promohead__hint{ margin-top:.55rem; font-size:var(--fs-xs); color:var(--coffee-400); }
+
+.deckstage{
+  --deck-gap:130px;
+  position:relative; margin-top:.6rem;
+  height:clamp(350px, 46vw, 470px);
+  perspective:1200px;
 }
-.promotrack::-webkit-scrollbar{ display:none; }
-.promoslide{
-  flex:0 0 min(100%, 100%);
-  scroll-snap-align:center; scroll-snap-stop:always;
-  display:grid; grid-template-columns:1fr; gap:0;
+.deck{ position:absolute; inset:0; touch-action:pan-y; }
+.deckcard{
+  position:absolute; left:50%; top:50%;
+  width:clamp(230px, 58vw, 310px); aspect-ratio:4/5;
+  border-radius:var(--r-lg); overflow:hidden;
   background:var(--cream-100); border:1px solid var(--line-soft);
-  border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--shadow-sm);
-  transition:box-shadow .3s var(--ease);
+  box-shadow:var(--shadow-md); padding:0; text-align:left;
+  transform:
+    translate(-50%,-50%)
+    translateX(calc(var(--off) * var(--deck-gap) + var(--drag, 0px)))
+    translateY(calc(var(--abs) * 14px))
+    rotate(calc(var(--off) * 5deg))
+    scale(calc(1 - var(--abs) * 0.09));
+  transition:transform .5s var(--ease), opacity .4s var(--ease), filter .4s var(--ease);
+  will-change:transform;
+  cursor:pointer;
 }
-.promoslide:hover{ box-shadow:var(--shadow-md); }
-@media (min-width:860px){
-  .promoslide{ grid-template-columns:16rem 1fr; align-items:stretch; }
+.deckcard.is-active{ cursor:grab; }
+.deck.is-dragging .deckcard.is-active{ transition:none; cursor:grabbing; }
+.deckcard:not(.is-active){ opacity:.78; filter:blur(1.5px) saturate(.85); }
+.deckcard__img{ display:block; position:absolute; inset:0; }
+.deckcard__img img{ width:100%; height:100%; object-fit:cover; }
+.deckcard__meta{
+  position:absolute; left:0; right:0; bottom:0;
+  display:flex; justify-content:space-between; align-items:center; gap:.6rem;
+  padding:.9rem 1rem;
+  background:linear-gradient(180deg, transparent, rgba(24,28,22,.82));
+  color:var(--cream-50);
 }
-@media (min-width:1100px){
-  .promoslide{ grid-template-columns:18rem 1fr; }
+.deckcard__name{ font-weight:700; font-size:var(--fs-sm); }
+.deckcard__price{ font-weight:800; font-size:var(--fs-sm); color:var(--amber-500); }
+@media (max-width:720px){
+  .deckstage{ --deck-gap:26vw; height:clamp(320px, 92vw, 430px); }
 }
-.promoslide__banner{ position:relative; overflow:hidden; background:var(--sage-100); min-height:11rem; }
-.promoslide__banner img{ width:100%; height:100%; object-fit:cover; display:block; }
-/* mobile: banner dibatasi biar tidak mendominasi */
-@media (max-width:859px){
-  .promoslide__banner{ aspect-ratio:16/10; min-height:0; }
+@media (prefers-reduced-motion: reduce){
+  .deckcard{ transition:none; }
 }
 
-.promoslide__info{
-  padding:1.25rem clamp(1.1rem,2.5vw,1.6rem);
-  display:flex; flex-direction:column; gap:.85rem;
+/* detail promo aktif di bawah stack — ikut berganti */
+.promodetail{
+  margin-top:1.5rem;
+  background:var(--cream-100); border:1px solid var(--line-soft);
+  border-radius:var(--r-lg); padding:1.4rem clamp(1.1rem,2.5vw,1.7rem);
+  animation:promodetail-in .45s var(--ease);
 }
-.promoslide__top{
-  display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap;
-}
-.promoslide__top h3{
+@keyframes promodetail-in{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
+@media (prefers-reduced-motion: reduce){ .promodetail{ animation:none; } }
+.promodetail__top{ display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap; }
+.promodetail__top h3{
   font-family:var(--font-display); font-weight:600; font-size:var(--fs-xl); color:var(--coffee-900);
 }
-.promoslide__price{ text-align:right; }
-.promoslide__price .now{
+.promodetail__price{ text-align:right; }
+.promodetail__price .now{
   display:block; font-family:var(--font-display); font-weight:700;
   font-size:var(--fs-lg); color:var(--amber-600); line-height:1.05;
 }
-.promoslide__price .note{ display:block; font-size:var(--fs-xs); color:var(--coffee-400); margin-top:.15rem; max-width:26ch; margin-left:auto; }
-
-.promoslide__desc{ font-size:var(--fs-sm); color:var(--coffee-600); max-width:62ch; }
-
-.promoslide__block h4{
+.promodetail__price .note{ display:block; font-size:var(--fs-xs); color:var(--coffee-400); margin-top:.15rem; max-width:26ch; margin-left:auto; }
+.promodetail__desc{ margin-top:.7rem; font-size:var(--fs-sm); color:var(--coffee-600); max-width:62ch; }
+.promodetail__cols{ margin-top:1.05rem; display:grid; gap:1.1rem; }
+@media (min-width:760px){ .promodetail__cols{ grid-template-columns:1fr 1fr; } }
+.promodetail__block h4{
   font-family:var(--font-body); font-weight:800; font-size:var(--fs-xs);
   letter-spacing:.08em; text-transform:uppercase; color:var(--amber-700);
   margin-bottom:.4rem;
 }
-.promoslide__block ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.3rem; }
-.promoslide__block li{
-  position:relative; padding-left:1.1rem; font-size:var(--fs-sm); color:var(--coffee-600);
-}
-.promoslide__block li::before{
+.promodetail__block ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.3rem; }
+.promodetail__block li{ position:relative; padding-left:1.1rem; font-size:var(--fs-sm); color:var(--coffee-600); }
+.promodetail__block li::before{
   content:""; position:absolute; left:0; top:.55em; width:.4rem; height:2px; background:var(--amber-500);
 }
 
