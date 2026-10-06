@@ -613,8 +613,8 @@ select.control{ appearance:none;
 .pflow.is-dragging{ cursor:grabbing; }
 .pflowcard{
   grid-area:1/1;
-  display:grid;
-  grid-template-columns:clamp(6.8rem, 26vw, 12rem) minmax(0, 1fr);
+  display:flex; align-items:stretch;
+  min-height:clamp(16rem, 28vw, 22rem);
   width:clamp(330px, 88vw, 600px);
   margin-inline:auto;
   background:var(--cream-100); border:1px solid var(--line-soft);
@@ -639,16 +639,19 @@ select.control{ appearance:none;
   .pflowcard{ transition:none; }
 }
 
-/* poster di kiri — contain = TANPA crop, latar sage mengisi sisa ruang */
+/* poster di kiri — FULL FILL: stretch mengikuti tinggi kartu, object-fit cover.
+   Kolom ~9:16 sama dgn rasio poster → isi penuh tanpa ruang kosong, crop minimal. */
 .pflowcard__img{
-  position:relative; background:var(--sage-100); min-height:100%;
+  position:relative; overflow:hidden;
+  flex:0 0 clamp(8.5rem, 26%, 13rem);
+  background:var(--sage-100);
 }
 .pflowcard__img img{
   position:absolute; inset:0; width:100%; height:100%;
-  object-fit:contain; display:block;
+  object-fit:cover; display:block;
 }
 
-.pflowcard__body{ padding:clamp(.9rem,2vw,1.25rem) clamp(1rem,2.4vw,1.4rem); min-width:0; }
+.pflowcard__body{ flex:1 1 auto; min-width:0; padding:clamp(.9rem,2vw,1.25rem) clamp(1rem,2.4vw,1.4rem); }
 .pflowcard__top{
   display:flex; justify-content:space-between; align-items:baseline; gap:.8rem; flex-wrap:wrap;
 }
@@ -672,6 +675,13 @@ select.control{ appearance:none;
 .pflowcard__block li{ position:relative; padding-left:1.05rem; font-size:var(--fs-xs); color:var(--coffee-600); line-height:1.45; }
 .pflowcard__block li::before{
   content:""; position:absolute; left:0; top:.5em; width:.38rem; height:2px; background:var(--amber-500);
+}
+
+/* mobile: poster lebih dominan (38%), teks rapat di kanan, kartu tetap pendek */
+@media (max-width:719px){
+  .pflowcard__img{ flex-basis:38%; }
+  .pflowcard__body{ padding:.8rem .85rem .9rem; }
+  .pflowcard__blocks{ gap:.55rem; }
 }
 
 /* panah di sisi stage */
