@@ -636,7 +636,7 @@ select.control{ appearance:none;
 /* kartu */
 .promocard{
   flex:0 0 100%;
-  display:grid; grid-template-columns:clamp(15rem, 30vw, 22rem) minmax(0,1fr);
+  display:grid; grid-template-columns:clamp(16rem, 30vw, 23rem) minmax(0,1fr);
   background:var(--cream-100); border:1px solid var(--line-soft);
   border-radius:var(--r-lg); overflow:hidden;
   box-shadow:var(--shadow-sm);
