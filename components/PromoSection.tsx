@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { PROMO_DETAIL } from "@/lib/data";
 import { IconArrowLeft, IconArrowRight, IconPlus } from "./icons";
 
@@ -85,13 +84,13 @@ export function PromoSection() {
                 aria-hidden={PROMO_DETAIL[active].name !== p.name}
               >
                 <div className="promocard__media">
-                  <Image
-                    src={p.img}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    srcSet={`${p.imgMobile} 720w, ${p.imgDesktop} 1440w`}
+                    sizes="(max-width:719px) 100vw, 30vw"
+                    src={p.imgDesktop}
                     alt={p.alt}
-                    width={900}
-                    height={1600}
-                    sizes="(max-width:719px) 100vw, 220px"
-                    priority={p === PROMO_DETAIL[0]}
+                    loading={p === PROMO_DETAIL[0] ? "eager" : "lazy"}
                     draggable={false}
                   />
                   <span className="promocard__onmedia">

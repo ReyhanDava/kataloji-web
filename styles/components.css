@@ -636,7 +636,7 @@ select.control{ appearance:none;
 /* kartu */
 .promocard{
   flex:0 0 100%;
-  display:grid; grid-template-columns:clamp(13rem, 26vw, 19rem) minmax(0,1fr);
+  display:grid; grid-template-columns:clamp(15rem, 30vw, 22rem) minmax(0,1fr);
   background:var(--cream-100); border:1px solid var(--line-soft);
   border-radius:var(--r-lg); overflow:hidden;
   box-shadow:var(--shadow-sm);
@@ -728,7 +728,7 @@ select.control{ appearance:none;
 @media (max-width:719px){
   .promocard{ grid-template-columns:1fr; }
   .promocard__media{ aspect-ratio:16/9; min-height:0; }
-  .promocard__media img{ object-position:center 22%; }
+  .promocard__media img{ object-position:center; }
   .promocard__onmedia{ display:flex; align-items:baseline; }
   .promocard__info{ padding:.85rem .9rem .95rem; gap:.4rem; }
   .promocard__sk.is-open{ max-height:34rem; }

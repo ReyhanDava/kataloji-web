@@ -273,6 +273,8 @@ export const PROMO_END = "2026-10-04T23:59:59+07:00"; // akhir semua promo
 export const PROMO_DETAIL = [
   {
     img: "/assets/Promo1.jpeg",
+    imgDesktop: "/assets/promo-desktop-1.jpg",
+    imgMobile: "/assets/promo-mobile-1.jpg",
     alt: "Banner promo Kataloji Signature Table — 139K",
     name: "Kataloji Signature Table",
     price: "Rp 139.000",
@@ -291,6 +293,8 @@ export const PROMO_DETAIL = [
   },
   {
     img: "/assets/Promo3.jpeg",
+    imgDesktop: "/assets/promo-desktop-2.jpg",
+    imgMobile: "/assets/promo-mobile-2.jpg",
     alt: "Banner promo After Work Treat — min. belanja 100K gratis pisang goreng",
     name: "After Work Treat",
     price: "Gratis Pisang Goreng",
@@ -309,6 +313,8 @@ export const PROMO_DETAIL = [
   },
   {
     img: "/assets/Promo2.jpeg",
+    imgDesktop: "/assets/promo-desktop-3.jpg",
+    imgMobile: "/assets/promo-mobile-3.jpg",
     alt: "Banner promo Combo Deal — 55K Spaghetti Aglio e Olio + Grapes Apple Berry",
     name: "Combo Deal",
     price: "Rp 55.000",
