@@ -600,104 +600,95 @@ select.control{ appearance:none;
 }
 .promohead__row p{ max-width:34ch; margin:0; color:var(--coffee-600); }
 
-/* daftar promo — card stack: kartu aktif di depan, lainnya di belakang kiri-kanan */
+/* daftar promo — cover-flow: gambar + deskripsi + S&K jadi SATU kartu utuh.
+   Kartu aktif di tengah; kartu samping mengecil, blur, non-interaktif.
+   Ganti via swipe/drag, panah di sisi stage, keyboard, atau autoplay lembut. */
 .promohead__hint{ margin-top:.55rem; font-size:var(--fs-xs); color:var(--coffee-400); }
 
-.deckstage{
-  --deck-gap:130px;
-  position:relative; margin-top:.6rem;
-  height:clamp(350px, 46vw, 470px);
-  perspective:1200px;
+.pflowstage{ position:relative; margin-top:1.2rem; }
+.pflow{
+  display:grid; touch-action:pan-y;
+  cursor:grab; user-select:none;
 }
-.deck{ position:absolute; inset:0; touch-action:pan-y; }
-.deckcard{
-  position:absolute; left:50%; top:50%;
-  width:clamp(230px, 58vw, 310px); aspect-ratio:4/5;
-  border-radius:var(--r-lg); overflow:hidden;
+.pflow.is-dragging{ cursor:grabbing; }
+.pflowcard{
+  grid-area:1/1;
+  display:flex; flex-direction:column;
+  width:clamp(300px, 86vw, 560px);
+  margin-inline:auto;
   background:var(--cream-100); border:1px solid var(--line-soft);
-  box-shadow:var(--shadow-md); padding:0; text-align:left;
+  border-radius:var(--r-xl); overflow:hidden;
+  box-shadow:var(--shadow-md);
   transform:
-    translate(-50%,-50%)
-    translateX(calc(var(--off) * var(--deck-gap) + var(--drag, 0px)))
-    translateY(calc(var(--abs) * 14px))
-    rotate(calc(var(--off) * 5deg))
-    scale(calc(1 - var(--abs) * 0.09));
+    translateX(calc(var(--pos) * 58% + var(--drag, 0px)))
+    scale(.88)
+    rotateY(calc(var(--pos) * -8deg));
+  opacity:.4; filter:blur(3px) saturate(.9);
+  pointer-events:none;
   transition:transform .5s var(--ease), opacity .4s var(--ease), filter .4s var(--ease);
   will-change:transform;
-  cursor:pointer;
 }
-.deckcard.is-active{ cursor:grab; }
-.deck.is-dragging .deckcard.is-active{ transition:none; cursor:grabbing; }
-.deckcard:not(.is-active){ opacity:.78; filter:blur(1.5px) saturate(.85); }
-.deckcard__img{ display:block; position:absolute; inset:0; }
-.deckcard__img img{ width:100%; height:100%; object-fit:cover; }
-.deckcard__meta{
-  position:absolute; left:0; right:0; bottom:0;
-  display:flex; justify-content:space-between; align-items:center; gap:.6rem;
-  padding:.9rem 1rem;
-  background:linear-gradient(180deg, transparent, rgba(24,28,22,.82));
-  color:var(--cream-50);
-}
-.deckcard__name{ font-weight:700; font-size:var(--fs-sm); }
-.deckcard__price{ font-weight:800; font-size:var(--fs-sm); color:var(--amber-500); }
-@media (max-width:720px){
-  .deckstage{ --deck-gap:26vw; height:clamp(320px, 92vw, 430px); }
+.pflow.is-dragging .pflowcard{ transition:none; }
+.pflowcard.is-center{
+  transform:translateX(var(--drag, 0px)) scale(1) rotateY(0deg);
+  opacity:1; filter:none;
+  pointer-events:auto;
 }
 @media (prefers-reduced-motion: reduce){
-  .deckcard{ transition:none; }
+  .pflowcard{ transition:none; }
 }
 
-/* detail promo aktif di bawah stack — ikut berganti */
-.promodetail{
-  margin-top:1.5rem;
-  background:var(--cream-100); border:1px solid var(--line-soft);
-  border-radius:var(--r-lg); padding:1.4rem clamp(1.1rem,2.5vw,1.7rem);
-  animation:promodetail-in .45s var(--ease);
+.pflowcard__img{
+  position:relative; aspect-ratio:16/10; overflow:hidden;
+  background:var(--sage-100);
 }
-@keyframes promodetail-in{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
-@media (prefers-reduced-motion: reduce){ .promodetail{ animation:none; } }
-.promodetail__top{ display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap; }
-.promodetail__top h3{
+.pflowcard__img img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.pflowcard__body{ padding:1.15rem clamp(1rem,2.5vw,1.4rem) 1.3rem; }
+.pflowcard__top{
+  display:flex; justify-content:space-between; align-items:baseline; gap:1rem; flex-wrap:wrap;
+}
+.pflowcard__top h3{
   font-family:var(--font-display); font-weight:600; font-size:var(--fs-xl); color:var(--coffee-900);
 }
-.promodetail__price{ text-align:right; }
-.promodetail__price .now{
-  display:block; font-family:var(--font-display); font-weight:700;
-  font-size:var(--fs-lg); color:var(--amber-600); line-height:1.05;
+.pflowcard__price{
+  font-family:var(--font-display); font-weight:700; font-size:var(--fs-lg);
+  color:var(--amber-600); white-space:nowrap;
 }
-.promodetail__price .note{ display:block; font-size:var(--fs-xs); color:var(--coffee-400); margin-top:.15rem; max-width:26ch; margin-left:auto; }
-.promodetail__desc{ margin-top:.7rem; font-size:var(--fs-sm); color:var(--coffee-600); max-width:62ch; }
-.promodetail__cols{ margin-top:1.05rem; display:grid; gap:1.1rem; }
-@media (min-width:760px){ .promodetail__cols{ grid-template-columns:1fr 1fr; } }
-.promodetail__block h4{
+.pflowcard__note{ font-size:var(--fs-xs); color:var(--coffee-400); margin-top:.15rem; }
+.pflowcard__desc{ margin-top:.65rem; font-size:var(--fs-sm); color:var(--coffee-600); max-width:64ch; }
+
+.pflowcard__block h4{
   font-family:var(--font-body); font-weight:800; font-size:var(--fs-xs);
   letter-spacing:.08em; text-transform:uppercase; color:var(--amber-700);
-  margin-bottom:.4rem;
+  margin-bottom:.35rem;
 }
-.promodetail__block ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.3rem; }
-.promodetail__block li{ position:relative; padding-left:1.1rem; font-size:var(--fs-sm); color:var(--coffee-600); }
-.promodetail__block li::before{
+.pflowcard__block ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.28rem; }
+.pflowcard__block li{ position:relative; padding-left:1.1rem; font-size:var(--fs-sm); color:var(--coffee-600); }
+.pflowcard__block li::before{
   content:""; position:absolute; left:0; top:.55em; width:.4rem; height:2px; background:var(--amber-500);
 }
+.pflowcard__blocks{ margin-top:1rem; display:grid; gap:1rem; }
+@media (min-width:760px){ .pflowcard__blocks{ grid-template-columns:1fr 1fr; } }
 
-/* nav carousel di header */
-.promohead__nav{
-  display:flex; align-items:center; gap:.7rem;
-}
-.promonav__btn{
+/* panah di sisi stage */
+.pflowarrow{
+  position:absolute; top:50%; transform:translateY(-50%); z-index:20;
   display:inline-flex; align-items:center; justify-content:center;
-  width:2.4rem; height:2.4rem; border-radius:var(--r-pill);
-  border:1.5px solid var(--line-soft); background:var(--cream-50);
+  width:2.6rem; height:2.6rem; border-radius:var(--r-pill);
+  border:1.5px solid var(--line-soft); background:rgba(251,246,235,.85);
   color:var(--coffee-800); cursor:pointer;
-  transition:transform .2s var(--ease), background .2s var(--ease), color .2s var(--ease), opacity .2s var(--ease);
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  transition:transform .2s var(--ease), background .2s var(--ease), color .2s var(--ease);
 }
-.promonav__btn:hover:not(:disabled){
-  background:var(--sage-600); color:var(--cream-50); border-color:var(--sage-600);
-  transform:translateY(-1px);
-}
-.promonav__btn:disabled{ opacity:.35; cursor:not-allowed; }
-.promonav__count{
-  font-size:var(--fs-sm); font-weight:700; color:var(--coffee-600); min-width:3ch; text-align:center;
+.pflowarrow--l{ left:clamp(.3rem, 2vw, 1.2rem); }
+.pflowarrow--r{ right:clamp(.3rem, 2vw, 1.2rem); }
+.pflowarrow:hover{ background:var(--sage-600); color:var(--cream-50); border-color:var(--sage-600); transform:translateY(-50%) scale(1.06); }
+.pflowarrow:focus-visible{ outline:3px solid var(--amber-500); outline-offset:3px; }
+
+.pflowcount{
+  margin-top:1.1rem; text-align:center;
+  font-size:var(--fs-sm); font-weight:700; color:var(--coffee-600);
 }
 
 /* ---------- POPUP PROMO (banner besar, backdrop blur, tanpa card) ---------- */
