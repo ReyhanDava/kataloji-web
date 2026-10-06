@@ -84,15 +84,16 @@ export function PromoSection() {
                 aria-hidden={PROMO_DETAIL[active].name !== p.name}
               >
                 <div className="promocard__media">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    srcSet={`${p.imgMobile} 720w, ${p.imgDesktop} 1440w`}
-                    sizes="(max-width:719px) 100vw, 30vw"
-                    src={p.imgDesktop}
-                    alt={p.alt}
-                    loading={p === PROMO_DETAIL[0] ? "eager" : "lazy"}
-                    draggable={false}
-                  />
+                  <picture>
+                    <source media="(max-width:719px)" srcSet={p.imgMobile} />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={p.imgDesktop}
+                      alt={p.alt}
+                      loading={p === PROMO_DETAIL[0] ? "eager" : "lazy"}
+                      draggable={false}
+                    />
+                  </picture>
                   <span className="promocard__onmedia">
                     <span className="promocard__onname">{p.name}</span>
                     <span className="promocard__onprice">{p.price}</span>
