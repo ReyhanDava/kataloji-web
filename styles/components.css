@@ -600,9 +600,9 @@ select.control{ appearance:none;
 }
 .promohead__row p{ max-width:34ch; margin:0; color:var(--coffee-600); }
 
-/* daftar promo — cover-flow: gambar + deskripsi + S&K jadi SATU kartu utuh.
-   Kartu aktif di tengah; kartu samping mengecil, blur, non-interaktif.
-   Ganti via swipe/drag, panah di sisi stage, keyboard, atau autoplay lembut. */
+/* daftar promo — cover-flow KOMPAK: poster kiri (utuh, tanpa crop),
+   teks (nama, harga, deskripsi, S&K) di kanan — satu kartu utuh.
+   Kartu aktif di tengah; samping mengecil & blur. */
 .promohead__hint{ margin-top:.55rem; font-size:var(--fs-xs); color:var(--coffee-400); }
 
 .pflowstage{ position:relative; margin-top:1.2rem; }
@@ -613,11 +613,12 @@ select.control{ appearance:none;
 .pflow.is-dragging{ cursor:grabbing; }
 .pflowcard{
   grid-area:1/1;
-  display:flex; flex-direction:column;
-  width:clamp(300px, 86vw, 560px);
+  display:grid;
+  grid-template-columns:clamp(6.8rem, 26vw, 12rem) minmax(0, 1fr);
+  width:clamp(330px, 88vw, 600px);
   margin-inline:auto;
   background:var(--cream-100); border:1px solid var(--line-soft);
-  border-radius:var(--r-xl); overflow:hidden;
+  border-radius:var(--r-lg); overflow:hidden;
   box-shadow:var(--shadow-md);
   transform:
     translateX(calc(var(--pos) * 58% + var(--drag, 0px)))
@@ -638,44 +639,46 @@ select.control{ appearance:none;
   .pflowcard{ transition:none; }
 }
 
+/* poster di kiri — contain = TANPA crop, latar sage mengisi sisa ruang */
 .pflowcard__img{
-  position:relative; aspect-ratio:16/10; overflow:hidden;
-  background:var(--sage-100);
+  position:relative; background:var(--sage-100); min-height:100%;
 }
-.pflowcard__img img{ width:100%; height:100%; object-fit:cover; display:block; }
+.pflowcard__img img{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:contain; display:block;
+}
 
-.pflowcard__body{ padding:1.15rem clamp(1rem,2.5vw,1.4rem) 1.3rem; }
+.pflowcard__body{ padding:clamp(.9rem,2vw,1.25rem) clamp(1rem,2.4vw,1.4rem); min-width:0; }
 .pflowcard__top{
-  display:flex; justify-content:space-between; align-items:baseline; gap:1rem; flex-wrap:wrap;
+  display:flex; justify-content:space-between; align-items:baseline; gap:.8rem; flex-wrap:wrap;
 }
 .pflowcard__top h3{
-  font-family:var(--font-display); font-weight:600; font-size:var(--fs-xl); color:var(--coffee-900);
+  font-family:var(--font-display); font-weight:600; font-size:var(--fs-lg); color:var(--coffee-900);
 }
 .pflowcard__price{
-  font-family:var(--font-display); font-weight:700; font-size:var(--fs-lg);
+  font-family:var(--font-display); font-weight:700; font-size:var(--fs-md);
   color:var(--amber-600); white-space:nowrap;
 }
-.pflowcard__note{ font-size:var(--fs-xs); color:var(--coffee-400); margin-top:.15rem; }
-.pflowcard__desc{ margin-top:.65rem; font-size:var(--fs-sm); color:var(--coffee-600); max-width:64ch; }
+.pflowcard__note{ font-size:var(--fs-xs); color:var(--coffee-400); margin-top:.1rem; }
+.pflowcard__desc{ margin-top:.5rem; font-size:var(--fs-sm); color:var(--coffee-600); }
 
+.pflowcard__blocks{ margin-top:.75rem; display:grid; gap:.7rem; }
 .pflowcard__block h4{
   font-family:var(--font-body); font-weight:800; font-size:var(--fs-xs);
   letter-spacing:.08em; text-transform:uppercase; color:var(--amber-700);
-  margin-bottom:.35rem;
+  margin-bottom:.3rem;
 }
-.pflowcard__block ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.28rem; }
-.pflowcard__block li{ position:relative; padding-left:1.1rem; font-size:var(--fs-sm); color:var(--coffee-600); }
+.pflowcard__block ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.24rem; }
+.pflowcard__block li{ position:relative; padding-left:1.05rem; font-size:var(--fs-xs); color:var(--coffee-600); line-height:1.45; }
 .pflowcard__block li::before{
-  content:""; position:absolute; left:0; top:.55em; width:.4rem; height:2px; background:var(--amber-500);
+  content:""; position:absolute; left:0; top:.5em; width:.38rem; height:2px; background:var(--amber-500);
 }
-.pflowcard__blocks{ margin-top:1rem; display:grid; gap:1rem; }
-@media (min-width:760px){ .pflowcard__blocks{ grid-template-columns:1fr 1fr; } }
 
 /* panah di sisi stage */
 .pflowarrow{
   position:absolute; top:50%; transform:translateY(-50%); z-index:20;
   display:inline-flex; align-items:center; justify-content:center;
-  width:2.6rem; height:2.6rem; border-radius:var(--r-pill);
+  width:2.4rem; height:2.4rem; border-radius:var(--r-pill);
   border:1.5px solid var(--line-soft); background:rgba(251,246,235,.85);
   color:var(--coffee-800); cursor:pointer;
   backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
