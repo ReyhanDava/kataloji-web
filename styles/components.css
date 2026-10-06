@@ -641,7 +641,7 @@ select.control{ appearance:none;
   border-radius:var(--r-lg); overflow:hidden;
   box-shadow:var(--shadow-sm);
 }
-.promocard__media{ position:relative; background:var(--sage-100); min-height:17.5rem; }
+.promocard__media{ position:relative; background:var(--sage-100); aspect-ratio:1/1; min-height:0; }
 .promocard__media img{
   position:absolute; inset:0; width:100%; height:100%;
   object-fit:cover; display:block;
