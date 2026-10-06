@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { MENU_FULL, MENU_TABS, fprice, menuSlug } from "@/lib/data";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 
 /** Baca ?kategori= dari URL tanpa next/navigation (ringan) */
 function useParam(param: string): string | null {
@@ -17,18 +17,10 @@ function useParam(param: string): string | null {
 export default function MenuPage() {
   const catParam = useParam("kategori");
   const [cat, setCat] = useState<string>("all");
-  const [stuck, setStuck] = useState(false);
 
   useEffect(() => {
     if (catParam) setCat(catParam);
   }, [catParam]);
-
-  useEffect(() => {
-    const onScroll = () => setStuck(window.scrollY > 8);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const cats = useMemo(
     () => (cat === "all" ? MENU_FULL : MENU_FULL.filter((c) => c.id === cat)),
@@ -37,22 +29,7 @@ export default function MenuPage() {
 
   return (
     <>
-      <header className={`nav${stuck ? " is-stuck" : ""}`}>
-        <div className="container nav__inner">
-          <Link className="brand" href="/">
-            <Image
-              src="/assets/logo-navbar.png"
-              alt="Kataloji beranda"
-              width={1600}
-              height={722}
-              priority
-            />
-          </Link>
-          <nav className="nav__links" aria-label="Navigasi utama">
-            <Link href="/">Beranda</Link>
-          </nav>
-        </div>
-      </header>
+      <Navbar />
 
       <main>
         <div className="container">
@@ -140,6 +117,7 @@ export default function MenuPage() {
           <p className="menufoot">Harga di atas belum termasuk pajak.</p>
         </div>
       </main>
+      <Footer />
     </>
   );
 }
