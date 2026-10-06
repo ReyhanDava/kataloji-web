@@ -58,27 +58,7 @@ export function PromoSection() {
               <span className="eyebrow">Promo Berjalan</span>
               <h2>Promo minggu ini</h2>
             </div>
-            <div className="promonav">
-              <button
-                type="button"
-                className="promonavbtn promonavbtn--head"
-                aria-label="Promo sebelumnya"
-                onClick={() => step(-1)}
-              >
-                <IconArrowLeft />
-              </button>
-              <span className="promonav__count" aria-live="polite">
-                {active + 1} / {len}
-              </span>
-              <button
-                type="button"
-                className="promonavbtn promonavbtn--head"
-                aria-label="Promo berikutnya"
-                onClick={() => step(1)}
-              >
-                <IconArrowRight />
-              </button>
-            </div>
+
           </div>
         </div>
 
@@ -160,7 +140,7 @@ export function PromoSection() {
 
           <button
             type="button"
-            className="promonavbtn promonavbtn--rail promonavbtn--l"
+            className={`tcarousel__arrow tcarousel__arrow--prev${active === 0 ? " is-muted" : ""}`}
             aria-label="Promo sebelumnya"
             onClick={() => step(-1)}
           >
@@ -168,12 +148,29 @@ export function PromoSection() {
           </button>
           <button
             type="button"
-            className="promonavbtn promonavbtn--rail promonavbtn--r"
+            className={`tcarousel__arrow tcarousel__arrow--next${active === len - 1 ? " is-muted" : ""}`}
             aria-label="Promo berikutnya"
             onClick={() => step(1)}
           >
             <IconArrowRight />
           </button>
+        </div>
+
+        <div className="promodots" role="tablist" aria-label="Pilih promo">
+          {PROMO_DETAIL.map((t, idx) => (
+            <button
+              key={t.name}
+              type="button"
+              role="tab"
+              aria-selected={active === idx}
+              aria-label={`Promo ${idx + 1}: ${t.name}`}
+              className={`promodot${active === idx ? " is-active" : ""}`}
+              onClick={() => {
+                setActive(idx);
+                setSkOpen(false);
+              }}
+            />
+          ))}
         </div>
       </div>
     </section>

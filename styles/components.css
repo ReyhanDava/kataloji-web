@@ -441,6 +441,7 @@ main:has(.menupage__head){ padding-block-start:1.25rem; }
   background:var(--sage-900); transform:translateY(-50%) scale(1.08);
 }
 .tcarousel__arrow:disabled{ opacity:.25; cursor:default; }
+.tcarousel__arrow.is-muted{ opacity:.4; }
 
 /* ---------- MEMBER FORM ---------- */
 .member{
@@ -607,9 +608,6 @@ select.control{ appearance:none;
 .promohead__row p{ max-width:34ch; margin:0; color:var(--coffee-600); }
 
 /* nav kecil di header (panah + counter) */
-.promonav{ display:flex; align-items:center; gap:.6rem; }
-.promonav__count{ font-size:var(--fs-sm); font-weight:700; color:var(--coffee-600); min-width:3ch; text-align:center; }
-
 .promonavbtn{
   display:inline-flex; align-items:center; justify-content:center;
   width:2.4rem; height:2.4rem; border-radius:var(--r-pill); padding:0;
@@ -638,12 +636,12 @@ select.control{ appearance:none;
 /* kartu */
 .promocard{
   flex:0 0 100%;
-  display:grid; grid-template-columns:clamp(12rem, 24vw, 17rem) minmax(0,1fr);
+  display:grid; grid-template-columns:clamp(13rem, 26vw, 19rem) minmax(0,1fr);
   background:var(--cream-100); border:1px solid var(--line-soft);
   border-radius:var(--r-lg); overflow:hidden;
   box-shadow:var(--shadow-sm);
 }
-.promocard__media{ position:relative; background:var(--sage-100); min-height:16rem; }
+.promocard__media{ position:relative; background:var(--sage-100); min-height:17.5rem; }
 .promocard__media img{
   position:absolute; inset:0; width:100%; height:100%;
   object-fit:cover; display:block;
@@ -725,10 +723,6 @@ select.control{ appearance:none;
 }
 
 /* panah di sisi kartu */
-.promonavbtn--rail{ position:absolute; z-index:20; top:50%; transform:translateY(-50%); }
-.promonavbtn--rail:hover{ transform:translateY(-50%) scale(1.06); }
-.promonavbtn--l{ left:.7rem; }
-.promonavbtn--r{ right:.7rem; }
 
 /* mobile: poster 16:9 + overlay nama/harga, info di bawah; tetap slide samping */
 @media (max-width:719px){
@@ -739,10 +733,23 @@ select.control{ appearance:none;
   .promocard__info{ padding:.85rem .9rem .95rem; gap:.4rem; }
   .promocard__sk.is-open{ max-height:34rem; }
   .promocard__claim{ display:none; }
-  .promonavbtn--rail{ width:2.1rem; height:2.1rem; }
-  .promonavbtn--l{ left:.45rem; }
-  .promonavbtn--r{ right:.45rem; }
+  .tcarousel__arrow{ width:2.1rem; height:2.1rem; }
 }
+
+
+/* dots di bawah kartu promo */
+.promodots{
+  margin-top:.95rem;
+  display:flex; justify-content:center; gap:.5rem;
+}
+.promodot{
+  width:.55rem; height:.55rem; border-radius:50%; padding:0;
+  background:var(--sand-400); border:none; cursor:pointer;
+  transition:transform .25s var(--ease), background .25s var(--ease);
+}
+.promodot:hover{ transform:scale(1.25); }
+.promodot.is-active{ background:var(--sage-700); transform:scale(1.2); }
+.promodot:focus-visible{ outline:3px solid var(--amber-500); outline-offset:3px; }
 
 /* ---------- POPUP PROMO (banner besar, backdrop blur, tanpa card) ---------- */
 .popup__backdrop{
