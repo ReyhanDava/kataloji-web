@@ -600,117 +600,119 @@ select.control{ appearance:none;
 }
 .promohead__row p{ max-width:34ch; margin:0; color:var(--coffee-600); }
 
-/* daftar promo — cover-flow KOMPAK: poster kiri (utuh, tanpa crop),
-   teks (nama, harga, deskripsi, S&K) di kanan — satu kartu utuh.
-   Kartu aktif di tengah; samping mengecil & blur. */
+/* daftar promo — interactive selector: panel poster yang aktif mengembang
+   menampilkan detail; yang lain menyusut jadi sliver vertikal + judul. */
 .promohead__hint{ margin-top:.55rem; font-size:var(--fs-xs); color:var(--coffee-400); }
 
-.pflowstage{ position:relative; margin-top:1.2rem; overflow:hidden; padding-block:.5rem; }
-.pflow{
-  display:grid; touch-action:pan-y;
-  cursor:grab; user-select:none;
+.islect{
+  display:flex; gap:.65rem;
+  height:clamp(24rem, 52vw, 34rem);
 }
-.pflow.is-dragging{ cursor:grabbing; }
-.pflowcard{
-  grid-area:1/1;
-  display:flex; align-items:stretch;
-  min-height:clamp(16rem, 28vw, 22rem);
-  width:clamp(330px, 88vw, 600px);
-  margin-inline:auto;
-  background:var(--cream-100); border:1px solid var(--line-soft);
-  border-radius:var(--r-lg); overflow:hidden;
-  box-shadow:var(--shadow-md);
-  transform:
-    translateX(calc(var(--pos) * 58% + var(--drag, 0px)))
-    scale(.88)
-    rotateY(calc(var(--pos) * -8deg));
-  opacity:.4; filter:blur(3px) saturate(.9);
-  pointer-events:none;
-  transition:transform .5s var(--ease), opacity .4s var(--ease), filter .4s var(--ease);
-  will-change:transform;
+.islect__panel{
+  position:relative; overflow:hidden;
+  border-radius:var(--r-lg);
+  border:1px solid var(--line-soft);
+  background:var(--sage-100);
+  cursor:pointer; padding:0; text-align:left;
+  flex:1 1 0; min-width:3.2rem;
+  transition:flex-grow .55s var(--ease);
+  will-change:flex-grow;
 }
-.pflow.is-dragging .pflowcard{ transition:none; }
-.pflowcard.is-center{
-  transform:translateX(var(--drag, 0px)) scale(1) rotateY(0deg);
-  opacity:1; filter:none;
-  pointer-events:auto;
+.islect__panel.is-active{
+  flex-grow:4.5;
+  cursor:default;
 }
 @media (prefers-reduced-motion: reduce){
-  .pflowcard{ transition:none; }
+  .islect__panel{ transition:none; }
 }
 
-/* poster di kiri — FULL FILL: stretch mengikuti tinggi kartu, object-fit cover.
-   Kolom ~9:16 sama dgn rasio poster → isi penuh tanpa ruang kosong, crop minimal. */
-.pflowcard__img{
-  position:relative; overflow:hidden;
-  flex:0 0 clamp(8.5rem, 26%, 13rem);
-  background:var(--sage-100);
+.islect__img{ position:absolute; inset:0; display:block; }
+.islect__img-el{
+  width:100%; height:100%; object-fit:cover; object-position:center; display:block;
 }
-.pflowcard__img img{
-  position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover; display:block;
+/* aktif: poster digelapkan tipis di bawah supaya teks overlay terbaca */
+.islect__panel.is-active .islect__img::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(24,28,22,0) 30%, rgba(24,28,22,.88) 100%);
+}
+/* sliver: poster digelapkan penuh + sedikit blur, judul tetap terbaca */
+.islect__panel:not(.is-active) .islect__img::after{
+  content:""; position:absolute; inset:0;
+  background:rgba(24,28,22,.55);
+  backdrop-filter:blur(1px); -webkit-backdrop-filter:blur(1px);
+  transition:background .4s var(--ease);
 }
 
-.pflowcard__body{ flex:1 1 auto; min-width:0; padding:clamp(.9rem,2vw,1.25rem) clamp(1rem,2.4vw,1.4rem); }
-.pflowcard__top{
+/* judul vertikal di sliver */
+.islect__tab{
+  position:absolute; left:50%; bottom:1rem; transform:translateX(-50%) rotate(180deg);
+  writing-mode:vertical-rl;
+  font-weight:800; font-size:var(--fs-sm); letter-spacing:.06em;
+  color:var(--cream-50); white-space:nowrap;
+  opacity:1; transition:opacity .3s var(--ease);
+}
+.islect__panel.is-active .islect__tab{ opacity:0; }
+
+/* detail overlay di panel aktif */
+.islect__info{
+  position:absolute; left:0; right:0; bottom:0; z-index:2;
+  padding:clamp(.9rem,2vw,1.3rem);
+  color:var(--cream-50);
+  opacity:0; transform:translateY(12px);
+  transition:opacity .45s var(--ease) .12s, transform .45s var(--ease) .12s;
+  pointer-events:none;
+  max-height:82%; overflow:hidden auto;
+}
+.islect__panel.is-active .islect__info{
+  opacity:1; transform:none; pointer-events:auto;
+}
+@media (prefers-reduced-motion: reduce){
+  .islect__info{ transition:none; }
+}
+
+.islect__row{
   display:flex; justify-content:space-between; align-items:baseline; gap:.8rem; flex-wrap:wrap;
 }
-.pflowcard__top h3{
-  font-family:var(--font-display); font-weight:600; font-size:var(--fs-lg); color:var(--coffee-900);
+.islect__name{
+  font-family:var(--font-display); font-weight:600; font-size:var(--fs-xl); color:#fff;
 }
-.pflowcard__price{
-  font-family:var(--font-display); font-weight:700; font-size:var(--fs-md);
-  color:var(--amber-600); white-space:nowrap;
+.islect__price{
+  font-family:var(--font-display); font-weight:700; font-size:var(--fs-lg);
+  color:var(--amber-500); white-space:nowrap;
 }
-.pflowcard__note{ font-size:var(--fs-xs); color:var(--coffee-400); margin-top:.1rem; }
-.pflowcard__desc{ margin-top:.5rem; font-size:var(--fs-sm); color:var(--coffee-600); }
+.islect__note{ display:block; font-size:var(--fs-xs); color:rgba(251,246,235,.75); margin-top:.1rem; }
+.islect__desc{ display:block; margin-top:.5rem; font-size:var(--fs-sm); color:rgba(251,246,235,.92); }
 
-.pflowcard__blocks{ margin-top:.75rem; display:grid; gap:.7rem; }
-.pflowcard__block h4{
-  font-family:var(--font-body); font-weight:800; font-size:var(--fs-xs);
-  letter-spacing:.08em; text-transform:uppercase; color:var(--amber-700);
-  margin-bottom:.3rem;
+.islect__blocks{ margin-top:.8rem; display:grid; gap:.7rem; }
+@media (min-width:900px){ .islect__blocks{ grid-template-columns:1fr 1fr; } }
+.islect__h{
+  display:block; font-weight:800; font-size:var(--fs-xs); letter-spacing:.08em;
+  text-transform:uppercase; color:var(--amber-500); margin-bottom:.3rem;
 }
-.pflowcard__block ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.24rem; }
-.pflowcard__block li{ position:relative; padding-left:1.05rem; font-size:var(--fs-xs); color:var(--coffee-600); line-height:1.45; }
-.pflowcard__block li::before{
+.islect__block ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.22rem; }
+.islect__block li{
+  position:relative; padding-left:1.05rem; font-size:var(--fs-xs);
+  color:rgba(251,246,235,.85); line-height:1.45;
+}
+.islect__block li::before{
   content:""; position:absolute; left:0; top:.5em; width:.38rem; height:2px; background:var(--amber-500);
 }
 
-/* mobile: susun VERTIKAL (poster atas 16/10, teks bawah) — kartu pendek &
-   proporsional; kartu samping disembunyikan supaya tidak ada scroll samping */
+/* mobile: panel tersusun vertikal — aktif jadi kartu penuh, lainnya bar tipis */
 @media (max-width:719px){
-  .pflowcard{
-    flex-direction:column;
-    width:min(100%, 22rem);
-    min-height:0;
-    transform:translateX(calc(var(--pos) * 10% + var(--drag, 0px))) scale(.97);
+  .islect{ flex-direction:column; height:auto; gap:.55rem; }
+  .islect__panel{
+    flex:none; min-width:0;
+    height:3.6rem;
   }
-  .pflowcard__img{ flex:none; width:100%; aspect-ratio:16/10; }
-  .pflowcard__body{ padding:.85rem .9rem .95rem; }
-  .pflowcard__blocks{ gap:.5rem; margin-top:.6rem; }
-  .pflowcard:not(.is-center){ opacity:0; visibility:hidden; }
-  .pflowarrow{ width:2.2rem; height:2.2rem; background:rgba(251,246,235,.92); }
-}
-
-/* panah di sisi stage */
-.pflowarrow{
-  position:absolute; top:50%; transform:translateY(-50%); z-index:20;
-  display:inline-flex; align-items:center; justify-content:center;
-  width:2.4rem; height:2.4rem; border-radius:var(--r-pill);
-  border:1.5px solid var(--line-soft); background:rgba(251,246,235,.85);
-  color:var(--coffee-800); cursor:pointer;
-  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
-  transition:transform .2s var(--ease), background .2s var(--ease), color .2s var(--ease);
-}
-.pflowarrow--l{ left:clamp(.3rem, 2vw, 1.2rem); }
-.pflowarrow--r{ right:clamp(.3rem, 2vw, 1.2rem); }
-.pflowarrow:hover{ background:var(--sage-600); color:var(--cream-50); border-color:var(--sage-600); transform:translateY(-50%) scale(1.06); }
-.pflowarrow:focus-visible{ outline:3px solid var(--amber-500); outline-offset:3px; }
-
-.pflowcount{
-  margin-top:1.1rem; text-align:center;
-  font-size:var(--fs-sm); font-weight:700; color:var(--coffee-600);
+  .islect__panel.is-active{ height:auto; min-height:26rem; }
+  .islect__tab{
+    writing-mode:horizontal-tb;
+    left:auto; right:.9rem; top:50%; bottom:auto;
+    transform:translateY(-50%);
+  }
+  .islect__panel:not(.is-active) .islect__img-el{ object-position:center 20%; }
+  .islect__info{ max-height:none; overflow:visible; }
 }
 
 /* ---------- POPUP PROMO (banner besar, backdrop blur, tanpa card) ---------- */
