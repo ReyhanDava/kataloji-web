@@ -6,15 +6,14 @@ import { PROMO_DETAIL } from "@/lib/data";
 import { IconArrowLeft, IconArrowRight } from "./icons";
 
 /**
- * Section promo — 3D coverflow (referensi dg.singh252525, adaptasi CSS murni).
- * Kartu = poster portrait murni; ambient background blur mengikuti poster aktif.
- * Klik kartu tengah → deskripsi + S&K muncul sebagai overlay di dalam kartu.
- * Klik kartu samping / panah / swipe untuk navigasi.
+ * Section promo — slide geser ke samping (kiri/kanan).
+ * Satu slide = poster (kiri, cover penuh) + panel Deskripsi (kanan).
+ * Mobile: poster 16:9 di atas, deskripsi di bawah — tetap slide horizontal.
+ * Navigasi: panah, swipe, keyboard ←→.
  */
 export function PromoSection() {
   const len = PROMO_DETAIL.length;
   const [active, setActive] = React.useState(0);
-  const [open, setOpen] = React.useState(false);
   const [dragging, setDragging] = React.useState(false);
   const [dragX, setDragX] = React.useState(0);
   const startX = React.useRef(0);
@@ -22,10 +21,7 @@ export function PromoSection() {
   const movedRef = React.useRef(false);
 
   const step = React.useCallback(
-    (dir: 1 | -1) => {
-      setActive((a) => (a + dir + len) % len);
-      setOpen(false);
-    },
+    (dir: 1 | -1) => setActive((a) => (a + dir + len) % len),
     [len]
   );
 
@@ -56,8 +52,6 @@ export function PromoSection() {
     if (e.key === "ArrowRight") step(1);
   };
 
-  const p = PROMO_DETAIL[active];
-
   return (
     <section className="section" id="promo">
       <div className="container">
@@ -65,114 +59,68 @@ export function PromoSection() {
           <span className="eyebrow">Promo Berjalan</span>
           <h2>Promo minggu ini</h2>
           <p className="promohead__hint">
-            Klik poster di tengah untuk melihat detail promo. Klaim langsung di
-            kasir.
+            Geser ke samping atau klik panah untuk promo lain. Klaim langsung
+            di kasir.
           </p>
         </div>
 
         <div
-          className="pflow2stage"
+          className="pslidestage"
           role="region"
           aria-label="Pilihan promo"
           tabIndex={0}
           onKeyDown={onKeyDown}
         >
-          {/* ambient background — blur poster aktif */}
-          <div className="pflow2bg" key={active} aria-hidden="true">
-            <Image src={p.img} alt="" width={900} height={1600} draggable={false} />
-          </div>
-
           <div
-            className={`pflow2${dragging ? " is-dragging" : ""}`}
+            className={`pslidetrack${dragging ? " is-dragging" : ""}`}
+            style={{
+              transform: `translateX(calc(${-active * 100}% + ${dragging ? dragX : 0}px))`,
+            }}
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
             onPointerUp={endDrag}
             onPointerLeave={endDrag}
             onPointerCancel={endDrag}
           >
-            {PROMO_DETAIL.map((item, i) => {
-              let pos = (i - active + len) % len;
-              if (pos > Math.floor(len / 2)) pos -= len;
-              const center = pos === 0;
-              const visible = Math.abs(pos) <= 1;
-              return (
-                <article
-                  key={item.name}
-                  className={`pflow2card${center ? " is-center" : ""}${
-                    center && open ? " is-open" : ""
-                  }`}
-                  style={{
-                    ["--pos" as string]: pos,
-                    ["--drag" as string]: `${dragging ? dragX : 0}px`,
-                    zIndex: 10 - Math.abs(pos),
-                    visibility: visible ? "visible" : "hidden",
-                  }}
-                  onClick={() => {
-                    if (movedRef.current) return;
-                    if (center) setOpen((o) => !o);
-                    else {
-                      setActive(i);
-                      setOpen(false);
-                    }
-                  }}
-                  aria-label={
-                    center
-                      ? `${item.name} — ${open ? "tutup detail" : "lihat detail"}`
-                      : `Lihat promo ${item.name}`
-                  }
-                  role="button"
-                >
+            {PROMO_DETAIL.map((p) => (
+              <article className="pslide" key={p.name} aria-hidden={PROMO_DETAIL[active].name !== p.name}>
+                <div className="pslide__media">
                   <Image
-                    src={item.img}
-                    alt={item.alt}
+                    src={p.img}
+                    alt={p.alt}
                     width={900}
                     height={1600}
-                    sizes="(max-width:719px) 58vw, 300px"
-                    className="pflow2card__img"
+                    sizes="(max-width:719px) 100vw, 40vw"
                     draggable={false}
                   />
+                </div>
 
-                  {center && (
-                    <>
-                      <span className="pflow2card__hint" aria-hidden={!open}>
-                        Detail promo
-                      </span>
-                      <div className="pflow2card__info" aria-hidden={!open}>
-                        <span className="pflow2card__row">
-                          <span className="pflow2card__name">{item.name}</span>
-                          <span className="pflow2card__price">{item.price}</span>
-                        </span>
-                        <span className="pflow2card__note">{item.priceNote}</span>
-                        <span className="pflow2card__desc">{item.desc}</span>
-                        <span className="pflow2card__blocks">
-                          <span className="pflow2card__block">
-                            <span className="pflow2card__h">Syarat</span>
-                            <ul>
-                              {item.syarat.map((t, j) => (
-                                <li key={j}>{t}</li>
-                              ))}
-                            </ul>
-                          </span>
-                          <span className="pflow2card__block">
-                            <span className="pflow2card__h">Ketentuan</span>
-                            <ul>
-                              {item.ketentuan.map((t, j) => (
-                                <li key={j}>{t}</li>
-                              ))}
-                            </ul>
-                          </span>
-                        </span>
-                      </div>
-                    </>
-                  )}
-                </article>
-              );
-            })}
+                <div className="pslide__info">
+                  <span className="pslide__label">Deskripsi</span>
+                  <div className="pslide__row">
+                    <h3>{p.name}</h3>
+                    <span className="pslide__price">{p.price}</span>
+                  </div>
+                  <span className="pslide__note">{p.priceNote}</span>
+                  <p className="pslide__desc">{p.desc}</p>
+                  <div className="pslide__blocks">
+                    <div className="pslide__block">
+                      <h4>Syarat</h4>
+                      <ul>{p.syarat.map((t, j) => <li key={j}>{t}</li>)}</ul>
+                    </div>
+                    <div className="pslide__block">
+                      <h4>Ketentuan</h4>
+                      <ul>{p.ketentuan.map((t, j) => <li key={j}>{t}</li>)}</ul>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
 
           <button
             type="button"
-            className="pflow2arrow pflow2arrow--l"
+            className="pslidearrow pslidearrow--l"
             aria-label="Promo sebelumnya"
             onClick={() => step(-1)}
           >
@@ -180,7 +128,7 @@ export function PromoSection() {
           </button>
           <button
             type="button"
-            className="pflow2arrow pflow2arrow--r"
+            className="pslidearrow pslidearrow--r"
             aria-label="Promo berikutnya"
             onClick={() => step(1)}
           >
@@ -188,7 +136,7 @@ export function PromoSection() {
           </button>
         </div>
 
-        <p className="pflow2count" aria-live="polite">
+        <p className="pslidecount" aria-live="polite">
           {active + 1} / {len}
         </p>
       </div>
