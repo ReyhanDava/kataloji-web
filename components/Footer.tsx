@@ -23,21 +23,6 @@ export function Footer() {
               <a href="#" aria-label="TikTok"><IconTikTok /></a>
             </div>
           </div>
-          <div className="footer__col">
-            <h4>Jelajah</h4>
-            <Link href="/#menu">Menu</Link>
-            <Link href="/#tentang">Tentang Kami</Link>
-            <Link href="/#galeri">Galeri</Link>
-            <Link href="/#promo">Promo</Link>
-            <Link href="/member">Jadi Member</Link>
-          </div>
-          <div className="footer__col">
-            <h4>Kontak</h4>
-            <Link href="/#kontak">Cipayung, Jakarta Timur</Link>
-            <a href={WA_LINK}>+62 812-3456-7890</a>
-            <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a>
-            <Link href="/#kontak">08.00 – 22.00 WIB</Link>
-          </div>
         </div>
         <div className="footer__bottom">
           <span>© 2026 {BRAND.fullName}. Semua hak dilindungi.</span>
