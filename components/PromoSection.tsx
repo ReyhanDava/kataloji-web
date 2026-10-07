@@ -94,10 +94,6 @@ export function PromoSection() {
                       draggable={false}
                     />
                   </picture>
-                  <span className="promocard__onmedia">
-                    <span className="promocard__onname">{p.name}</span>
-                    <span className="promocard__onprice">{p.price}</span>
-                  </span>
                 </div>
 
                 <div className="promocard__info">
