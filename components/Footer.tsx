@@ -84,8 +84,9 @@ export function Footer() {
           <iframe
             title="Peta lokasi Kataloji Coffee and Eatery"
             loading="lazy"
+            allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=106.87%2C-6.43%2C106.89%2C-6.41&layer=mapnik&marker=-6.42%2C106.88"
+            src="https://www.google.com/maps?q=-6.32292,106.90704&z=16&output=embed"
           />
         </div>
       </div>
