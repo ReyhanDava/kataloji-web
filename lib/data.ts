@@ -6,10 +6,10 @@ export const BRAND = {
   fullName: "Kataloji Coffee & Eatery",
   location: "Cipayung · Jakarta Timur",
   tagline: "Ruang hening untuk kopi yang punya cerita",
-  whatsapp: "6281234567890", // placeholder — ganti nomor asli
+  whatsapp: "6281384281588",
   instagram: "https://instagram.com/kataloji", // placeholder
   email: "halo@kataloji.co", // placeholder
-  address: "Jl. Cipayung Raya No. 12, Cipayung, Jakarta Timur 13920", // placeholder
+  address: "Ruko Puri Cipayung, Jl. Setu Cipayung No.09, Jakarta Timur 13840",
   hours: [
     { day: "Senin – Jumat", time: "08.00 – 22.00" }, // placeholder (Q4 PRD)
     { day: "Sabtu – Minggu", time: "08.00 – 23.00" }, // placeholder (Q4 PRD)

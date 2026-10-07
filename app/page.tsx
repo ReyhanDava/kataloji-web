@@ -250,7 +250,7 @@ export default function Home() {
                   title="Peta lokasi Kataloji Coffee and Eatery"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=106.87%2C-6.43%2C106.89%2C-6.41&layer=mapnik&marker=-6.42%2C106.88"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=106.894%2C-6.324%2C106.934%2C-6.302&layer=mapnik&marker=-6.31275%2C106.91455"
                 />
               </div>
             </Reveal>

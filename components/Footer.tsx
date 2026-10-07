@@ -27,7 +27,7 @@ export function Footer() {
           <div className="footer__col">
             <h4>Kontak</h4>
             <Link href="/#kontak">Cipayung, Jakarta Timur</Link>
-            <a href={WA_LINK}>+62 812-3456-7890</a>
+            <a href={WA_LINK}>+62 813-8428-1588</a>
             <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a>
             <Link href="/#kontak">08.00 – 22.00 WIB</Link>
           </div>

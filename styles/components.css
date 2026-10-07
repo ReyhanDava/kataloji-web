@@ -543,7 +543,7 @@ select.control{ appearance:none;
 .contact__row h4{ font-family:var(--font-body); font-weight:700; font-size:var(--fs-base); color:var(--coffee-900); }
 .contact__row p{ font-size:var(--fs-sm); color:var(--coffee-600); margin-top:.2rem; }
 .hours{ width:100%; border-collapse:collapse; margin-top:.35rem; font-size:var(--fs-sm); }
-.hours td{ padding:.28rem 0; color:var(--coffee-600); }
+.hours td{ padding:.32rem .6rem .32rem 0; color:var(--coffee-600); }
 .hours td:last-child{ text-align:right; color:var(--coffee-900); font-weight:600; }
 .contact__map{ border-radius:var(--r-xl); overflow:hidden; box-shadow:var(--shadow-md); min-height:16rem; position:relative; }
 .contact__map iframe{ width:100%; height:100%; min-height:16rem; border:0; display:block; }
