@@ -106,7 +106,10 @@ body.nav-open .nav__toggle .bars span:nth-child(3){ top:6px; transform:rotate(-4
   display:grid; grid-template-columns:repeat(3, 1fr); gap:1.25rem;
 }
 @media (max-width:860px){ .eventfeed{ grid-template-columns:1fr 1fr; } }
-@media (max-width:560px){ .eventfeed{ grid-template-columns:1fr; } }
+/* mobile: 3 kotak menyamping (grid IG) — rasio 1:1, tidak memanjang ke bawah */
+@media (max-width:560px){
+  .eventfeed{ grid-template-columns:repeat(3, 1fr); gap:.5rem; }
+}
 
 .eventfeed__item{
   position:relative; display:block; overflow:hidden;
@@ -561,14 +564,22 @@ select.control{ appearance:none;
 .footer__col a:hover{ color:var(--cream-50); }
 .footer__bottom{ margin-top:var(--s-6); padding-top:var(--s-5); border-top:1px solid rgba(255,255,255,.1);
   display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; font-size:var(--fs-xs); color:var(--sage-300); }
-/* footer mobile: tagline dipotong 2 baris, biar tidak memanjang */
-@media (max-width:719px){
-  .footer__top{ gap:1.4rem; }
-  .footer__top .footer__col > p{
-    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
-  }
-}
-
+/* footer mobile: tagline dipotong 2 baris, biar tidak memanjang */
+
+@media (max-width:719px){
+
+  .footer__top{ gap:1.4rem; }
+
+  .footer__top .footer__col > p{
+
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+
+  }
+
+}
+
+
+
 .socials{ display:flex; gap:.6rem; }
 .socials a{ width:2.5rem; height:2.5rem; border-radius:var(--r-pill); display:grid; place-items:center;
   background:rgba(255,255,255,.08); color:var(--cream-50); transition:background .25s, transform .25s; }
@@ -658,15 +669,6 @@ select.control{ appearance:none;
   object-fit:contain; display:block;
 }
 /* overlay nama+harga pada poster: hanya mobile */
-.promocard__onmedia{
-  display:none;
-  position:absolute; left:0; right:0; bottom:0;
-  padding:2rem .85rem .8rem;
-  background:linear-gradient(180deg, transparent, rgba(24,28,22,.85));
-  color:var(--cream-50);
-}
-.promocard__onname{ font-family:var(--font-display); font-weight:600; font-size:1.05rem; }
-.promocard__onprice{ font-weight:800; font-size:var(--fs-sm); color:var(--amber-500); margin-left:.5rem; }
 
 .promocard__info{
   padding:clamp(1rem,2.2vw,1.4rem) clamp(1.1rem,2.4vw,1.5rem);
@@ -735,14 +737,24 @@ select.control{ appearance:none;
 
 /* panah di sisi kartu */
 
-/* mobile: poster 16:9 + overlay nama/harga, info di bawah; tetap slide samping */
+/* mobile: poster 16:9 penuh; deskripsi rata kiri konsisten */
 @media (max-width:719px){
   .promocard{ grid-template-columns:1fr; }
   .promocard__media{ aspect-ratio:16/9; min-height:0; }
   .promocard__media img{ object-fit:contain; }
-  .promocard__onmedia{ display:flex; align-items:baseline; }
-  .promocard__info{ padding:.85rem .9rem .95rem; gap:.4rem; }
-  .promocard__sk.is-open{ max-height:34rem; }
+
+  /* deskripsi: satu ritme rata kiri, ukuran turun satu tingkat */
+  .promocard__info{ padding:.85rem .95rem 1rem; gap:.45rem; }
+  .promocard__row{ flex-direction:column; align-items:flex-start; gap:.2rem; }
+  .promocard__row h3{ font-size:var(--fs-md); line-height:1.2; }
+  .promocard__price{ text-align:left; }
+  .promocard__price .now{ font-size:var(--fs-md); }
+  .promocard__price .note{ max-width:none; margin-left:0; text-align:left; }
+  .promocard__desc{ font-size:var(--fs-xs); line-height:1.55; }
+
+  .promocard__skbtn{ font-size:var(--fs-2xs, .7rem); }
+  .promocard__sk.is-open{ max-height:40rem; }
+  .promocard__block li{ font-size:var(--fs-2xs, .7rem); line-height:1.5; }
   .promocard__claim{ display:none; }
   .tcarousel__arrow{ width:2.1rem; height:2.1rem; }
 }
