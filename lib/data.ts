@@ -54,7 +54,7 @@ export const MENU_FULL: MenuCat[] = [
           { name: "Espresso", price: 16 },
           { name: "Americano", price: 26 },
           { name: "Café Latte", price: 26 },
-          { name: "Cappuccino", price: 28 },
+          { name: "Cappuccino", price: 28, img: "/assets/menu-items/cappucino.jpg" },
           { name: "Magic", price: 28 },
         ],
       },
@@ -68,9 +68,9 @@ export const MENU_FULL: MenuCat[] = [
       {
         title: "Coffee Mocktail",
         items: [
-          { name: "Montblanc", price: 32 },
-          { name: "Black Lemonade", price: 32, label: "Terlaris" },
-          { name: "Black Orange", price: 32 },
+          { name: "Montblanc", price: 32, img: "/assets/menu-items/montblack.jpg" },
+          { name: "Black Lemonade", price: 32, label: "Terlaris", img: "/assets/menu-items/blacklemonade.jpg" },
+          { name: "Black Orange", price: 32, img: "/assets/menu-items/blackorange.jpg" },
         ],
       },
       {
@@ -78,7 +78,7 @@ export const MENU_FULL: MenuCat[] = [
         items: [
           { name: "Affogato", price: 24 },
           { name: "Crème Brûlée", price: 35 },
-          { name: "Butterscotch", price: 35 },
+          { name: "Butterscotch", price: 35, img: "/assets/menu-items/butterscotch.jpg" },
           { name: "Gula Aren", price: 30 },
           { name: "Spanish Latte OG", price: 30, label: "Terlaris" },
           { name: "Spanish Latte Pistachio", price: 38, label: "Baru" },
@@ -128,7 +128,7 @@ export const MENU_FULL: MenuCat[] = [
         items: [
           { name: "Easy Peachy", price: 30 },
           { name: "Le Lact", price: 30 },
-          { name: "Sakura Bloom", price: 30 },
+          { name: "Sakura Bloom", price: 30, img: "/assets/menu-items/sakura-blue.jpg" },
         ],
       },
       {
@@ -154,9 +154,9 @@ export const MENU_FULL: MenuCat[] = [
         title: "Slush",
         items: [
           { name: "Soursop Mango", price: 25 },
-          { name: "Grapes Apple Berry", price: 25 },
+          { name: "Grapes Apple Berry", price: 25, img: "/assets/menu-items/grapes-apple-brrry.jpg" },
           { name: "Lychee Berry", price: 25 },
-          { name: "Orange Peach", price: 25 },
+          { name: "Orange Peach", price: 25, img: "/assets/menu-items/orange-peach.jpg" },
         ],
       },
     ],
@@ -176,14 +176,14 @@ export const MENU_FULL: MenuCat[] = [
       {
         title: "Sweet Pastries",
         items: [
-          { name: "Butter Croissant", price: 28, label: "Terlaris" },
+          { name: "Butter Croissant", price: 28, label: "Terlaris", img: "/assets/menu-items/butter-croissant.jpg" },
           { name: "Pain au Choco", price: 35 },
-          { name: "Crombolini Choco Sprinkles", price: 30 },
-          { name: "Pain Suisse", price: 32 },
-          { name: "Cookies Red Velvet", price: 20 },
-          { name: "Cookies Original", price: 18 },
+          { name: "Crombolini Choco Sprinkles", price: 30, img: "/assets/menu-items/cromboloni-choco-sprinkles.jpg" },
+          { name: "Pain Suisse", price: 32, img: "/assets/menu-items/pain-suisse.jpg" },
+          { name: "Cookies Red Velvet", price: 20, img: "/assets/menu-items/cookies-red-velvet.jpg" },
+          { name: "Cookies Original", price: 18, img: "/assets/menu-items/cookies-original.jpg" },
           { name: "Cheesecake", price: 30 },
-          { name: "Ice Cream Scoop", price: 20 },
+          { name: "Ice Cream Scoop", price: 20, img: "/assets/menu-items/ice-cream-scoop.jpg" },
         ],
       },
     ],
@@ -203,15 +203,15 @@ export const MENU_FULL: MenuCat[] = [
       {
         title: "Pasta",
         items: [
-          { name: "Spaghetti Bolognese", price: 38 },
-          { name: "Spaghetti Carbonara", price: 38, label: "Terlaris" },
-          { name: "Spaghetti Aglio e Olio", price: 40 },
+          { name: "Spaghetti Bolognese", price: 38, img: "/assets/menu-items/spaghetti-bolognese.jpg" },
+          { name: "Spaghetti Carbonara", price: 38, label: "Terlaris", img: "/assets/menu-items/spaghetti-carbonarra.jpg" },
+          { name: "Spaghetti Aglio e Olio", price: 40, img: "/assets/menu-items/spaghetti-aglio.jpg" },
         ],
       },
       {
         title: "Nasi",
         items: [
-          { name: "Nasi Goreng Kataloji", price: 45 },
+          { name: "Nasi Goreng Kataloji", price: 45, img: "/assets/menu-items/nasi-goreng.jpg" },
           { name: "Rice Bowl Ayam", price: 40 },
         ],
       },
@@ -233,11 +233,11 @@ export const MENU_FULL: MenuCat[] = [
         items: [
           { name: "Spicy Corn Ribs", price: 25 },
           { name: "Tahu Cabe Garam", price: 25 },
-          { name: "Tahu Walik", price: 25 },
-          { name: "French Fries", price: 25 },
-          { name: "Pisang Goreng", price: 30 },
-          { name: "Singkong Goreng", price: 30 },
-          { name: "Spicy Wings", price: 30 },
+          { name: "Tahu Walik", price: 25, img: "/assets/menu-items/tahu-walik.jpg" },
+          { name: "French Fries", price: 25, img: "/assets/menu-items/french-fries.jpg" },
+          { name: "Pisang Goreng", price: 30, img: "/assets/menu-items/pisang-goreng.jpg" },
+          { name: "Singkong Goreng", price: 30, img: "/assets/menu-items/singkong-goreng.jpg" },
+          { name: "Spicy Wings", price: 30, img: "/assets/menu-items/spicy-wings.jpg" },
           { name: "Dimsum Mozzarella", price: 35 },
         ],
       },
@@ -293,8 +293,8 @@ export const PROMO_DETAIL = [
   },
   {
     img: "/assets/Promo3.jpeg",
-    imgDesktop: "/assets/promo-desktop-2.jpg",
-    imgMobile: "/assets/promo-mobile-2.jpg",
+    imgDesktop: "/assets/promo-desktop-3.jpg",
+    imgMobile: "/assets/promo-mobile-3.jpg",
     alt: "Banner promo After Work Treat — min. belanja 100K gratis pisang goreng",
     name: "After Work Treat",
     price: "Gratis Pisang Goreng",
@@ -313,8 +313,8 @@ export const PROMO_DETAIL = [
   },
   {
     img: "/assets/Promo2.jpeg",
-    imgDesktop: "/assets/promo-desktop-3.jpg",
-    imgMobile: "/assets/promo-mobile-3.jpg",
+    imgDesktop: "/assets/promo-desktop-2.jpg",
+    imgMobile: "/assets/promo-mobile-2.jpg",
     alt: "Banner promo Combo Deal — 55K Spaghetti Aglio e Olio + Grapes Apple Berry",
     name: "Combo Deal",
     price: "Rp 55.000",
