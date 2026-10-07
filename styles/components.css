@@ -106,7 +106,10 @@ body.nav-open .nav__toggle .bars span:nth-child(3){ top:6px; transform:rotate(-4
   display:grid; grid-template-columns:repeat(3, 1fr); gap:1.25rem;
 }
 @media (max-width:860px){ .eventfeed{ grid-template-columns:1fr 1fr; } }
-@media (max-width:560px){ .eventfeed{ grid-template-columns:1fr; } }
+/* mobile: tetap 3 kotak menyamping (grid IG) — rasio 1:1, hemat ruang vertikal */
+@media (max-width:560px){
+  .eventfeed{ grid-template-columns:repeat(3, 1fr); gap:.5rem; }
+}
 
 .eventfeed__item{
   position:relative; display:block; overflow:hidden;
