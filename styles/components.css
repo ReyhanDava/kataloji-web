@@ -106,10 +106,7 @@ body.nav-open .nav__toggle .bars span:nth-child(3){ top:6px; transform:rotate(-4
   display:grid; grid-template-columns:repeat(3, 1fr); gap:1.25rem;
 }
 @media (max-width:860px){ .eventfeed{ grid-template-columns:1fr 1fr; } }
-/* mobile: tetap 3 kotak menyamping (grid IG) — rasio 1:1, hemat ruang vertikal */
-@media (max-width:560px){
-  .eventfeed{ grid-template-columns:repeat(3, 1fr); gap:.5rem; }
-}
+@media (max-width:560px){ .eventfeed{ grid-template-columns:1fr; } }
 
 .eventfeed__item{
   position:relative; display:block; overflow:hidden;
@@ -569,61 +566,6 @@ select.control{ appearance:none;
   background:rgba(255,255,255,.08); color:var(--cream-50); transition:background .25s, transform .25s; }
 .socials a:hover{ background:var(--sage-600); transform:translateY(-2px); }
 
-/* ---------- FOOTER + KONTAK (gabungan) ----------
-   Bagian kontak: info kiri + peta kanan di latar hijau footer.
-   Bagian bawah: centered stack (logo, nav, sosial, copyright) ---------- */
-.footer__contact{
-  display:grid; grid-template-columns:1fr; gap:2rem;
-  padding-bottom:var(--s-6); border-bottom:1px solid rgba(255,255,255,.1);
-}
-@media (min-width:860px){ .footer__contact{ grid-template-columns:1fr 1fr; align-items:start; } }
-.footer__contactinfo h2{ font-family:var(--font-display); font-weight:600; font-size:var(--fs-xl); color:var(--cream-50); }
-.footer__contactlead{ margin-top:.6rem; font-size:var(--fs-sm); color:var(--sage-200); max-width:48ch; }
-.footer__contactrows{ margin-top:1.4rem; display:grid; gap:1.1rem; }
-.footer__contact .btn{ margin-top:1.5rem; }
-/* warna komponen kontak di latar hijau */
-.footer .contact__ico{ background:rgba(255,255,255,.08); color:var(--cream-50); }
-.footer .contact__row h4{ color:var(--cream-50); }
-.footer .contact__row p, .footer .hours td{ color:var(--sage-200); }
-.footer__map{
-  border-radius:var(--r-lg); overflow:hidden; min-height:16rem;
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:0 18px 44px -22px rgba(0,0,0,.55);
-  position:relative;
-}
-.footer__map iframe{ width:100%; height:100%; min-height:16rem; border:0; display:block;
-  filter:grayscale(.35) saturate(.9) contrast(1.02);
-  transition:filter .35s var(--ease); }
-.footer__map:hover iframe{ filter:grayscale(0) saturate(1); }
-@media (min-width:860px){ .footer__map, .footer__map iframe{ min-height:100%; } }
-
-/* info kontak: card lembut di atas hijau */
-.footer__contactinfo{
-  background:rgba(255,255,255,.045);
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:var(--r-lg);
-  padding:clamp(1.2rem,2.6vw,1.8rem);
-}
-.footer__contactinfo .btn{ width:100%; }
-@media (max-width:719px){
-  .footer__contact{ gap:1.2rem; }
-  .footer__map iframe{ min-height:13rem; }
-}
-.footer__base{ padding-top:var(--s-6); }
-
-/* ---------- FOOTER — centered stack (referensi SolaceUI) ---------- */
-.footer--center{ text-align:center; }
-.footer--center .brand{ display:inline-block; }
-.footernav{ display:flex; flex-wrap:wrap; justify-content:center; gap:.4rem 1.6rem; margin-top:1.4rem; }
-.footernav a{ font-weight:700; font-size:var(--fs-sm); color:var(--cream-50); padding:.35rem .2rem; transition:color .2s; }
-.footernav a:hover{ color:var(--amber-500); }
-.footernav a:focus-visible{ outline:3px solid var(--amber-500); outline-offset:3px; border-radius:4px; }
-.footsocials{ display:flex; justify-content:center; gap:.7rem; margin-top:1.3rem; }
-.footsocials a{ width:2.6rem; height:2.6rem; border-radius:var(--r-pill); display:grid; place-items:center;
-  background:rgba(255,255,255,.08); color:var(--cream-50); transition:background .25s, transform .25s; }
-.footsocials a:hover{ background:var(--sage-600); transform:translateY(-2px); }
-.footer__bottom--center{ text-align:center; }
-
 /* ---------- SPINNER ---------- */
 .spinner{ width:1.1rem; height:1.1rem; border-radius:50%;
   border:2px solid rgba(251,246,235,.4); border-top-color:var(--on-cta);
@@ -707,6 +649,16 @@ select.control{ appearance:none;
   position:absolute; inset:0; width:100%; height:100%;
   object-fit:contain; display:block;
 }
+/* overlay nama+harga pada poster: hanya mobile */
+.promocard__onmedia{
+  display:none;
+  position:absolute; left:0; right:0; bottom:0;
+  padding:2rem .85rem .8rem;
+  background:linear-gradient(180deg, transparent, rgba(24,28,22,.85));
+  color:var(--cream-50);
+}
+.promocard__onname{ font-family:var(--font-display); font-weight:600; font-size:1.05rem; }
+.promocard__onprice{ font-weight:800; font-size:var(--fs-sm); color:var(--amber-500); margin-left:.5rem; }
 
 .promocard__info{
   padding:clamp(1rem,2.2vw,1.4rem) clamp(1.1rem,2.4vw,1.5rem);
@@ -775,24 +727,14 @@ select.control{ appearance:none;
 
 /* panah di sisi kartu */
 
-/* mobile: poster 16:9 penuh, deskripsi rapat & berjenjang di bawahnya */
+/* mobile: poster 16:9 + overlay nama/harga, info di bawah; tetap slide samping */
 @media (max-width:719px){
   .promocard{ grid-template-columns:1fr; }
   .promocard__media{ aspect-ratio:16/9; min-height:0; }
   .promocard__media img{ object-fit:contain; }
-
-  /* deskripsi: satu ritme, ukuran turun satu tingkat */
-  .promocard__info{ padding:.85rem .95rem 1rem; gap:.45rem; }
-  .promocard__row{ flex-direction:column; align-items:flex-start; gap:.2rem; }
-  .promocard__row h3{ font-size:var(--fs-md); line-height:1.2; }
-  .promocard__price{ text-align:left; }
-  .promocard__price .now{ font-size:var(--fs-md); }
-  .promocard__price .note{ max-width:none; margin-left:0; text-align:left; }
-  .promocard__desc{ font-size:var(--fs-xs); line-height:1.55; }
-
-  .promocard__skbtn{ font-size:var(--fs-2xs, .7rem); }
-  .promocard__sk.is-open{ max-height:40rem; }
-  .promocard__block li{ font-size:var(--fs-2xs, .7rem); line-height:1.5; }
+  .promocard__onmedia{ display:flex; align-items:baseline; }
+  .promocard__info{ padding:.85rem .9rem .95rem; gap:.4rem; }
+  .promocard__sk.is-open{ max-height:34rem; }
   .promocard__claim{ display:none; }
   .tcarousel__arrow{ width:2.1rem; height:2.1rem; }
 }

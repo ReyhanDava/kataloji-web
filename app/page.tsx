@@ -18,10 +18,11 @@ import { PromoPopup } from "@/components/PromoPopup";
 import { PromoSection } from "@/components/PromoSection";
 import { TentangCarousel } from "@/components/TentangCarousel";
 import {
-  IconArrow, IconCheckSmall, IconInstagram,
+  IconArrow, IconCheckSmall, IconInstagram, IconPin, IconClock,
+  IconWhatsApp,
 } from "@/components/icons";
 import {
-  BRAND, EVENT_ITEMS,
+  BRAND, EVENT_ITEMS, WA_LINK,
 } from "@/lib/data";
 
 export default function Home() {
@@ -196,6 +197,65 @@ export default function Home() {
         <FAQSection />
 
         {/* ============ KONTAK ============ */}
+        <section className="section" id="kontak">
+          <div className="container">
+            <div className="section-head reveal is-in">
+              <span className="eyebrow">Kontak &amp; Reservasi</span>
+              <h2>Mampir, pesan, atau reservasi dulu</h2>
+              <p>
+                Kami ada di Cipayung, Jakarta Timur. Hubungi via WhatsApp untuk reservasi
+                ruang dan pemesanan event.
+              </p>
+            </div>
+            <Reveal className="contact__grid">
+              <div className="contact__list">
+                <div className="contact__row">
+                  <span className="contact__ico"><IconPin /></span>
+                  <div>
+                    <h4>Alamat</h4>
+                    <p>{BRAND.address}</p>
+                  </div>
+                </div>
+                <div className="contact__row">
+                  <span className="contact__ico"><IconClock /></span>
+                  <div>
+                    <h4>Jam Operasional</h4>
+                    <table className="hours">
+                      <tbody>
+                        {BRAND.hours.map((h) => (
+                          <tr key={h.day}>
+                            <td>{h.day}</td>
+                            <td>{h.time}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div className="contact__row">
+                  <span className="contact__ico"><IconWhatsApp /></span>
+                  <div>
+                    <h4>WhatsApp</h4>
+                    <p>+62 812-3456-7890 · Respon cepat di jam operasional</p>
+                  </div>
+                </div>
+                <div className="contact__wa">
+                  <a className="btn" href={WA_LINK} target="_blank" rel="noopener noreferrer">
+                    <IconWhatsApp size={18} /> Reservasi via WhatsApp
+                  </a>
+                </div>
+              </div>
+              <div className="contact__map">
+                <iframe
+                  title="Peta lokasi Kataloji Coffee and Eatery"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=106.87%2C-6.43%2C106.89%2C-6.41&layer=mapnik&marker=-6.42%2C106.88"
+                />
+              </div>
+            </Reveal>
+          </div>
+        </section>
       </main>
 
       <Footer />

@@ -9,7 +9,7 @@ export const BRAND = {
   whatsapp: "6281234567890", // placeholder — ganti nomor asli
   instagram: "https://instagram.com/kataloji", // placeholder
   email: "halo@kataloji.co", // placeholder
-  address: "Ruko Puri Cipayung, Jl. Setu Cipayung No.09, RT.9/RW.4, Cipayung, Kec. Cipayung, Kota Jakarta Timur, DKI Jakarta 13840",
+  address: "Jl. Cipayung Raya No. 12, Cipayung, Jakarta Timur 13920", // placeholder
   hours: [
     { day: "Senin – Jumat", time: "08.00 – 22.00" }, // placeholder (Q4 PRD)
     { day: "Sabtu – Minggu", time: "08.00 – 23.00" }, // placeholder (Q4 PRD)
