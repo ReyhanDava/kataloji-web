@@ -728,10 +728,11 @@ select.control{ appearance:none;
 
   /* deskripsi: satu ritme, ukuran turun satu tingkat */
   .promocard__info{ padding:.85rem .95rem 1rem; gap:.45rem; }
-  .promocard__row{ align-items:baseline; gap:.5rem; }
+  .promocard__row{ flex-direction:column; align-items:flex-start; gap:.2rem; }
   .promocard__row h3{ font-size:var(--fs-md); line-height:1.2; }
+  .promocard__price{ text-align:left; }
   .promocard__price .now{ font-size:var(--fs-md); }
-  .promocard__price .note{ max-width:none; text-align:right; }
+  .promocard__price .note{ max-width:none; margin-left:0; text-align:left; }
   .promocard__desc{ font-size:var(--fs-xs); line-height:1.55; }
 
   .promocard__skbtn{ font-size:var(--fs-2xs, .7rem); }
