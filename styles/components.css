@@ -555,40 +555,71 @@ select.control{ appearance:none;
 .contact__wa{ margin-top:1rem; }
 
 /* ---------- FOOTER ---------- */
+/* ---------- FOOTER — 3 kolom: brand+sosial | Jam Buka | Kontak ---------- */
 .footer{ background:var(--sage-900); color:var(--sage-200); padding-block:var(--s-7) var(--s-5); }
-.footer__top{ display:grid; grid-template-columns:1fr; gap:2rem; }
-@media (min-width:720px){ .footer__top{ grid-template-columns:1.4fr 1fr; gap:2.5rem; } }
-.footer .brand{ color:var(--cream-50); }
-.footer__col h4{ font-family:var(--font-body); font-weight:700; font-size:var(--fs-sm); color:var(--cream-50); letter-spacing:.06em; text-transform:uppercase; margin-bottom:1rem; }
-.footer__col a{ display:block; font-size:var(--fs-sm); color:var(--sage-200); padding:.35rem 0; transition:color .2s; }
-.footer__col a:hover{ color:var(--cream-50); }
-.footer__bottom{ margin-top:var(--s-6); padding-top:var(--s-5); border-top:1px solid rgba(255,255,255,.1);
-  display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; font-size:var(--fs-xs); color:var(--sage-300); }
-/* footer mobile: tagline dipotong 2 baris, biar tidak memanjang */
-
-@media (max-width:719px){
-
-  .footer__top{ gap:1.4rem; }
-
-  .footer__top .footer__col > p{
-
-    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
-
-  }
-
+.footer__top{
+  display:grid; grid-template-columns:1fr; gap:2rem;
+  padding-bottom:var(--s-6); border-bottom:1px solid rgba(255,255,255,.1);
+}
+@media (min-width:820px){
+  .footer__top{ grid-template-columns:1.5fr 1fr 1.35fr; gap:2.4rem; }
+}
+.footer__col--brand p{
+  margin-top:1rem; max-width:34ch;
+  font-size:var(--fs-sm); color:var(--sage-300); line-height:1.6;
+}
+.footer__col h4{
+  font-family:var(--font-body); font-weight:700; font-size:var(--fs-xs);
+  color:var(--cream-50); letter-spacing:.14em; text-transform:uppercase;
 }
 
+/* jam buka */
+.footer__hours{ margin-top:1rem; display:grid; gap:.55rem; }
+.footer__hours li{
+  display:flex; justify-content:space-between; gap:1.2rem;
+  font-size:var(--fs-sm); color:var(--sage-300);
+  padding-bottom:.55rem; border-bottom:1px solid rgba(255,255,255,.07);
+}
+.footer__hours li:last-child{ border-bottom:0; padding-bottom:0; }
+.footer__hours li span:last-child{ color:var(--cream-50); font-weight:600; white-space:nowrap; }
 
+/* kontak */
+.footer__addr{
+  margin-top:1rem; display:flex; gap:.55rem; align-items:flex-start;
+  font-size:var(--fs-sm); color:var(--sage-300); line-height:1.55;
+}
+.footer__addr svg{ flex:0 0 auto; margin-top:.15rem; color:var(--sage-400, var(--sage-300)); }
+.footer__maplink{
+  display:inline-block; margin-top:.6rem;
+  font-size:var(--fs-sm); font-weight:700; color:var(--cream-50);
+  border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;
+  transition:color .2s var(--ease), border-color .2s var(--ease);
+}
+.footer__maplink::after{ content:" →"; }
+.footer__maplink:hover{ color:var(--amber-500); border-color:var(--amber-500); }
+.footer__wa{
+  margin-top:1.1rem; display:inline-flex; align-items:center; gap:.5rem;
+  font-size:var(--fs-sm); font-weight:600; color:var(--cream-50);
+  transition:color .2s var(--ease);
+}
+.footer__wa:hover{ color:var(--amber-500); }
 
-.socials{ display:flex; gap:.6rem; }
-.socials a{ width:2.5rem; height:2.5rem; border-radius:var(--r-pill); display:grid; place-items:center;
-  background:rgba(255,255,255,.08); color:var(--cream-50); transition:background .25s, transform .25s; }
+/* sosial */
+.socials{ display:flex; gap:.6rem; margin-top:1.25rem; }
+.socials a{
+  width:2.5rem; height:2.5rem; border-radius:var(--r-pill);
+  display:grid; place-items:center;
+  background:rgba(255,255,255,.08); color:var(--cream-50);
+  transition:background .25s, transform .25s;
+}
 .socials a:hover{ background:var(--sage-600); transform:translateY(-2px); }
 
-/* ikon GrabFood — gambar brand di lingkaran sosial, ikon lain SVG solid */
-.socials a.socials__grab{ padding:.55rem; }
-.socials a.socials__grab img{ width:100%; height:100%; object-fit:contain; display:block; }
-
+.footer__bottom{
+  margin-top:var(--s-5); padding-top:var(--s-5);
+  border-top:1px solid rgba(255,255,255,.1);
+  display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between;
+  font-size:var(--fs-xs); color:var(--sage-300);
+}
 
 /* ---------- SPINNER ---------- */
 .spinner{ width:1.1rem; height:1.1rem; border-radius:50%;

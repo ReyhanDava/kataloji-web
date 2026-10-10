@@ -87,6 +87,32 @@ export function IconPlus({ size = 20 }: { size?: number }) {
   );
 }
 
+export function IconGrabFood({ size = 20 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {/* wadah makanan */}
+      <path d="M5.8 6.2 4.2 9.3v9.5a2.2 2.2 0 0 0 2.2 2.2h11.2a2.2 2.2 0 0 0 2.2-2.2V9.3l-1.6-3.1z" />
+      <path d="M4.2 9.3h15.6" />
+      <path d="M9.8 6.2v-1a1 1 0 0 1 1-1h2.4a1 1 0 0 1 1 1v1" />
+      {/* sendok & garpu menyilang */}
+      <circle cx="10.1" cy="16.5" r="1.5" />
+      <path d="M11.2 15.4 15.6 11" />
+      <path d="M14.2 16.9 9.8 12.5" />
+      <path d="M9.8 12.5v-1.1M11.2 11v1.5" />
+    </svg>
+  );
+}
+
 export function IconArrowLeft({ size = 18 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

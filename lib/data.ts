@@ -10,6 +10,7 @@ export const BRAND = {
   instagram: "https://instagram.com/kataloji", // placeholder
   instagramUrl: "https://www.instagram.com/kataloji.co?utm_source=ig_web_button_share_sheet",
   grabfoodUrl: "https://r.grab.com/g/2-1-6-C3BTSF2ZMANFC6",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=-6.3260829604653965,106.9037646194168",
   email: "halo@kataloji.co", // placeholder
   address: "Ruko Puri Cipayung, Jl. Setu Cipayung No.09, Jakarta Timur 13840",
   hours: [
