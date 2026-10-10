@@ -585,10 +585,9 @@ select.control{ appearance:none;
   background:rgba(255,255,255,.08); color:var(--cream-50); transition:background .25s, transform .25s; }
 .socials a:hover{ background:var(--sage-600); transform:translateY(-2px); }
 
-/* ikon GrabFood — gambar di dalam lingkaran sosial (jangan ditimpa filter) */
-.socials a.socials__grab{ background:var(--cream-50); padding:.34rem; }
+/* ikon GrabFood — gambar brand di lingkaran sosial, ikon lain SVG solid */
+.socials a.socials__grab{ padding:.55rem; }
 .socials a.socials__grab img{ width:100%; height:100%; object-fit:contain; display:block; }
-.socials a.socials__grab:hover{ background:var(--cream-100); }
 
 
 /* ---------- SPINNER ---------- */
