@@ -8,6 +8,8 @@ export const BRAND = {
   tagline: "Ruang hening untuk kopi yang punya cerita",
   whatsapp: "6281384281588",
   instagram: "https://instagram.com/kataloji", // placeholder
+  instagramUrl: "https://www.instagram.com/kataloji.co?utm_source=ig_web_button_share_sheet",
+  grabfoodUrl: "https://r.grab.com/g/2-1-6-C3BTSF2ZMANFC6",
   email: "halo@kataloji.co", // placeholder
   address: "Ruko Puri Cipayung, Jl. Setu Cipayung No.09, Jakarta Timur 13840",
   hours: [

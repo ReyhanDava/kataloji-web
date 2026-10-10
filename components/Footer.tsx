@@ -18,9 +18,18 @@ export function Footer() {
               hening, dan cerita yang hangat.
             </p>
             <div className="socials" style={{ marginTop: "1.25rem" }}>
-              <a href={BRAND.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer"><IconInstagram /></a>
-              <a href={WA_LINK} aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><IconWhatsApp size={18} /></a>
-              <a href="#" aria-label="TikTok"><IconTikTok /></a>
+              <a href={BRAND.instagramUrl} aria-label="Instagram Kataloji" target="_blank" rel="noopener noreferrer"><IconInstagram /></a>
+              <a href={WA_LINK} aria-label="WhatsApp Kataloji" target="_blank" rel="noopener noreferrer"><IconWhatsApp size={18} /></a>
+              <a href="https://www.tiktok.com/@kataloji.co" aria-label="TikTok Kataloji" target="_blank" rel="noopener noreferrer"><IconTikTok /></a>
+              <a
+                className="socials__grab"
+                href={BRAND.grabfoodUrl}
+                aria-label="Pesan lewat GrabFood"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image src="/assets/icon-grabfood.png" alt="" width={256} height={189} />
+              </a>
             </div>
           </div>
 
