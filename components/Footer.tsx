@@ -3,14 +3,15 @@ import Image from "next/image";
 import { BRAND, WA_LINK } from "@/lib/data";
 import { IconInstagram, IconWhatsApp, IconTikTok, IconGrabFood, IconPin } from "./icons";
 
-/** Footer — 3 kolom: brand + sosial | Jam Buka | Kontak.
- *  Mobile: urutan Jam Buka → Kontak → brand/sosial (lihat CSS .footer__col--brand order). */
+/** Footer ringkas —
+ *  Desktop: Brand | Kontak | Jam Buka | Ikuti Kami (sejajar satu baris).
+ *  Mobile : tetap Jam Buka → Kontak → Brand → Ikuti Kami. */
 export function Footer() {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer__top">
-          {/* ---- Brand + sosial (di mobile pindah ke bawah) ---- */}
+          {/* 1. Brand */}
           <div className="footer__col footer__col--brand">
             <Link className="brand" href="/#home" aria-label="Kataloji beranda">
               <Image src="/assets/logo-white.png" alt="Kataloji coffee and eatery" width={1600} height={723} style={{ height: "2.4rem", width: "auto" }} />
@@ -19,15 +20,9 @@ export function Footer() {
               Coffee &amp; eatery dengan roastery in-house. Kopi jujur, ruang hening, dan
               cerita yang hangat.
             </p>
-            <div className="socials">
-              <a href={BRAND.instagramUrl} aria-label="Instagram Kataloji" target="_blank" rel="noopener noreferrer"><IconInstagram /></a>
-              <a href={WA_LINK} aria-label="WhatsApp Kataloji" target="_blank" rel="noopener noreferrer"><IconWhatsApp /></a>
-              <a href="https://www.tiktok.com/@kataloji.co" aria-label="TikTok Kataloji" target="_blank" rel="noopener noreferrer"><IconTikTok /></a>
-              <a href={BRAND.grabfoodUrl} aria-label="Pesan lewat GrabFood" target="_blank" rel="noopener noreferrer"><IconGrabFood /></a>
-            </div>
           </div>
 
-          {/* ---- Jam Buka ---- */}
+          {/* 2. Jam Buka */}
           <div className="footer__col footer__col--hours">
             <h4>Jam Buka</h4>
             <ul className="footer__hours">
@@ -36,7 +31,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* ---- Kontak ---- */}
+          {/* 3. Kontak */}
           <div className="footer__col footer__col--contact">
             <h4>Kontak</h4>
             <p className="footer__addr">
@@ -46,6 +41,17 @@ export function Footer() {
             <a className="footer__wa" href={WA_LINK} target="_blank" rel="noopener noreferrer">
               <IconWhatsApp size={18} /> WhatsApp 0813 8428 1588
             </a>
+          </div>
+
+          {/* 4. Ikuti Kami */}
+          <div className="footer__col footer__col--social">
+            <h4>Ikuti Kami</h4>
+            <div className="socials">
+              <a href={BRAND.instagramUrl} aria-label="Instagram Kataloji" target="_blank" rel="noopener noreferrer"><IconInstagram /></a>
+              <a href={WA_LINK} aria-label="WhatsApp Kataloji" target="_blank" rel="noopener noreferrer"><IconWhatsApp /></a>
+              <a href="https://www.tiktok.com/@kataloji.co" aria-label="TikTok Kataloji" target="_blank" rel="noopener noreferrer"><IconTikTok /></a>
+              <a href={BRAND.grabfoodUrl} aria-label="Pesan lewat GrabFood" target="_blank" rel="noopener noreferrer"><IconGrabFood /></a>
+            </div>
           </div>
         </div>
 

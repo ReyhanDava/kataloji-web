@@ -562,7 +562,7 @@ select.control{ appearance:none;
   padding-bottom:var(--s-6); border-bottom:1px solid rgba(255,255,255,.1);
 }
 @media (min-width:820px){
-  .footer__top{ grid-template-columns:1.4fr .85fr 1.2fr; gap:clamp(2.4rem, 5vw, 4.5rem); }
+  .footer__top{ grid-template-columns:1.35fr .8fr 1.25fr auto; gap:clamp(1.6rem, 3.6vw, 3.2rem); align-items:start; }
 }
 .footer__col--brand p{
   margin-top:1rem; max-width:34ch;
@@ -578,14 +578,14 @@ select.control{ appearance:none;
 .footer__hours li{
   display:flex; justify-content:space-between; gap:1.2rem;
   font-size:var(--fs-sm); color:var(--sage-300);
-  padding-bottom:.55rem; border-bottom:1px solid rgba(255,255,255,.07);
+  padding-bottom:.5rem; border-bottom:1px dashed rgba(255,255,255,.16);
 }
 .footer__hours li:last-child{ border-bottom:0; padding-bottom:0; }
 .footer__hours li span:last-child{ color:var(--cream-50); font-weight:600; white-space:nowrap; }
 
 /* kontak */
 .footer__addr{
-  margin-top:1rem; display:flex; gap:.55rem; align-items:flex-start;
+  margin-top:1.05rem; display:flex; gap:.55rem; align-items:flex-start;
   font-size:var(--fs-sm); color:var(--sage-300); line-height:1.55;
 }
 .footer__addr svg{ flex:0 0 auto; margin-top:.15rem; color:var(--sage-400, var(--sage-300)); }
@@ -597,7 +597,7 @@ select.control{ appearance:none;
 .footer__wa:hover{ color:var(--amber-500); }
 
 /* sosial */
-.socials{ display:flex; gap:.6rem; margin-top:1.25rem; }
+.socials{ display:flex; gap:.55rem; margin-top:1.05rem; }
 .socials a{
   width:2.5rem; height:2.5rem; border-radius:var(--r-pill);
   display:grid; place-items:center;
@@ -608,12 +608,12 @@ select.control{ appearance:none;
 
 /* mobile: urutan Jam Buka -> Kontak -> brand/sosial; jarak lega & konsisten */
 @media (max-width:819px){
-  .footer__top{ gap:1.9rem; }
+  .footer__top{ gap:1.6rem; }
   .footer__col--hours{ order:1; }
   .footer__col--contact{ order:2; }
-  .footer__col--brand{ order:3; padding-top:1.7rem; border-top:1px solid rgba(255,255,255,.1); }
+  .footer__col--brand{ order:3; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.1); }
+  .footer__col--social{ order:4; }
   .footer__col--brand p{ max-width:none; }
-  .footer__hours li{ font-size:var(--fs-sm); }
   .footer__addr{ max-width:44ch; }
 }
 
