@@ -90,24 +90,34 @@ export function IconPlus({ size = 20 }: { size?: number }) {
 export function IconGrabFood({ size = 20 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <mask id="kgfMask" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+      {/* sendok-garpu sebagai ruang kosong di dalam wadah */}
+      <mask id="kgfKnockout" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
         <rect width="24" height="24" fill="#fff" />
-        {/* sendok: gagang + cekungan */}
-        <path d="M9.9 17.6 14.1 13.4" stroke="#000" strokeWidth="2.2" strokeLinecap="round" />
-        <circle cx="10.5" cy="16.6" r="1.8" fill="#000" />
-        {/* garpu: gagang + dua gigi */}
-        <path d="M14.1 18 9.9 13.8" stroke="#000" strokeWidth="2.2" strokeLinecap="round" />
-        <path d="M13.2 12.9 15 14.7" stroke="#000" strokeWidth="2.2" strokeLinecap="round" />
+        {/* sendok */}
+        <ellipse cx="10.9" cy="14.6" rx="1.65" ry="1.9" transform="rotate(45 10.9 14.6)" fill="#000" />
+        <path d="M12.1 15.8 16 11.9" stroke="#000" strokeWidth="1.7" strokeLinecap="round" />
+        {/* garpu */}
+        <path d="M11.9 17.3 8 13.4" stroke="#000" strokeWidth="1.7" strokeLinecap="round" />
+        <path d="M10.6 12.1 12.5 14M11.9 10.8 13.8 12.7M13.2 9.5 15.1 11.4"
+              stroke="#000" strokeWidth="1.5" strokeLinecap="round" />
       </mask>
-      {/* badan wadah makanan — solid, dengan sendok/garpu sebagai ruang kosong */}
-      <rect x="4.3" y="7.4" width="15.4" height="12" rx="2.6" fill="currentColor" mask="url(#kgfMask)" />
-      {/* garis tutup */}
-      <path d="M3.5 6.3h17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+
+      {/* wadah makanan — solid */}
+      <path
+        d="M6.1 8.9h11.8a1 1 0 0 1 .96 1.28l-2.2 8.2a1.6 1.6 0 0 1-1.55 1.2h-6.2a1.6 1.6 0 0 1-1.55-1.2l-2.2-8.2A1 1 0 0 1 6.1 8.9Z"
+        fill="currentColor"
+        mask="url(#kgfKnockout)"
+      />
+      {/* tutup wadah */}
+      <path
+        d="M4.2 5.6h15.6a1.1 1.1 0 0 1 1.06 1.4l-.28.9a1.1 1.1 0 0 1-1.06.8H4.48a1.1 1.1 0 0 1-1.06-.8l-.28-.9A1.1 1.1 0 0 1 4.2 5.6Z"
+        fill="currentColor"
+      />
       {/* pegangan */}
       <path
-        d="M10.2 5.4v-.7a1.3 1.3 0 0 1 1.3-1.3h1a1.3 1.3 0 0 1 1.3 1.3v.7"
+        d="M10.1 5.1v-.55a1.25 1.25 0 0 1 1.25-1.25h1.3A1.25 1.25 0 0 1 13.9 4.55v.55"
         stroke="currentColor"
-        strokeWidth="1.7"
+        strokeWidth="1.5"
         strokeLinecap="round"
       />
     </svg>
