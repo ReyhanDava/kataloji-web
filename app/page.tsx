@@ -236,7 +236,7 @@ export default function Home() {
                   <span className="contact__ico"><IconWhatsApp /></span>
                   <div>
                     <h4>WhatsApp</h4>
-                    <p>+62 812-3456-7890 · Respon cepat di jam operasional</p>
+                    <p>0813 8428 1588 · Respon cepat di jam operasional</p>
                   </div>
                 </div>
                 <div className="contact__wa">
@@ -250,7 +250,7 @@ export default function Home() {
                   title="Peta lokasi Kataloji Coffee and Eatery"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps?q=-6.31275,106.91455&z=16&output=embed"
+                  src="https://www.google.com/maps?q=-6.3260829604653965,106.9037646194168&z=17&output=embed"
                 />
               </div>
             </Reveal>
