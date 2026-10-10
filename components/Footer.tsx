@@ -3,13 +3,14 @@ import Image from "next/image";
 import { BRAND, WA_LINK } from "@/lib/data";
 import { IconInstagram, IconWhatsApp, IconTikTok, IconGrabFood, IconPin } from "./icons";
 
-/** Footer — 3 kolom: brand + sosial | Jam Buka | Kontak. */
+/** Footer — 3 kolom: brand + sosial | Jam Buka | Kontak.
+ *  Mobile: urutan Jam Buka → Kontak → brand/sosial (lihat CSS .footer__col--brand order). */
 export function Footer() {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer__top">
-          {/* ---- Brand + sosial ---- */}
+          {/* ---- Brand + sosial (di mobile pindah ke bawah) ---- */}
           <div className="footer__col footer__col--brand">
             <Link className="brand" href="/#home" aria-label="Kataloji beranda">
               <Image src="/assets/logo-white.png" alt="Kataloji coffee and eatery" width={1600} height={723} style={{ height: "2.4rem", width: "auto" }} />
@@ -40,11 +41,8 @@ export function Footer() {
             <h4>Kontak</h4>
             <p className="footer__addr">
               <IconPin size={18} />
-              <span>Ruko Puri Cipayung, Jl. Setu Cipayung No.09, Jakarta Timur 13840</span>
+              <span>{BRAND.address}</span>
             </p>
-            <a className="footer__maplink" href={BRAND.mapsUrl} target="_blank" rel="noopener noreferrer">
-              Buka di Google Maps
-            </a>
             <a className="footer__wa" href={WA_LINK} target="_blank" rel="noopener noreferrer">
               <IconWhatsApp size={18} /> WhatsApp 0813 8428 1588
             </a>

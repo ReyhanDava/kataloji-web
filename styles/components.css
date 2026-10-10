@@ -562,7 +562,7 @@ select.control{ appearance:none;
   padding-bottom:var(--s-6); border-bottom:1px solid rgba(255,255,255,.1);
 }
 @media (min-width:820px){
-  .footer__top{ grid-template-columns:1.5fr 1fr 1.35fr; gap:2.4rem; }
+  .footer__top{ grid-template-columns:1.4fr .85fr 1.2fr; gap:clamp(2.4rem, 5vw, 4.5rem); }
 }
 .footer__col--brand p{
   margin-top:1rem; max-width:34ch;
@@ -589,14 +589,6 @@ select.control{ appearance:none;
   font-size:var(--fs-sm); color:var(--sage-300); line-height:1.55;
 }
 .footer__addr svg{ flex:0 0 auto; margin-top:.15rem; color:var(--sage-400, var(--sage-300)); }
-.footer__maplink{
-  display:inline-block; margin-top:.6rem;
-  font-size:var(--fs-sm); font-weight:700; color:var(--cream-50);
-  border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;
-  transition:color .2s var(--ease), border-color .2s var(--ease);
-}
-.footer__maplink::after{ content:" →"; }
-.footer__maplink:hover{ color:var(--amber-500); border-color:var(--amber-500); }
 .footer__wa{
   margin-top:1.1rem; display:inline-flex; align-items:center; gap:.5rem;
   font-size:var(--fs-sm); font-weight:600; color:var(--cream-50);
@@ -613,6 +605,17 @@ select.control{ appearance:none;
   transition:background .25s, transform .25s;
 }
 .socials a:hover{ background:var(--sage-600); transform:translateY(-2px); }
+
+/* mobile: urutan Jam Buka -> Kontak -> brand/sosial; jarak lega & konsisten */
+@media (max-width:819px){
+  .footer__top{ gap:1.9rem; }
+  .footer__col--hours{ order:1; }
+  .footer__col--contact{ order:2; }
+  .footer__col--brand{ order:3; padding-top:1.7rem; border-top:1px solid rgba(255,255,255,.1); }
+  .footer__col--brand p{ max-width:none; }
+  .footer__hours li{ font-size:var(--fs-sm); }
+  .footer__addr{ max-width:44ch; }
+}
 
 .footer__bottom{
   margin-top:var(--s-5); padding-top:var(--s-5);

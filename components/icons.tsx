@@ -89,26 +89,27 @@ export function IconPlus({ size = 20 }: { size?: number }) {
 
 export function IconGrabFood({ size = 20 }: { size?: number }) {
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      {/* wadah makanan */}
-      <path d="M5.8 6.2 4.2 9.3v9.5a2.2 2.2 0 0 0 2.2 2.2h11.2a2.2 2.2 0 0 0 2.2-2.2V9.3l-1.6-3.1z" />
-      <path d="M4.2 9.3h15.6" />
-      <path d="M9.8 6.2v-1a1 1 0 0 1 1-1h2.4a1 1 0 0 1 1 1v1" />
-      {/* sendok & garpu menyilang */}
-      <circle cx="10.1" cy="16.5" r="1.5" />
-      <path d="M11.2 15.4 15.6 11" />
-      <path d="M14.2 16.9 9.8 12.5" />
-      <path d="M9.8 12.5v-1.1M11.2 11v1.5" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <mask id="kgfMask" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+        <rect width="24" height="24" fill="#fff" />
+        {/* sendok: gagang + cekungan */}
+        <path d="M9.9 17.6 14.1 13.4" stroke="#000" strokeWidth="2.2" strokeLinecap="round" />
+        <circle cx="10.5" cy="16.6" r="1.8" fill="#000" />
+        {/* garpu: gagang + dua gigi */}
+        <path d="M14.1 18 9.9 13.8" stroke="#000" strokeWidth="2.2" strokeLinecap="round" />
+        <path d="M13.2 12.9 15 14.7" stroke="#000" strokeWidth="2.2" strokeLinecap="round" />
+      </mask>
+      {/* badan wadah makanan — solid, dengan sendok/garpu sebagai ruang kosong */}
+      <rect x="4.3" y="7.4" width="15.4" height="12" rx="2.6" fill="currentColor" mask="url(#kgfMask)" />
+      {/* garis tutup */}
+      <path d="M3.5 6.3h17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      {/* pegangan */}
+      <path
+        d="M10.2 5.4v-.7a1.3 1.3 0 0 1 1.3-1.3h1a1.3 1.3 0 0 1 1.3 1.3v.7"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
