@@ -135,7 +135,7 @@ export const MENU_FULL: MenuCat[] = [
         ],
       },
       {
-        title: "Teh",
+        title: "Tea",
         items: [
           { name: "Strawberry Tea", price: 20 },
           { name: "Mango Tea", price: 20 },
@@ -143,6 +143,13 @@ export const MENU_FULL: MenuCat[] = [
           { name: "Lemon Tea", price: 22 },
           { name: "Jasmine Tea", price: 22 },
           { name: "Lychee Tea", price: 22 },
+        ],
+      },
+      {
+        title: "Artisan Tea",
+        items: [
+          { name: "Summer", price: 32 },
+          { name: "Cosmopolitan", price: 32 },
         ],
       },
       {
