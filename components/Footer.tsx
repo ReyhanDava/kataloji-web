@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { BRAND, WA_LINK } from "@/lib/data";
-import { IconInstagram, IconWhatsApp, IconTikTok, IconGrabFood, IconPin } from "./icons";
+import { IconInstagram, IconWhatsApp, IconTikTok, IconPin } from "./icons";
 
 /** Footer ringkas —
  *  Desktop: Brand | Kontak | Jam Buka | Ikuti Kami (sejajar satu baris).
@@ -50,7 +50,9 @@ export function Footer() {
               <a href={BRAND.instagramUrl} aria-label="Instagram Kataloji" target="_blank" rel="noopener noreferrer"><IconInstagram /></a>
               <a href={WA_LINK} aria-label="WhatsApp Kataloji" target="_blank" rel="noopener noreferrer"><IconWhatsApp /></a>
               <a href="https://www.tiktok.com/@kataloji.co" aria-label="TikTok Kataloji" target="_blank" rel="noopener noreferrer"><IconTikTok /></a>
-              <a href={BRAND.grabfoodUrl} aria-label="Pesan lewat GrabFood" target="_blank" rel="noopener noreferrer"><IconGrabFood /></a>
+              <a className="socials__grab" href={BRAND.grabfoodUrl} aria-label="Pesan lewat GrabFood" target="_blank" rel="noopener noreferrer">
+                <Image src="/assets/icon-grabfood.png" alt="" width={192} height={192} />
+              </a>
             </div>
           </div>
         </div>

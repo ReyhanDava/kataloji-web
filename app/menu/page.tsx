@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { MENU_FULL, MENU_TABS, fprice, menuSlug } from "@/lib/data";
 import { Navbar } from "@/components/Navbar";
+import { GrabOrder } from "@/components/GrabOrder";
 import { Footer } from "@/components/Footer";
 
 /** Baca ?kategori= dari URL tanpa next/navigation (ringan) */
@@ -115,6 +116,8 @@ export default function MenuPage() {
           ))}
 
           <p className="menufoot">Harga di atas belum termasuk pajak.</p>
+
+          <GrabOrder />
         </div>
       </main>
       <Footer />

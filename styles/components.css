@@ -606,6 +606,12 @@ select.control{ appearance:none;
 }
 .socials a:hover{ background:var(--sage-600); transform:translateY(-2px); }
 
+/* logo GrabFood (gambar) di lingkaran sosial */
+.socials a.socials__grab{ padding:0; overflow:hidden; background:none; }
+.socials a.socials__grab img{ width:100%; height:100%; object-fit:contain; display:block; }
+.socials a.socials__grab:hover{ background:none; transform:translateY(-2px); }
+
+
 /* mobile: urutan Jam Buka -> Kontak -> brand/sosial; jarak lega & konsisten */
 @media (max-width:819px){
   .footer__top{ gap:1.6rem; }
@@ -622,6 +628,46 @@ select.control{ appearance:none;
   border-top:1px solid rgba(255,255,255,.1);
   display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between;
   font-size:var(--fs-xs); color:var(--sage-300);
+}
+
+/* ---------- PENAWARAN GRABFOOD ---------- */
+.graborder{
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center; gap:1.1rem;
+  margin-top:1.6rem; padding:1.1rem clamp(1rem,2.4vw,1.4rem);
+  background:var(--cream-100); border:1px solid var(--line-soft);
+  border-radius:var(--r-lg); box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+}
+.graborder:hover{ transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--sage-300); }
+.graborder__logo{ flex:0 0 auto; width:3.1rem; height:3.1rem; }
+.graborder__logo img{ width:100%; height:100%; object-fit:contain; display:block; }
+.graborder__body{ display:flex; flex-direction:column; gap:.18rem; min-width:0; }
+.graborder__eyebrow{
+  font-size:var(--fs-xs); font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--sage-700);
+}
+.graborder__title{
+  font-family:var(--font-display); font-weight:600; font-size:1.15rem; color:var(--coffee-900);
+}
+.graborder__desc{ font-size:var(--fs-xs); color:var(--coffee-600); max-width:58ch; }
+.graborder__cta{
+  display:inline-flex; align-items:center; gap:.45rem;
+  font-weight:700; font-size:var(--fs-sm); color:var(--sage-700); white-space:nowrap;
+  transition:color .2s var(--ease);
+}
+.graborder__cta svg{ transition:transform .3s var(--ease); }
+.graborder:hover .graborder__cta{ color:var(--sage-900); }
+.graborder:hover .graborder__cta svg{ transform:translateX(4px); }
+
+@media (max-width:640px){
+  .graborder{
+    grid-template-columns:auto minmax(0,1fr); gap:.85rem;
+    padding:1rem;
+  }
+  .graborder__logo{ width:2.6rem; height:2.6rem; }
+  .graborder__cta{ grid-column:1 / -1; }
+  .graborder__desc{ display:none; }
 }
 
 /* ---------- SPINNER ---------- */
