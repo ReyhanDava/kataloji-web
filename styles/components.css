@@ -630,44 +630,30 @@ select.control{ appearance:none;
   font-size:var(--fs-xs); color:var(--sage-300);
 }
 
-/* ---------- PENAWARAN GRABFOOD ---------- */
+/* ---------- GrabFood (baris ringkas di section Menu landing) ---------- */
 .graborder{
-  display:grid; grid-template-columns:auto minmax(0,1fr) auto;
-  align-items:center; gap:1.1rem;
-  margin-top:1.6rem; padding:1.1rem clamp(1rem,2.4vw,1.4rem);
+  margin-top:1.15rem;
+  display:inline-flex; align-items:center; gap:.7rem;
+  padding:.6rem 1rem .6rem .7rem;
   background:var(--cream-100); border:1px solid var(--line-soft);
-  border-radius:var(--r-lg); box-shadow:var(--shadow-sm);
-  transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+  border-radius:var(--r-pill);
+  transition:transform .28s var(--ease), box-shadow .28s var(--ease), border-color .28s var(--ease);
 }
-.graborder:hover{ transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--sage-300); }
-.graborder__logo{ flex:0 0 auto; width:3.1rem; height:3.1rem; }
+.graborder:hover{ transform:translateY(-2px); box-shadow:var(--shadow-md); border-color:var(--sage-300); }
+.graborder__logo{ flex:0 0 auto; width:2.1rem; height:2.1rem; display:block; }
 .graborder__logo img{ width:100%; height:100%; object-fit:contain; display:block; }
-.graborder__body{ display:flex; flex-direction:column; gap:.18rem; min-width:0; }
-.graborder__eyebrow{
-  font-size:var(--fs-xs); font-weight:800; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--sage-700);
+.graborder__text{ display:flex; align-items:baseline; gap:.3rem; min-width:0; }
+.graborder__caption{ font-size:var(--fs-sm); color:var(--coffee-600); }
+.graborder__name{ font-weight:800; font-size:var(--fs-sm); color:var(--coffee-900); white-space:nowrap; }
+.graborder__arrow{
+  display:grid; place-items:center; width:1.7rem; height:1.7rem;
+  border-radius:var(--r-pill); background:var(--sage-100); color:var(--sage-800);
+  transition:transform .3s var(--ease), background .3s var(--ease), color .3s var(--ease);
 }
-.graborder__title{
-  font-family:var(--font-display); font-weight:600; font-size:1.15rem; color:var(--coffee-900);
-}
-.graborder__desc{ font-size:var(--fs-xs); color:var(--coffee-600); max-width:58ch; }
-.graborder__cta{
-  display:inline-flex; align-items:center; gap:.45rem;
-  font-weight:700; font-size:var(--fs-sm); color:var(--sage-700); white-space:nowrap;
-  transition:color .2s var(--ease);
-}
-.graborder__cta svg{ transition:transform .3s var(--ease); }
-.graborder:hover .graborder__cta{ color:var(--sage-900); }
-.graborder:hover .graborder__cta svg{ transform:translateX(4px); }
+.graborder:hover .graborder__arrow{ background:var(--sage-600); color:var(--cream-50); transform:translateX(3px); }
 
 @media (max-width:640px){
-  .graborder{
-    grid-template-columns:auto minmax(0,1fr); gap:.85rem;
-    padding:1rem;
-  }
-  .graborder__logo{ width:2.6rem; height:2.6rem; }
-  .graborder__cta{ grid-column:1 / -1; }
-  .graborder__desc{ display:none; }
+  .graborder{ width:100%; justify-content:flex-start; }
 }
 
 /* ---------- SPINNER ---------- */

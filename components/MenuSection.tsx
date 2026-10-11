@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { GrabOrder } from "./GrabOrder";
 
 /* Tile katalog — 5 kategori, SAMA dengan tab di halaman menu lengkap */
 const CATS: Array<{
@@ -109,6 +110,8 @@ export function MenuSection() {
             Lihat menu lengkap
           </Link>
         </div>
+
+        <GrabOrder />
       </div>
     </section>
   );

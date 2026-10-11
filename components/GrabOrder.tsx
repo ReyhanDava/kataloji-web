@@ -3,34 +3,26 @@ import { BRAND } from "@/lib/data";
 import { IconArrow } from "./icons";
 
 /**
- * Penawaran pesan online lewat GrabFood.
- * Dipakai di halaman menu lengkap (setelah daftar menu) dan landing (kaki section menu).
+ * Tautan pesan antar lewat GrabFood.
+ * Dipakai sebagai baris ringkas di section Menu landing, di bawah CTA "Lihat menu lengkap".
  */
-export function GrabOrder({ variant = "notice" }: { variant?: "notice" | "band" }) {
+export function GrabOrder() {
   return (
     <a
-      className={`graborder graborder--${variant}`}
+      className="graborder"
       href={BRAND.grabfoodUrl}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Pesan antar lewat GrabFood"
     >
       <span className="graborder__logo">
         <Image src="/assets/icon-grabfood.png" alt="GrabFood" width={192} height={192} />
       </span>
-
-      <span className="graborder__body">
-        <span className="graborder__eyebrow">Pesan online</span>
-        <span className="graborder__title">Lapar? Pesan lewat GrabFood</span>
-        <span className="graborder__desc">
-          Semua menu di atas bisa dipesan antar lewat GrabFood. Atau mampir langsung —
-          pesan di kasir.
-        </span>
+      <span className="graborder__text">
+        <span className="graborder__caption">Pesan antar</span>
+        <span className="graborder__name">lewat GrabFood</span>
       </span>
-
-      <span className="graborder__cta">
-        Buka GrabFood
-        <IconArrow size={16} />
-      </span>
+      <span className="graborder__arrow"><IconArrow size={16} /></span>
     </a>
   );
 }
