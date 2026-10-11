@@ -4,7 +4,7 @@ import { Reveal } from "./Reveal";
 
 /* Tile katalog — 5 kategori, SAMA dengan tab di halaman menu lengkap */
 const CATS: Array<{
-  id: string; label: string; desc: string; min: number; img: string; w: number; h: number; big?: boolean;
+  id: string; label: string; desc: string; min: number; img: string; imgMobile?: string; w: number; h: number; big?: boolean;
 }> = [
   {
     id: "kopi",
@@ -12,6 +12,7 @@ const CATS: Array<{
     desc: "Espresso, manual brew, dan kreasi signature.",
     min: 16,
     img: "/assets/hl-kopi.png",
+    imgMobile: "/assets/hl-kopi-mobile.jpg",
     w: 1200, h: 2133,
     big: true,
   },
@@ -68,14 +69,27 @@ export function MenuSection() {
             >
               <span className="menucat__img">
                 {c.img ? (
-                  <Image
-                    src={c.img}
-                    alt={`Katalog ${c.label}`}
-                    width={c.w}
-                    height={c.h}
-                    loading="lazy"
-                    style={{ objectFit: "cover", objectPosition: "top", width: "100%", height: "100%", position: "absolute", inset: 0 }}
-                  />
+                  c.imgMobile ? (
+                    <picture>
+                      <source media="(max-width:719px)" srcSet={c.imgMobile} />
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={c.img}
+                        alt={`Katalog ${c.label}`}
+                        loading="lazy"
+                        style={{ objectFit: "cover", objectPosition: "top", width: "100%", height: "100%", position: "absolute", inset: 0 }}
+                      />
+                    </picture>
+                  ) : (
+                    <Image
+                      src={c.img}
+                      alt={`Katalog ${c.label}`}
+                      width={c.w}
+                      height={c.h}
+                      loading="lazy"
+                      style={{ objectFit: "cover", objectPosition: "top", width: "100%", height: "100%", position: "absolute", inset: 0 }}
+                    />
+                  )
                 ) : (
                   <span className="menucat__ph" aria-hidden="true">{c.label.charAt(0)}</span>
                 )}
