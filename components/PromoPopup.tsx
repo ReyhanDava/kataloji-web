@@ -112,7 +112,16 @@ export function PromoPopup() {
                   key={item.img}
                   className={`popup__slide${isActive ? " is-active" : ""}`}
                   aria-hidden={!isActive}
-                  onClick={() => { if (!isActive) goTo(i); }}
+                  role={isActive ? "link" : undefined}
+                  tabIndex={isActive ? 0 : undefined}
+                  style={isActive ? { cursor: "pointer" } : undefined}
+                  onClick={() => {
+                    if (!isActive) { goTo(i); return; }
+                    // klik slide aktif -> ke detail promo terkait
+                    sessionStorage.setItem(SESSION_KEY, "1");
+                    setOpen(false);
+                    window.location.href = (item as { href?: string }).href ?? POPUP_PROMO.ctaHref;
+                  }}
                 >
                   <Image
                     src={item.img}
@@ -155,7 +164,7 @@ export function PromoPopup() {
         </div>
 
         <div className="popup__actions">
-          <Link className="btn btn--sm" href={POPUP_PROMO.ctaHref} onClick={close}>
+          <Link className="btn btn--sm" href={(POPUP_ITEMS[active] as { href?: string }).href ?? POPUP_PROMO.ctaHref} onClick={close}>
             {POPUP_PROMO.ctaLabel}
           </Link>
           <button type="button" className="popup__dismiss" onClick={close}>

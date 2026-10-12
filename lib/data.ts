@@ -440,16 +440,19 @@ export const POPUP_ITEMS = [
     img: "/assets/Promo1.jpeg",
     alt: "Promo Kataloji Signature Table — 139K untuk 2 makanan + 2 signature beverage + free french fries",
     caption: "Kataloji Signature Table — 139K",
+    href: "/#promo?promo=0",
   },
   {
     img: "/assets/Promo2.jpeg",
     alt: "Promo Combo Deal — 55K Spaghetti Aglio e Olio + Grapes Apple Berry",
     caption: "Combo Deal — 55K",
+    href: "/#promo?promo=1",
   },
   {
     img: "/assets/Promo3.jpeg",
     alt: "Promo After Work Treat — min. spend 100K, gratis pisang goreng, Senin–Jumat 16.00–19.00",
     caption: "After Work Treat — min. 100K",
+    href: "/#promo?promo=2",
   },
 ] as const;
 

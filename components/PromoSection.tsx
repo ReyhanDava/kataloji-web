@@ -13,6 +13,16 @@ export function PromoSection() {
   const len = PROMO_DETAIL.length;
   const [active, setActive] = React.useState(0);
   const [skOpen, setSkOpen] = React.useState(false);
+
+  // deep-link ?promo=N (dari popup promo) -> langsung buka promo itu
+  React.useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("promo");
+    const n = q ? parseInt(q, 10) : NaN;
+    if (!isNaN(n) && n >= 0 && n < PROMO_DETAIL.length) {
+      setActive(n);
+      setSkOpen(true);
+    }
+  }, []);
   const [dragging, setDragging] = React.useState(false);
   const [dragX, setDragX] = React.useState(0);
   const startX = React.useRef(0);
