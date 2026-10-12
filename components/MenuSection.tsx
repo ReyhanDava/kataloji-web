@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { BRAND } from "@/lib/data";
 import { GrabOrder } from "./GrabOrder";
 
 /* Tile katalog — 5 kategori, SAMA dengan tab di halaman menu lengkap */
@@ -105,10 +106,15 @@ export function MenuSection() {
         </Reveal>
 
         <div className="menucat__foot">
-          <p>Pesan langsung di kasir. Mau lihat semuanya sekaligus?</p>
-          <Link className="btn" href="/menu">
+          <Link className="btn menucat__cta" href="/menu">
             Lihat menu lengkap
           </Link>
+          <p className="menucat__note">
+            Pesan langsung di kasir. atau pesan online melalui{" "}
+            <a href={BRAND.grabfoodUrl} target="_blank" rel="noopener noreferrer">
+              grabfood
+            </a>
+          </p>
         </div>
 
         <GrabOrder />

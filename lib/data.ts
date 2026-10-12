@@ -300,28 +300,7 @@ export const PROMO_DETAIL = [
       "Berlaku setiap hari selama jam operasional.",
       "Berlaku sampai 4 Oktober 2026.",
     ],
-  },
-  {
-    img: "/assets/Promo3.jpeg",
-    imgDesktop: "/assets/promo-desktop-3.jpg",
-    imgMobile: "/assets/promo-mobile-3.jpg",
-    alt: "Banner promo After Work Treat — min. belanja 100K gratis pisang goreng",
-    name: "After Work Treat",
-    price: "Gratis Pisang Goreng",
-    priceNote: "min. belanja Rp 100.000",
-    desc: "Pulang kerja mampir dulu. Minimal belanja Rp 100.000 dan dapatkan pisang goreng gratis — pas buat teman ngobrol sore.",
-    syarat: [
-      "Minimal belanja Rp 100.000 sebelum pajak.",
-      "Berlaku Senin–Jumat, pukul 16.00–19.00 WIB.",
-      "1 pisang goreng per transaksi.",
-    ],
-    ketentuan: [
-      "Berlaku untuk dine-in maupun takeaway.",
-      "Tidak berlaku bersamaan dengan promo bundel lain.",
-      "Berlaku sampai 4 Oktober 2026.",
-    ],
-  },
-  {
+  },  {
     img: "/assets/Promo2.jpeg",
     imgDesktop: "/assets/promo-desktop-2.jpg",
     imgMobile: "/assets/promo-mobile-2.jpg",
@@ -338,6 +317,25 @@ export const PROMO_DETAIL = [
     ketentuan: [
       "Berlaku setiap hari selama jam operasional.",
       "Tidak dapat digabung dengan promo lain.",
+      "Berlaku sampai 4 Oktober 2026.",
+    ],
+  },  {
+    img: "/assets/Promo3.jpeg",
+    imgDesktop: "/assets/promo-desktop-3.jpg",
+    imgMobile: "/assets/promo-mobile-3.jpg",
+    alt: "Banner promo After Work Treat — min. belanja 100K gratis pisang goreng",
+    name: "After Work Treat",
+    price: "Gratis Pisang Goreng",
+    priceNote: "min. belanja Rp 100.000",
+    desc: "Pulang kerja mampir dulu. Minimal belanja Rp 100.000 dan dapatkan pisang goreng gratis — pas buat teman ngobrol sore.",
+    syarat: [
+      "Minimal belanja Rp 100.000 sebelum pajak.",
+      "Berlaku Senin–Jumat, pukul 16.00–19.00 WIB.",
+      "1 pisang goreng per transaksi.",
+    ],
+    ketentuan: [
+      "Berlaku untuk dine-in maupun takeaway.",
+      "Tidak berlaku bersamaan dengan promo bundel lain.",
       "Berlaku sampai 4 Oktober 2026.",
     ],
   },

@@ -193,12 +193,20 @@ body.nav-open .nav__toggle .bars span:nth-child(3){ top:6px; transform:rotate(-4
 .menucat__foot{
   margin-top:3.5rem; padding-top:1.75rem;
   border-top:1px solid var(--line-soft);
-  display:flex; justify-content:space-between; align-items:center; gap:1.25rem; flex-wrap:wrap;
+  display:flex; flex-direction:column; align-items:flex-start; gap:.85rem;
 }
-.menucat__foot p{ margin:0; color:var(--coffee-600); max-width:44ch; }
-.menucat__foot .btn{
+/* CTA di ATAS teks (urutan visual: tombol dulu, lalu catatan) */
+.menucat__cta{
   padding:1rem 1.9rem; border-radius:var(--r-pill); font-weight:700;
 }
+.menucat__note{ margin:0; color:var(--coffee-600); max-width:52ch; }
+.menucat__note a{
+  color:var(--sage-800); font-weight:700;
+  border-bottom:1px solid var(--sage-400); padding-bottom:1px;
+  transition:color .2s var(--ease), border-color .2s var(--ease);
+}
+.menucat__note a:hover{ color:var(--sage-900); border-color:var(--sage-900); }
+.menucat__note a:focus-visible{ outline:3px solid var(--amber-500); outline-offset:3px; border-radius:3px; }
 
 @media (max-width:900px){
   .menucat__head{ margin-bottom:1.75rem; }
@@ -209,7 +217,8 @@ body.nav-open .nav__toggle .bars span:nth-child(3){ top:6px; transform:rotate(-4
   .menucat__tile--big .menucat__ph{ font-size:5rem; }
   /* sembunyikan deskripsi di tile kecil di mobile */
   .menucat__tile:not(.menucat__tile--big) .menucat__desc{ display:none; }
-  .menucat__foot{ flex-direction:column; align-items:stretch; }
+  .menucat__foot{ align-items:stretch; }
+  .menucat__cta{ text-align:center; }
   .menucat__foot .btn{ text-align:center; }
 }
 
