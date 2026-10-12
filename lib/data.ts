@@ -47,7 +47,6 @@ export const MENU_FULL: MenuCat[] = [
       name: "Spanish Latte OG",
       price: 30,
       label: "Terlaris",
-      img: "/assets/menu-coffe.jpeg",
       why: "Espresso dan susu manis yang creamy, favorit pelanggan tetap.",
     },
     subs: [
@@ -83,7 +82,7 @@ export const MENU_FULL: MenuCat[] = [
           { name: "Crème Brûlée", price: 35 },
           { name: "Butterscotch", price: 35, img: "/assets/menu-items/butterscotch.jpg" },
           { name: "Gula Aren", price: 30 },
-          { name: "Spanish Latte OG", price: 30, label: "Terlaris", img: "/assets/menu-coffe.jpeg" },
+          { name: "Spanish Latte OG", price: 30, label: "Terlaris" },
           { name: "Spanish Latte Pistachio", price: 32 },
         ],
       },
@@ -97,7 +96,6 @@ export const MENU_FULL: MenuCat[] = [
       name: "Taro Latte",
       price: 30,
       label: "Favorit",
-      img: "/assets/menu-non-coffee.jpeg",
       why: "Taro lembut dengan susu, manis dan creamy yang pas.",
     },
     subs: [
@@ -139,7 +137,7 @@ export const MENU_FULL: MenuCat[] = [
       {
         title: "Taro",
         items: [
-          { name: "Taro Latte", price: 30, img: "/assets/menu-non-coffee.jpeg" },
+          { name: "Taro Latte", price: 30 },
           { name: "Taro Cheese", price: 32 },
         ],
       },
