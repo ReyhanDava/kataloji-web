@@ -65,7 +65,7 @@ export const MENU_FULL: MenuCat[] = [
         title: "Manual Brew",
         items: [
           { name: "Manual Brew (Lokal)", price: 30, img: "/assets/menu-items/manual-brew-lokal.jpg" },
-          { name: "Manual Brew (Seasonal)", price: 33 },
+          { name: "Manual Brew (Seasonal)", price: 33, img: "/assets/menu-items/manual-brew-seasonal.jpg" },
         ],
       },
       {
@@ -107,7 +107,7 @@ export const MENU_FULL: MenuCat[] = [
           { name: "Matcha Original", price: 30, img: "/assets/menu-items/matcha-original.jpg" },
           { name: "Matcha Crème Brûlée", price: 40, img: "/assets/menu-items/matcha-crème-brulee.jpg" },
           { name: "Dirty Matcha", price: 40, img: "/assets/menu-items/dirty-matcha.jpg" },
-          { name: "Strawberry Matcha", price: 40 },
+          { name: "Strawberry Matcha", price: 40, img: "/assets/menu-items/strawberry-matcha.jpg" },
           { name: "Matcha Pistachio", price: 40, img: "/assets/menu-items/matcha-pistachio.jpg" },
           { name: "Matcha Cheese", price: 32, img: "/assets/menu-items/matcha-cheese.jpg" },
         ],
@@ -280,7 +280,7 @@ export const MENU_FULL: MenuCat[] = [
           { name: "Spaghetti Aglio e Olio", price: 40, img: "/assets/menu-items/spaghetti-aglio-e-olio.jpg" },
           { name: "Dimsum Original", price: 30, img: "/assets/menu-items/dimsum-original.jpg" },
           { name: "Dimsum Mentai", price: 35, img: "/assets/menu-items/dimsum-mentai.jpg" },
-          { name: "Dimsum Mozzarella", price: 35 },
+          { name: "Dimsum Mozzarella", price: 35, img: "/assets/menu-items/dimsum-mozzarella.jpg" },
         ],
       },
     ],
