@@ -27,7 +27,7 @@ a{ color:inherit; text-decoration:none; }
 ul{ list-style:none; padding:0; }
 button{ cursor:pointer; background:none; border:none; }
 :focus-visible{
-  outline:3px solid var(--sage-500);
+  outline:3px solid var(--sage-700);
   outline-offset:3px;
   border-radius:4px;
 }

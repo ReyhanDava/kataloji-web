@@ -98,7 +98,13 @@ body.nav-open .nav__toggle .bars span:nth-child(3){ top:6px; transform:rotate(-4
   .hero__cta .btn{ width:100%; text-align:center; }
 }
 .hero h1 em{ font-style:italic; color:var(--sage-700); }
-.hero__sub{ margin-top:1.25rem; font-size:var(--fs-md); color:var(--coffee-600); max-width:46ch; }
+.hero__sub{ margin-top:1.25rem; font-size:var(--fs-md); color:var(--coffee-600); max-width:62ch; line-height:1.7; }
+/* kalimat penutup hero — diberi jarak & aksen miring */
+.hero__sub--tail{
+  margin-top:.9rem; max-width:52ch;
+  font-family:var(--font-display); font-style:italic;
+  font-size:var(--fs-md); color:var(--sage-800);
+}
 .hero__cta{ margin-top:2rem; display:flex; flex-wrap:wrap; gap:.9rem; }
 
 /* ---------- EVENT & KOLABORASI — grid seragam sq 1:1 ala Kopi Kenangan ---------- */
@@ -267,11 +273,11 @@ main:has(.menupage__head){ padding-block-start:1.25rem; }
 }
 .menupick__media img{ width:100%; height:100%; object-fit:cover; display:block; }
 .menupick__ph{
-  font-family:var(--font-display); font-size:2.4rem; font-weight:600; color:var(--amber-600);
+  font-family:var(--font-display); font-size:2.4rem; font-weight:600; color:var(--amber-700);
 }
 .menupick__body{ display:flex; flex-direction:column; gap:.35rem; }
 .menupick__label{
-  font-size:var(--fs-xs); font-weight:800; color:var(--amber-600);
+  font-size:var(--fs-xs); font-weight:800; color:var(--amber-700);
   text-transform:uppercase; letter-spacing:.08em;
 }
 .menupick__name{
@@ -302,12 +308,12 @@ main:has(.menupage__head){ padding-block-start:1.25rem; }
   flex:0 0 auto; width:3.4rem; height:3.4rem; border-radius:var(--r-sm);
   overflow:hidden; background:var(--sand-300);
   display:grid; place-items:center;
-  font-family:var(--font-display); font-weight:600; font-size:1.05rem; color:var(--amber-600);
+  font-family:var(--font-display); font-weight:600; font-size:1.05rem; color:var(--amber-700);
 }
 .menuitem__thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
 .menuitem__name{ flex:1; font-weight:600; font-size:var(--fs-sm); color:var(--coffee-800); }
 .menuitem__label{
-  font-size:.7rem; font-weight:800; color:var(--amber-600); margin-left:.5rem;
+  font-size:.7rem; font-weight:800; color:var(--amber-700); margin-left:.5rem;
   text-transform:uppercase; letter-spacing:.04em;
 }
 .menuitem__price{ font-weight:800; font-size:var(--fs-sm); color:var(--coffee-800); white-space:nowrap; }
@@ -316,9 +322,6 @@ main:has(.menupage__head){ padding-block-start:1.25rem; }
   background:var(--amber-100); border-radius:var(--r-sm); padding-inline:.6rem; margin-inline:-.6rem;
 }
 
-.menufoot{
-  margin-top:1.6rem; font-size:var(--fs-xs); color:var(--coffee-400);
-}
 .menuempty{
   background:var(--cream-100); border:1px solid var(--line-soft);
   border-radius:var(--r-lg); padding:2.4rem 1.5rem; text-align:center;
@@ -336,7 +339,7 @@ main:has(.menupage__head){ padding-block-start:1.25rem; }
 .menupanel .menupick{ background:var(--sage-200); border-color:#B8C7A8; }
 .menupanel .menupanel__head h2{ color:var(--sage-900); }
 .menupanel .menupick__label{ color:var(--sage-700); }
-.menupanel .menuitem__label{ color:var(--amber-600); }
+.menupanel .menuitem__label{ color:var(--amber-700); }
 
 /* tab kategori — tampil dinamis ala link nav, tanpa kotak */
 .menubar .tab{
@@ -406,7 +409,7 @@ main:has(.menupage__head){ padding-block-start:1.25rem; }
 
 .about2__foot{
   margin-top:1.8rem; max-width:52ch;
-  font-size:var(--fs-sm); color:var(--coffee-400); font-style:italic;
+  font-size:var(--fs-sm); color:var(--coffee-600); font-style:italic;
   border-left:3px solid var(--sage-300); padding-left:1rem;
 }
 
@@ -494,7 +497,7 @@ select.control{ appearance:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B5F4D' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem; }
 .field__msg{ font-size:var(--fs-xs); color:var(--danger); min-height:1em; }
-.member__note{ margin-top:1rem; font-size:var(--fs-xs); color:var(--coffee-400); }
+.member__note{ margin-top:1rem; font-size:var(--fs-xs); color:var(--coffee-600); }
 
 /* ---------- MEMBER CARD / DASHBOARD ---------- */
 .mcard{
@@ -561,7 +564,24 @@ select.control{ appearance:none;
   .contact__map iframe{ min-height:12rem; }
   .contact__row h4{ font-size:var(--fs-sm); }
 }
-.contact__wa{ margin-top:1rem; }
+.contact__wa{ margin-top:1rem; display:flex; flex-wrap:wrap; gap:.7rem; }
+.contact__wa .btn--ghost{ border:1px solid var(--line); color:var(--coffee-800); background:transparent; }
+.contact__wa .btn--ghost:hover{ background:var(--cream-100); }
+
+/* ---------- WHATSAPP FLOAT (mobile-first, CTA reservasi) ---------- */
+.wafloat{
+  position:fixed; right:1rem; bottom:1rem; z-index:60;
+  display:inline-flex; align-items:center; gap:.55rem;
+  padding:.7rem 1.05rem; border-radius:999px;
+  background:var(--sage-900); color:var(--cream-50);
+  font-weight:700; font-size:var(--fs-sm);
+  box-shadow:0 8px 24px rgba(42,35,26,.28);
+  transition:transform .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease);
+}
+.wafloat:hover{ background:var(--sage-700); transform:translateY(-2px); box-shadow:0 12px 28px rgba(42,35,26,.34); }
+.wafloat__txt{ display:inline; }
+@media (max-width:420px){ .wafloat__txt{ display:none; } .wafloat{ padding:.8rem; } }
+@media (prefers-reduced-motion: reduce){ .wafloat{ transition:none; } .wafloat:hover{ transform:none; } }
 
 /* ---------- FOOTER ---------- */
 /* ---------- FOOTER — 3 kolom: brand+sosial | Jam Buka | Kontak ---------- */
@@ -603,7 +623,7 @@ select.control{ appearance:none;
   font-size:var(--fs-sm); color:var(--sage-300); line-height:1.6;
   transition:color .2s var(--ease);
 }
-.footer__wa:hover{ color:var(--amber-500); }
+.footer__wa:hover{ color:var(--cream-50); }
 
 /* sosial */
 .socials{ display:flex; gap:.55rem; margin-top:1.05rem; }
@@ -615,18 +635,18 @@ select.control{ appearance:none;
 }
 .socials a:hover{ background:var(--sage-600); transform:translateY(-2px); }
 
-/* logo GrabFood (gambar) di lingkaran sosial */
-.socials a.socials__grab{ padding:0; overflow:hidden; background:none; }
-.socials a.socials__grab img{ width:100%; height:100%; object-fit:contain; display:block; }
-.socials a.socials__grab:hover{ background:none; transform:translateY(-2px); }
+/* GrabFood di footer: pakai SVG monokrom agar identik dengan ikon sosial lain */
+.socials a.socials__grab{ padding:0; }
+.socials a.socials__grab svg{ display:block; }
 
 
-/* mobile: urutan Jam Buka -> Kontak -> brand/sosial; jarak lega & konsisten */
+/* mobile: urutan Brand -> Jam Buka -> Kontak -> Ikuti Kami */
 @media (max-width:819px){
   .footer__top{ gap:1.6rem; }
-  .footer__col--hours{ order:1; }
-  .footer__col--contact{ order:2; }
-  .footer__col--brand{ order:3; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.1); }
+  /* Mobile: Brand (deskripsi + logo) paling atas → Jam Buka → Kontak → Ikuti Kami */
+  .footer__col--brand{ order:1; padding-top:0; border-top:0; }
+  .footer__col--hours{ order:2; }
+  .footer__col--contact{ order:3; }
   .footer__col--social{ order:4; }
   .footer__col--brand p{ max-width:none; }
   .footer__addr{ max-width:44ch; }
@@ -673,7 +693,7 @@ select.control{ appearance:none;
 @media (prefers-reduced-motion: reduce){ .spinner{ animation:none; } }
 
 /* ---------- MENU EMPTY ---------- */
-.menu__empty{ text-align:center; padding:3rem 1rem; color:var(--coffee-400); }
+.menu__empty{ text-align:center; padding:3rem 1rem; color:var(--coffee-600); }
 
 /* ---------- TOAST ---------- */
 .toast{
@@ -763,10 +783,10 @@ select.control{ appearance:none;
 .promocard__price{ text-align:right; }
 .promocard__price .now{
   display:block; font-family:var(--font-display); font-weight:700;
-  font-size:var(--fs-lg); color:var(--amber-600); line-height:1.05;
+  font-size:var(--fs-lg); color:var(--amber-700); line-height:1.05;
 }
 .promocard__price .note{
-  display:block; font-size:var(--fs-xs); color:var(--coffee-400);
+  display:block; font-size:var(--fs-xs); color:var(--coffee-600);
   margin-top:.15rem; max-width:26ch;
 }
 .promocard__desc{ font-size:var(--fs-sm); color:var(--coffee-600); }
@@ -806,7 +826,7 @@ select.control{ appearance:none;
 
 .promocard__claim{
   margin-top:auto; padding-top:.5rem;
-  font-size:var(--fs-xs); color:var(--coffee-400);
+  font-size:var(--fs-xs); color:var(--coffee-600);
 }
 
 /* desktop: S&K selalu terbuka 2 kolom (tanpa tombol) */

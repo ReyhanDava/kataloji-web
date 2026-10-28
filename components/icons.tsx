@@ -87,42 +87,6 @@ export function IconPlus({ size = 20 }: { size?: number }) {
   );
 }
 
-export function IconGrabFood({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      {/* sendok-garpu sebagai ruang kosong di dalam wadah */}
-      <mask id="kgfKnockout" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-        <rect width="24" height="24" fill="#fff" />
-        {/* sendok */}
-        <ellipse cx="10.9" cy="14.6" rx="1.65" ry="1.9" transform="rotate(45 10.9 14.6)" fill="#000" />
-        <path d="M12.1 15.8 16 11.9" stroke="#000" strokeWidth="1.7" strokeLinecap="round" />
-        {/* garpu */}
-        <path d="M11.9 17.3 8 13.4" stroke="#000" strokeWidth="1.7" strokeLinecap="round" />
-        <path d="M10.6 12.1 12.5 14M11.9 10.8 13.8 12.7M13.2 9.5 15.1 11.4"
-              stroke="#000" strokeWidth="1.5" strokeLinecap="round" />
-      </mask>
-
-      {/* wadah makanan — solid */}
-      <path
-        d="M6.1 8.9h11.8a1 1 0 0 1 .96 1.28l-2.2 8.2a1.6 1.6 0 0 1-1.55 1.2h-6.2a1.6 1.6 0 0 1-1.55-1.2l-2.2-8.2A1 1 0 0 1 6.1 8.9Z"
-        fill="currentColor"
-        mask="url(#kgfKnockout)"
-      />
-      {/* tutup wadah */}
-      <path
-        d="M4.2 5.6h15.6a1.1 1.1 0 0 1 1.06 1.4l-.28.9a1.1 1.1 0 0 1-1.06.8H4.48a1.1 1.1 0 0 1-1.06-.8l-.28-.9A1.1 1.1 0 0 1 4.2 5.6Z"
-        fill="currentColor"
-      />
-      {/* pegangan */}
-      <path
-        d="M10.1 5.1v-.55a1.25 1.25 0 0 1 1.25-1.25h1.3A1.25 1.25 0 0 1 13.9 4.55v.55"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
 
 export function IconArrowLeft({ size = 18 }: { size?: number }) {
   return (
@@ -136,6 +100,16 @@ export function IconArrowRight({ size = 18 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
+    </svg>
+  );
+}
+
+/** Glyph GrabFood — di-trace dari logo resmi (badge "G"), monokrom
+ *  supaya setara ikon sosial lain di footer. Path di-normalisasi ke 24x24. */
+export function IconGrabFood({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M4.40 21.40C4.14 21.14 4.05 20.94 4.05 20.61C4.05 20.11 4.20 19.94 7.89 16.19L9.87 14.19L8.99 13.21C8.51 12.68 8.05 12.24 7.98 12.24C7.91 12.24 7.60 12.33 7.30 12.43C5.44 13.09 3.37 12.05 2.02 9.79C1.43 8.81 1.06 7.81 0.90 6.80C0.51 4.27 1.83 2.94 4.37 3.32C6.55 3.64 8.92 5.23 9.71 6.91C10.11 7.74 10.20 8.98 9.93 9.76C9.82 10.10 9.72 10.46 9.72 10.55C9.72 10.65 10.12 11.14 10.62 11.64L11.51 12.54L12.48 11.58L13.44 10.61L13.30 9.92C13.02 8.57 13.38 7.89 15.31 6.14C19.52 2.33 20.16 1.86 20.28 2.49C20.30 2.60 19.42 3.62 18.21 4.90C16.08 7.14 15.83 7.52 16.31 7.77C16.42 7.83 16.60 7.84 16.71 7.80C16.82 7.76 17.84 6.83 18.98 5.74C20.12 4.64 21.13 3.71 21.23 3.65C21.49 3.50 21.75 3.65 21.75 3.94C21.75 4.20 21.56 4.43 19.08 7.10C17.88 8.38 17.65 8.69 17.68 8.96C17.71 9.20 17.80 9.30 18.01 9.33C18.24 9.36 18.70 8.97 20.48 7.19C21.69 6.00 22.73 5.02 22.80 5.02C22.97 5.02 23.23 5.34 23.18 5.48C23.13 5.61 20.39 8.91 19.02 10.49C17.60 12.12 16.86 12.51 15.67 12.27L15.07 12.14L14.09 13.11L13.10 14.08L15.89 16.96C17.43 18.54 18.75 20.00 18.84 20.20C19.17 20.98 18.59 21.75 17.69 21.75C17.26 21.75 17.14 21.66 15.85 20.34C15.09 19.56 13.80 18.23 12.98 17.39L11.48 15.86L9.67 17.75C5.80 21.80 5.85 21.75 5.27 21.75C4.86 21.75 4.68 21.68 4.40 21.40Z" />
     </svg>
   );
 }

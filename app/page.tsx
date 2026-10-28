@@ -3,9 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Kataloji Coffee & Eatery — Kopi, Senyap, & Cerita",
+  title: "Kataloji Coffee & Eatery — Cipayung, Jakarta Timur",
   description:
-    "Kataloji Coffee and Eatery, Cipayung, Jakarta Timur. Coffee & eatery dengan roastery in-house.",
+    "Coffee & eatery di Cipayung, Jakarta Timur. Kopi, non-kopi, dan hidangan Nusantara–Asia–Western dalam satu ruang.",
+  alternates: { canonical: "/" },
 };
 
 import { Navbar } from "@/components/Navbar";
@@ -15,6 +16,7 @@ import { MemberForm } from "@/components/MemberForm";
 import { Reveal } from "@/components/Reveal";
 import { FAQSection } from "@/components/FAQ";
 import { PromoPopup } from "@/components/PromoPopup";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { PromoSection } from "@/components/PromoSection";
 import { TentangCarousel } from "@/components/TentangCarousel";
 import {
@@ -38,12 +40,15 @@ export default function Home() {
             <Reveal className="hero__copy">
               <span className="eyebrow">{BRAND.location}</span>
               <h1>
-                Ruang hening untuk <em>kopi yang punya cerita</em>
+                Discover your space at <em>Kataloji Coffee &amp; Eatery</em>
               </h1>
               <p className="hero__sub">
-                Di Kataloji, kami meracik biji single-origin pilihan dengan roastery
-                in-house. Sederhana, jujur, dan perlahan — seperti secangkir kopi yang
-                seharusnya.
+                Where exceptional flavors meet meaningful moments. From handcrafted
+                beverages to comforting meals, every detail is designed to bring people
+                together, inspire conversations, and make every visit worth remembering.
+              </p>
+              <p className="hero__sub hero__sub--tail">
+                Come for the taste, stay for the experience.
               </p>
               <div className="hero__cta">
                 <Link className="btn" href="/#menu">
@@ -60,45 +65,28 @@ export default function Home() {
             <Reveal className="about2__copy">
               <span className="eyebrow">Tentang Kami</span>
               <h2 className="about2__title">
-                Kopi yang baik tidak perlu <em>bersuara keras.</em>
+                Satu Tempat untuk <em>Beragam Rasa dan Cerita.</em>
               </h2>
 
               <div className="about2__story">
                 <p>
-                  Berawal dari satu mesin roasting bekas di garasi kecil Cipayung, 2022.
-                  Kami tidak sedang membangun kerajaan — cuma satu ruang hening tempat
-                  kopi yang jujur bisa bicara sendiri.
+                  Berdiri sejak 2022, Kataloji Coffee &amp; Eatery hadir sebagai tempat
+                  untuk menikmati sajian berkualitas, kenyamanan, dan momen kebersamaan
+                  dalam satu ruang.
                 </p>
                 <p>
-                  Nama kami — dari <em>katalog</em> dan <em>logi</em> — berarti tempat
-                  mencatat hal-hal baik. Yang kami catat bukan angka, tapi ritus kecil:
-                  bunyi steam pertama di pagi hari, obrolan di meja dekat jendela,
-                  pelanggan yang kembali ke kursi yang sama.
+                  Kami menyajikan beragam pilihan minuman coffee dan non-coffee, serta
+                  hidangan utama yang terinspirasi dari kekayaan kuliner Nusantara, Asia,
+                  dan Western. Dari secangkir kopi untuk menemani aktivitas harian hingga
+                  hidangan lezat untuk dinikmati bersama, setiap sajian menjadi bagian
+                  dari pengalaman yang ingin kami hadirkan.
+                </p>
+                <p>
+                  Lebih dari sekadar tempat makan dan minum, Kataloji adalah ruang untuk
+                  terhubung, bersantai, berbagi cerita, dan menciptakan momen yang
+                  berkesan.
                 </p>
               </div>
-
-              <div className="about2__pillars">
-                <p className="about2__pillarsTitle">Yang kami jaga tiap hari:</p>
-                <ul>
-                  <li>
-                    <strong>Biji single-origin</strong> dari Gayo, Kintamani, dan Toraja —
-                    kami roast sendiri, tanpa shortcut.
-                  </li>
-                  <li>
-                    <strong>Harga yang ditulis jelas</strong> di katalog, tanpa kejutan
-                    di kasir.
-                  </li>
-                  <li>
-                    <strong>Member yang dirayakan</strong> — bukan sekadar dihitung
-                    sebagai poin.
-                  </li>
-                </ul>
-              </div>
-
-              <p className="about2__foot">
-                Dari 2022 sampai sekarang — 24+ varian kopi & menu, dan ribuan cangkir
-                yang menemani cerita-cerita kecil pelanggan.
-              </p>
             </Reveal>
 
             <Reveal className="about2__media">
@@ -243,6 +231,9 @@ export default function Home() {
                   <a className="btn" href={WA_LINK} target="_blank" rel="noopener noreferrer">
                     <IconWhatsApp size={18} /> Reservasi via WhatsApp
                   </a>
+                  <a className="btn btn--ghost" href={BRAND.mapsUrl} target="_blank" rel="noopener noreferrer">
+                    <IconPin size={18} /> Buka di Google Maps
+                  </a>
                 </div>
               </div>
               <div className="contact__map">
@@ -261,6 +252,7 @@ export default function Home() {
       <Footer />
 
       <PromoPopup />
+      <WhatsAppFloat />
     </>
   );
 }

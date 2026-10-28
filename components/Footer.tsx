@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { BRAND, WA_LINK } from "@/lib/data";
-import { IconInstagram, IconWhatsApp, IconTikTok, IconPin } from "./icons";
+import { IconInstagram, IconWhatsApp, IconTikTok, IconPin, IconGrabFood } from "./icons";
 
 /** Footer ringkas —
- *  Desktop: Brand | Kontak | Jam Buka | Ikuti Kami (sejajar satu baris).
- *  Mobile : tetap Jam Buka → Kontak → Brand → Ikuti Kami. */
+ *  Desktop: Brand | Jam Buka | Kontak | Ikuti Kami (sejajar satu baris).
+ *  Mobile : Brand (deskripsi + logo) paling atas → Jam Buka → Kontak → Ikuti Kami. */
 export function Footer() {
   return (
     <footer className="footer">
@@ -26,8 +26,9 @@ export function Footer() {
           <div className="footer__col footer__col--hours">
             <h4>Jam Buka</h4>
             <ul className="footer__hours">
-              <li><span>Senin – Jumat</span><span>08.00 – 22.00</span></li>
-              <li><span>Sabtu – Minggu</span><span>08.00 – 22.00</span></li>
+              {BRAND.hours.map((h) => (
+                <li key={h.day}><span>{h.day}</span><span>{h.time}</span></li>
+              ))}
             </ul>
           </div>
 
@@ -51,7 +52,7 @@ export function Footer() {
               <a href={WA_LINK} aria-label="WhatsApp Kataloji" target="_blank" rel="noopener noreferrer"><IconWhatsApp /></a>
               <a href="https://www.tiktok.com/@kataloji.co" aria-label="TikTok Kataloji" target="_blank" rel="noopener noreferrer"><IconTikTok /></a>
               <a className="socials__grab" href={BRAND.grabfoodUrl} aria-label="Pesan lewat GrabFood" target="_blank" rel="noopener noreferrer">
-                <Image src="/assets/icon-grabfood.png" alt="" width={192} height={192} />
+                <IconGrabFood />
               </a>
             </div>
           </div>

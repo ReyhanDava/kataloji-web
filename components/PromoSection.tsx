@@ -92,6 +92,7 @@ export function PromoSection() {
                 className="promocard"
                 key={p.name}
                 aria-hidden={PROMO_DETAIL[active].name !== p.name}
+                // kartu non-aktif: tombol S&K di dalamnya diberi tabIndex -1 (axe: aria-hidden-focus)
               >
                 <div className="promocard__media">
                   <picture>
@@ -121,6 +122,7 @@ export function PromoSection() {
                     type="button"
                     className={`promocard__skbtn${skOpen ? " is-open" : ""}`}
                     aria-expanded={skOpen}
+                    tabIndex={PROMO_DETAIL[active].name !== p.name ? -1 : undefined}
                     onClick={() => setSkOpen((o) => !o)}
                   >
                     Syarat &amp; ketentuan

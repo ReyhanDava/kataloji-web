@@ -14,8 +14,8 @@ export const BRAND = {
   email: "halo@kataloji.co", // placeholder
   address: "Ruko Puri Cipayung, Jl. Setu Cipayung No.09, Jakarta Timur 13840",
   hours: [
-    { day: "Senin – Jumat", time: "08.00 – 22.00" }, // placeholder (Q4 PRD)
-    { day: "Sabtu – Minggu", time: "08.00 – 23.00" }, // placeholder (Q4 PRD)
+    { day: "Senin – Jumat", time: "08.00 – 22.00" },
+    { day: "Sabtu – Minggu", time: "08.00 – 23.00" },
   ],
   openBadge: "Buka · 08.00 – 22.00 WIB",
 };
@@ -330,7 +330,6 @@ export const PROMO_DETAIL = [
     ketentuan: [
       "Tidak dapat digabung dengan promo lain.",
       "Berlaku setiap hari selama jam operasional.",
-      "Berlaku sampai 4 Oktober 2026.",
     ],
   },  {
     img: "/assets/Promo2.jpeg",
@@ -349,7 +348,6 @@ export const PROMO_DETAIL = [
     ketentuan: [
       "Berlaku setiap hari selama jam operasional.",
       "Tidak dapat digabung dengan promo lain.",
-      "Berlaku sampai 4 Oktober 2026.",
     ],
   },  {
     img: "/assets/Promo3.jpeg",
@@ -359,16 +357,35 @@ export const PROMO_DETAIL = [
     name: "After Work Treat",
     price: "Gratis Pisang Goreng",
     priceNote: "min. belanja Rp 100.000",
-    desc: "Pulang kerja mampir dulu. Minimal belanja Rp 100.000 dan dapatkan pisang goreng gratis — pas buat teman ngobrol sore.",
+    desc: "Promo After Work: pembelian minimal Rp 100.000 gratis Pisang Goreng. Berlaku Senin–Jumat mulai pukul 16.00 sampai 19.00.",
     syarat: [
-      "Minimal belanja Rp 100.000 sebelum pajak.",
+      "Pembelian minimal Rp 100.000 dalam satu transaksi.",
       "Berlaku Senin–Jumat, pukul 16.00–19.00 WIB.",
-      "1 pisang goreng per transaksi.",
+      "Gratis 1 Pisang Goreng per transaksi.",
     ],
     ketentuan: [
       "Berlaku untuk dine-in maupun takeaway.",
-      "Tidak berlaku bersamaan dengan promo bundel lain.",
-      "Berlaku sampai 4 Oktober 2026.",
+      "Tidak dapat digabung dengan promo lain.",
+    ],
+  },
+  {
+    img: "/assets/Promo4.jpeg",
+    imgDesktop: "/assets/promo-desktop-4.jpg",
+    imgMobile: "/assets/promo-mobile-4.jpg",
+    alt: "Banner promo Morning Perk — gratis Pain au Choco min. belanja 50K",
+    name: "Morning Perk",
+    price: "Gratis Pain au Choco",
+    priceNote: "min. belanja Rp 50.000",
+    desc: "Mulai pagi di Kataloji: pembelian minimal Rp 50.000 gratis 1 Pain au Choco. Berlaku setiap hari pukul 09.00 sampai 12.00.",
+    syarat: [
+      "Pembelian minimal Rp 50.000 dalam satu transaksi.",
+      "Berlaku setiap hari, pukul 09.00–12.00 WIB.",
+      "Gratis 1 Pain au Choco per transaksi.",
+      "Terbatas 20 pcs per hari.",
+    ],
+    ketentuan: [
+      "Hanya berlaku untuk dine-in.",
+      "Tidak dapat digabung dengan promo lain.",
     ],
   },
 ] as const;
@@ -484,27 +501,33 @@ export const POPUP_ITEMS = [
     caption: "After Work Treat — min. 100K",
     href: "/?promo=2#promo",
   },
+  {
+    img: "/assets/Promo4.jpeg",
+    alt: "Promo Morning Perk — gratis 1 Pain au Choco dengan minimal belanja 50K, setiap hari 09.00–12.00, dine-in only, terbatas 20 pcs per hari",
+    caption: "Morning Perk — min. 50K",
+    href: "/?promo=3#promo",
+  },
 ] as const;
 
 export const FAQ = [
   {
-    q: "Apakah Kataloji punya Wi-Fi dan colokan?",
-    a: "Ya, Wi-Fi gratis dan colokan di hampir semua meja. Kami juga punya area kerja yang cukup hening di lantai atas.",
+    q: "Apakah Kataloji menyediakan Wi-Fi dan colokan?",
+    a: "Kami menyediakan Wi-Fi untuk kenyamanan customer, serta beberapa titik colokan di area seating.",
   },
   {
-    q: "Bisa reservasi untuk working space atau small event?",
-    a: `Bisa. Reservasi via WhatsApp ${BRAND.whatsapp} minimal 1 hari sebelumnya. Max. booking 4 jam untuk area indoor.`,
+    q: "Bisa reservasi meja atau acara di Kataloji?",
+    a: "Kami menyediakan beberapa paket reservasi yang sudah include table decoration, dan menerima booking meja.",
   },
   {
-    q: "Ada menu non-kopi atau suitable untuk yang tidak minum kopi?",
-    a: "Ada — Matcha Series, Chocolate, aneka teh, dan mocktail. Semua bisa dilihat di katalog menu kami.",
+    q: "Ada pilihan menu untuk yang tidak minum kopi?",
+    a: "Tentu. Kami juga menyediakan menu non-coffee seperti matcha series, chocolate series, basic slush, dan regular tea.",
   },
   {
-    q: "Bagaimana cara jadi member dan benefitnya?",
-    a: "Isi formulir singkat di bagian Member. Voucher ulang tahun & promo eksklusif dikirim langsung via WhatsApp. Gratis, tanpa biaya tahunan.",
+    q: "Apakah ada program loyalitas untuk pelanggan?",
+    a: "Kami mengadakan Loyalty Card yang akan mendapatkan stamp dari kami dengan syarat yang berlaku, dan mendapatkan benefit berupa product maupun merchandise.",
   },
   {
-    q: "Apakah roasting bisa custom untuk corporate gift?",
-    a: "Bisa. Kami menyediakan repacking bean 250 gr atau 1 kg dengan label custom. Minimal order 10 pack, PO 5 hari kerja.",
+    q: "Jam operasional Kataloji?",
+    a: `${BRAND.hours.map((h) => `${h.day} ${h.time}`).join(", ")} WIB.`,
   },
 ] as const;

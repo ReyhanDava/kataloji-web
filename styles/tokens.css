@@ -17,8 +17,10 @@
   --sage-200:  #D5DCC9;
   --sage-300:  #CDD3C3;   /* saged light (surface)     */
   --sage-500:  #92A693;   /* sage primer               */
+  --sage-400:  #B9C2AC;   /* garis/aksen sage ringan */
   --sage-600:  #6E8570;
   --sage-700:  #55664F;
+  --sage-800:  #41503C;   /* sage sangat gelap (teks) */
   --sage-900:  #3A4636;   /* sage gelap (tekst/dark bg)*/
 
   /* ---------- WARNA · Kopi (teks) ---------- */
