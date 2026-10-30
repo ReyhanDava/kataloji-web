@@ -102,7 +102,6 @@ export function MemberForm() {
             type="text"
             id="nama"
             name="nama"
-            placeholder="cth. Muhammad Reyhan"
             autoComplete="name"
             value={values.nama}
             onChange={set("nama")}
@@ -120,7 +119,6 @@ export function MemberForm() {
             id="whatsapp"
             name="whatsapp"
             inputMode="numeric"
-            placeholder="08xxxxxxxxxx"
             autoComplete="tel"
             value={values.whatsapp}
             onChange={set("whatsapp")}
