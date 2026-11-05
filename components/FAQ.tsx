@@ -14,7 +14,7 @@ export function FAQSection() {
       <div className="container">
         <div className="section-head reveal is-in">
           <span className="eyebrow">Tanya Jawab</span>
-          <h2>FAQ — pertanyaan yang sering muncul</h2>
+          <h2>FAQ: pertanyaan yang sering muncul</h2>
           <p>Kalau masih ada yang belum jelas, tanyakan langsung lewat WhatsApp.</p>
         </div>
         <Reveal className="faq">

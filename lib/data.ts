@@ -339,7 +339,7 @@ export const PROMO_DETAIL = [
     name: "Combo Deal",
     price: "Rp 55.000",
     priceNote: "Spaghetti Aglio e Olio + Grapes Apple Berry",
-    desc: "Kombinasi pasta dan minuman segar: Spaghetti Aglio e Olio berpadu Grapes Apple Berry. Good food, great mood — tersedia sepanjang hari.",
+    desc: "Kombinasi pasta dan minuman segar: Spaghetti Aglio e Olio berpadu Grapes Apple Berry. Good food, great mood, tersedia sepanjang hari.",
     syarat: [
       "Berlaku untuk semua varian ukuran reguler.",
       "Harga paket sudah termasuk pajak.",
@@ -395,7 +395,7 @@ export const TENTANG_SLIDES = [
   {
     img: "/assets/about-tentang.jpeg",
     alt: "Suasana ruang Kataloji — meja kayu, pencahayaan hangat, sudut baca",
-    caption: "Sudut roastery — tempat semuanya dimulai.",
+    caption: "Sudut roastery, tempat semuanya dimulai.",
   },
   {
     img: "/assets/about-tentang-2.jpg",
@@ -456,7 +456,7 @@ export const USP = [
   },
   {
     title: "Harga Jujur & Transparan",
-    desc: "Setiap menu diberi harga yang jelas di katalog — tanpa kejutan di kasir.",
+    desc: "Setiap menu diberi harga yang jelas di katalog, tanpa kejutan di kasir.",
     icon: "price",
   },
   {
@@ -486,25 +486,25 @@ export const POPUP_ITEMS = [
   {
     img: "/assets/Promo1.jpeg",
     alt: "Promo Kataloji Signature Table — 139K untuk 2 makanan + 2 signature beverage + free french fries",
-    caption: "Kataloji Signature Table — 139K",
+    caption: "Kataloji Signature Table, 139K",
     href: "/?promo=0#promo",
   },
   {
     img: "/assets/Promo2.jpeg",
     alt: "Promo Combo Deal — 55K Spaghetti Aglio e Olio + Grapes Apple Berry",
-    caption: "Combo Deal — 55K",
+    caption: "Combo Deal, 55K",
     href: "/?promo=1#promo",
   },
   {
     img: "/assets/Promo3.jpeg",
     alt: "Promo After Work Treat — min. spend 100K, gratis pisang goreng, Senin–Jumat 16.00–19.00",
-    caption: "After Work Treat — min. 100K",
+    caption: "After Work Treat, min. 100K",
     href: "/?promo=2#promo",
   },
   {
     img: "/assets/Promo4.jpeg",
     alt: "Promo Morning Perk — gratis 1 Pain au Choco dengan minimal belanja 50K, setiap hari 09.00–12.00, dine-in only, terbatas 20 pcs per hari",
-    caption: "Morning Perk — min. 50K",
+    caption: "Morning Perk, min. 50K",
     href: "/?promo=3#promo",
   },
 ] as const;

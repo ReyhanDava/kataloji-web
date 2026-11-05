@@ -108,7 +108,7 @@ export default function Home() {
               <span className="eyebrow">Event & Kolaborasi</span>
               <h2>Kabar terbaru dari Kataloji</h2>
               <p>
-                Best sellers, program reward, dan event seru — klik kartunya buat
+                Best sellers, program reward, dan event seru. Klik kartunya buat
                 lihat detail lengkapnya di Instagram kami.
               </p>
             </div>

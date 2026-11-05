@@ -208,7 +208,7 @@ function MemberContent() {
                   <div className="voucher__code">BDAY</div>
                   <div className="voucher__info">
                     <div className="t">
-                      Promo Spesial Ulang Tahun {member.ultahBulanIni ? "— Aktif Bulan Ini! 🎉" : ""}
+                      Promo Spesial Ulang Tahun{member.ultahBulanIni ? " (Aktif Bulan Ini)" : ""}
                     </div>
                     <div className="d">
                       {member.ultahBulanIni
