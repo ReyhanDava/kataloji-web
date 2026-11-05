@@ -29,6 +29,7 @@ export function Navbar() {
     { href: "/#event", label: "Event" },
     { href: "/#faq", label: "FAQ" },
     { href: "/#kontak", label: "Kontak" },
+    { href: "/member", label: "Cek Poin Member" },
   ];
 
   return (
@@ -50,6 +51,18 @@ export function Navbar() {
           ))}
         </nav>
         <div className="nav__cta">
+          <Link
+            className="btn btn--ghost"
+            href="/member"
+            style={{
+              padding: ".45rem .9rem",
+              fontSize: "var(--fs-xs)",
+              minHeight: "36px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Cek Poin
+          </Link>
           <button
             className="nav__toggle"
             type="button"

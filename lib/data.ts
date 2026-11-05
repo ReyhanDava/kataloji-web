@@ -524,7 +524,7 @@ export const FAQ = [
   },
   {
     q: "Apakah ada program loyalitas untuk pelanggan?",
-    a: "Kami mengadakan Loyalty Card yang akan mendapatkan stamp dari kami dengan syarat yang berlaku, dan mendapatkan benefit berupa product maupun merchandise.",
+    a: "Ada! Kataloji memiliki sistem poin loyalitas digital tanpa kartu fisik. Setiap kelipatan transaksi Rp 20.000 mendapatkan 1 poin (bernilai Rp 1.000). Cukup sebutkan nomor WhatsApp saat memesan di kasir untuk mengumpulkan dan menukarkan poin langsung sebagai potongan belanja.",
   },
   {
     q: "Jam operasional Kataloji?",

@@ -58,8 +58,16 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="footer__bottom">
+        <div className="footer__bottom" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: ".5rem" }}>
           <span>© 2026 {BRAND.fullName}. Semua hak dilindungi.</span>
+          <a
+            href={process.env.NEXT_PUBLIC_CRM_URL || "https://kataloji-crm-gamma.vercel.app"}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontSize: "var(--fs-xs, 0.75rem)", opacity: 0.6, textDecoration: "none" }}
+          >
+            Portal Staf &amp; Kasir →
+          </a>
         </div>
       </div>
     </footer>
