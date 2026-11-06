@@ -161,7 +161,6 @@ export default function Home() {
                     className="member__logo"
                   />
                   <h3 style={{ marginTop: "1rem" }}>Kataloji Member</h3>
-                  <p>Gratis, selamanya. Tanpa biaya langganan, tanpa kontrak.</p>
                 </div>
                 <ul style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                   {[

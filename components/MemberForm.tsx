@@ -147,7 +147,6 @@ export function MemberForm() {
             type="text"
             id="nama"
             name="nama"
-            placeholder="cth. Muhammad Reyhan"
             autoComplete="name"
             value={values.nama}
             onChange={set("nama")}
