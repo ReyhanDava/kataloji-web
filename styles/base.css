@@ -1,7 +1,11 @@
 /* ============================================================
    KATALOJI — BASE & RESET
    ============================================================ */
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap");
+/* Font dilayani oleh next/font di app/layout.tsx (self-hosted, preload,
+   tanpa request ke domain luar). Dulu ada @import ke fonts.googleapis.com
+   di sini; impor itu memblokir render dan, saat domainnya tidak terjangkau,
+   membuat Manrope gagal terdaftar di @font-face sehingga seluruh body
+   jatuh ke Times New Roman. Jangan kembalikan. */
 
 *,*::before,*::after{ box-sizing:border-box; }
 *{ margin:0; }
