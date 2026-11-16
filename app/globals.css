@@ -3,16 +3,18 @@
 @import "../styles/components.css";
 
 /* Bridge font next/font → token design system.
-   next/font men-inject CSS variable --font-fraunces / --font-manrope
-   di <html>, token lama memakai nama itu juga jadi cukup di-refer di sini. */
-
-:root {
-  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
-  --font-body: var(--font-manrope), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-}
+   next/font meng-inject --font-fraunces / --font-manrope sebagai class di
+   <html>, jadi keduanya harus dirujuk di dalam scope itu — bukan di :root,
+   karena di :root keduanya tidak ter-resolve.
+   Lapis kedua sengaja memakai nama Google Fonts ("Manrope" / "Fraunces"):
+   kalau next/font gagal, browser masih mencoba nama itu sebelum jatuh ke
+   fallback sistem. Tanpa lapis ini, kegagalan var() membuat font-family
+   tidak valid dan jatuh ke Times New Roman. */
 
 html {
   color-scheme: light;
+  --font-display: var(--font-fraunces), "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: var(--font-manrope), "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 /* ---------- HERO dengan foto background ----------

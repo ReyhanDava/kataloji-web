@@ -56,9 +56,14 @@
 
   /* ---------- TIPOGRAFI ----------
      Fraunces  = serif editorial utk display (judul)
-     Manrope   = sans humanis utk body & UI        */
-  --font-display:"Fraunces", Georgia, "Times New Roman", serif;
-  --font-body:   "Manrope", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+     Manrope   = sans humanis utk body & UI
+
+     JANGAN definisikan --font-display / --font-body di sini.
+     File ini di-import PALING AWAL oleh app/globals.css, dan :root punya
+     spesifisitas sama dengan html. Kalau keduanya mendefinisikan variabel
+     yang sama, yang menang adalah yang lebih dulu muncul di cascade — yaitu
+     blok ini — sehingga bridge var(--font-manrope) di globals.css kalah dan
+     body jatuh ke fallback serif. Sumber tunggal ada di app/globals.css. */
 
   --fs-xs:   .78rem;   /* 12.5 */
   --fs-sm:   .875rem;  /* 14   */
